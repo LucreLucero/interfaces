@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Primer entregable - Lucero Lucrecia</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<script src="/./Entregable_tp1/js/js.js"></script>
+	</head>
+	<body>
+		<!--Menu de navegacion-->
+		<h1>Mi casi Paint :)</h1>
+		
+		<!--Label | button con input | option | select -->
+		<nav class="navigation"> 
+			<button id="lapiz">Draw</button>
+			<button id="borrar">Erase</button>
+
+			<button onclick="document.querySelector('#input1').click();">Add image</button>
+			<input id="input1" type="file" acept=".jpg , .jpeg, .png"style="display: none;">
+			
+			<button id="blanckCanvas">Blanck canvas</button>			
+		</nav>
+		<article id="contenido">
+			<canvas id="myCanvas" width="600" height="600" style="border: 1px solid black;"></canvas>
+				<ul>
+					<input type="button" id="filtroBN" class="button1" value="filtro BN">
+					<input type="button" id="filtroGris" class="button1" value="Sepia">
+					<input type="button" id="filtroGris" class="button1" value="Negativo">
+					<input type="button" id="filtroGris" class="button1" value="Brillo">
+				</ul>
+				<ul>
+					<input type="button" id="filtroBN" class="button1" value="Saturación">
+					<input type="button" id="filtroGris" class="button1" value="Suavizado">
+					<input type="button" id="filtroGris" class="button1" value="Detección de Bordes">
+					<input type="button" id="filtroGris" class="button1" value="Blur">
+				</ul>
+				<ul>
+
+					<input type="button" id="filtroBN" class="button1" value="Guardar">
+				</ul>
+
+		</article>
+		<footer>
+			<p>Entregable n° 1 - interfaces | &copy; Lucero Lucrecia</p>
+		</footer>
+	</body>
+</html>
+

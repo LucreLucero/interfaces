@@ -224,7 +224,7 @@ function brillo (){//listo
 function saturacion(){
     event.preventDefault();
     console.log("me estoy saturando");
-    let value = ;
+    let value = 10;
     let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
     let d = imageData.data;
@@ -248,7 +248,14 @@ function saturacion(){
     }
 function suavizado(){}
 function deteccionDeBordes(){}
-function blur(){}
+
+let mat = [ 1/9, 1/9, 1/9,
+    1/9, 1/9, 1/9,
+    1/9, 1/9, 1/9 ];
+function blur(){
+    let blur = getBlurValue(100);
+
+}
 
 //5. guardar en disco la imagen o descartar y comenzar en lienzo vacio
 function guardar (el){//listo

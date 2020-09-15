@@ -21,16 +21,7 @@
 				<button class="button1" onclick="document.querySelector('#input1').click();">Empezar con imagen</button>
 				<input id="input1" type="file" acept=".jpg , .jpeg, .png"style="display: none;">
 			
-				<input type="button" id="original" class="button2" value="Original">
-				<input type="button" id="ByN" class="button2" value="ByN">
-				<input type="button" id="sepia" class="button2" value="Sepia">
-				<input type="button" id="negativo" class="button2" value="Negativo">
-				<input type="button" id="brillo" class="button2" min="-90" max="90"  value="Brillo">
 				
-				<input type="button" id="saturacion" class="button2" value="Saturación">
-				<input type="button" id="suavizado" class="button2" value="Suavizado">
-				<input type="button" id="bordes" class="button2" value="Detección de Bordes">
-				<input type="button" id="blur" class="button2" value="Blur">
 
 				<button class="button1" onclick="document.querySelector('#dwn').click();">Descargame!</button>
 				<a href="" download="myImage.jpg" id="dwn" style="display: none;"></a>			
@@ -38,9 +29,21 @@
 			</ul>
 		</nav>
 		<article id="contenido">
-			<ul class="navigation">
+			<ul>
 				<canvas id="myCanvas"  width="500" height="500" class="myCanvas" style="border: 1px solid black;background: rgb(255, 255, 255)"></canvas>
-				
+			</ul>
+			<ul>
+			<input type="button" id="original" class="button2" value="Original">
+			<input type="button" id="ByN" class="button2" value="ByN">
+			<input type="button" id="sepia" class="button2" value="Sepia">
+			<input type="button" id="negativo" class="button2" value="Negativo">
+			<input type="button" id="brillo" class="button2" min="-90" max="90"  value="Brillo">
+			</ul>
+			<ul>
+			<input type="button" id="saturacion" class="button2" value="Saturación">
+			<input type="button" id="suavizado" class="button2" value="Suavizado">
+			<input type="button" id="bordes" class="button2" value="Detección de Bordes">
+			<input type="button" id="blur" class="button2" value="Blur"> 
 			</ul>
 		</article>
 		<!--<footer>

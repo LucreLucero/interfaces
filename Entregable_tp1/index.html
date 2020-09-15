@@ -8,41 +8,45 @@
 	</head>
 	<body>
 		<!--Menu de navegacion-->
-		<h1>Mi casi Paint :)</h1>
 		
 		<!--Label | button con input | option | select -->
 		<nav class="navigation"> 
-			<button id="lapiz">Draw</button>
-			<button id="borrar">Erase</button>
+			<!--<h1>Mi casi Paint :)</h1>-->
+			<ul>
+				<button id="lapiz" class="button1">Lapiz</button>
+				<button id="goma" class="button1">Goma</button>
 
-			<button onclick="document.querySelector('#input1').click();">Add image</button>
-			<input id="input1" type="file" acept=".jpg , .jpeg, .png"style="display: none;">
+				<button class="button1" onclick="document.querySelector('#input1').click();">Empezar con imagen</button>
+				<input id="input1" type="file" acept=".jpg , .jpeg, .png"style="display: none;">
 			
-			<button id="blanckCanvas">Blanck canvas</button>			
+				<input type="button" id="ByN" class="button2" value="ByN">
+				<input type="button" id="sepia" class="button2" value="Sepia">
+				<input type="button" id="negativo" class="button2" value="Negativo">
+				<input type="button" id="brillo" class="button2" min="-90" max="90"  value="Brillo">
+				
+				<input type="button" id="saturacion" class="button2" value="Saturación">
+				<input type="button" id="suavizado" class="button2" value="Suavizado">
+				<input type="button" id="bordes" class="button2" value="Detección de Bordes">
+				<input type="button" id="blur" class="button2" value="Blur">
+			</ul>
 		</nav>
 		<article id="contenido">
-			<canvas id="myCanvas" width="600" height="600" style="border: 1px solid black;"></canvas>
-				<ul>
-					<input type="button" id="filtroBN" class="button1" value="filtro BN">
-					<input type="button" id="filtroGris" class="button1" value="Sepia">
-					<input type="button" id="filtroGris" class="button1" value="Negativo">
-					<input type="button" id="filtroGris" class="button1" value="Brillo">
-				</ul>
-				<ul>
-					<input type="button" id="filtroBN" class="button1" value="Saturación">
-					<input type="button" id="filtroGris" class="button1" value="Suavizado">
-					<input type="button" id="filtroGris" class="button1" value="Detección de Bordes">
-					<input type="button" id="filtroGris" class="button1" value="Blur">
-				</ul>
-				<ul>
-
-					<input type="button" id="filtroBN" class="button1" value="Guardar">
-				</ul>
-
+			<ul class="navigation">
+				<canvas id="myCanvas"  width="500" height="500" class="myCanvas" style="border: 1px solid black;background: rgb(255, 255, 255)"></canvas>
+				<input type="color" id="color" >
+				<input type="range" id="grosor" min="1" max="5" value="1">
+			
+			<!--<ul>-->
+				<!--</ul>-->
+				<button class="button1" onclick="document.querySelector('#dwn').click();">Descargame!</button>
+				<a href="" download="myImage.jpg" id="dwn" style="display: none;"></a>
+			
+				<input type="button" id="delete" class="button1" value="Descartar :(">
+			</ul>
 		</article>
-		<footer>
+		<!--<footer>
 			<p>Entregable n° 1 - interfaces | &copy; Lucero Lucrecia</p>
-		</footer>
+		</footer>-->
 	</body>
 </html>
 

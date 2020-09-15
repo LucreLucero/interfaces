@@ -13,9 +13,9 @@ let context = canvas.getContext('2d');
 let input1 = document.querySelector('#input1');
 let imageData = context.createImageData(canvas.width, canvas.height);
 let rect = canvas.getBoundingClientRect();//me da el left y top de donde esta el canvas(coordenadas)
-let x=0, y=0, dibujando=false, color='black', grosor=1;
-let lapiz=false, goma=false;
-
+let x=0, y=0, dibujando=false, color='black', grosor=1, lapiz=false, goma =false;
+let imagenOriginal;
+let imagenCargada=false;
 //para dibujar necesito 3 eventos: mousedown, mousemove y mouseup
 
 canvas.addEventListener('mousedown',function(e){
@@ -41,7 +41,7 @@ canvas.addEventListener('mouseup',function(e){
 });
 
 function dibujar(x1, y1, x2, y2){
-    if(lapiz=true){ 
+    if(lapiz===true){ 
           context.beginPath();
           color = document.querySelector("#color").value;
           grosor = document.querySelector("#grosor").value;
@@ -52,41 +52,63 @@ function dibujar(x1, y1, x2, y2){
           context.stroke();
           context.closePath();     
     }
-    else{
-        console.log("error");
+    else if(goma===true){ 
+        context.beginPath();
+          color = "white";
+          grosor = 20;
+          context.strokeStyle = color;
+          context.lineWidth = grosor;
+          context.moveTo(x1,y1);
+          context.lineTo(x2,y2);
+          context.stroke();
+          context.closePath();    
+    }else{
+        console.log("entre a un error");
     }
 }
-function startLapiz(){
-    lapiz =true;
-}
-function borrar(){
-    dibujar();
-}
-//--------declaracion de eventos con botones---------------
-document.querySelector("#lapiz").addEventListener("click",startLapiz);
-document.querySelector("#goma").addEventListener("click",borrar);
 
+function restaurarOriginal(){
+    //console.log(imagenOriginal);
+    //console.log(imagenCargada);
+    if(imagenCargada===true)
+        context.putImageData(imagenOriginal, 0, 0);    
+    lapiz=false;
+    goma=false;
+}
+
+function usoLapiz(){
+    lapiz = true;
+}
+function usoGoma(){
+    lapiz = false;
+    goma = true;
+}
+
+//--------declaracion de eventos con botones---------------
+document.querySelector("#color").addEventListener("click",usoLapiz);//anda
+document.querySelector("#goma").addEventListener("click",usoGoma);//anda
+
+document.querySelector("#original").addEventListener("click", restaurarOriginal);//anda
 document.querySelector("#ByN").addEventListener("click", binarizacion);//anda
 document.querySelector("#sepia").addEventListener("click", sepia);//anda
 document.querySelector("#negativo").addEventListener("click",negativo);//anda
 document.querySelector("#brillo").addEventListener("click",brillo);//anda
 
-document.querySelector("#saturacion").addEventListener("click", saturacion);
-document.querySelector("#suavizado").addEventListener("click", suavizado);
-document.querySelector("#bordes").addEventListener("click",deteccionDeBordes);
-document.querySelector("#blur").addEventListener("click",blur);
+document.querySelector("#saturacion").addEventListener("click", saturacion);//--mas color
+document.querySelector("#suavizado").addEventListener("click", suavizado);//--sacar detalle
+document.querySelector("#bordes").addEventListener("click",deteccionDeBordes); //suavizar bordes
+document.querySelector("#blur").addEventListener("click",blur);//difuminado
 
 document.querySelector("#dwn").addEventListener("click",guardar);//anda
 document.querySelector("#delete").addEventListener("click",descartar);//anda
 
 //2. iniciar con lienzo en blanco o por carga de imagen desde disco(usar dialogo para elegir imagen)
 
-
-function empezarConLienzo(){//listo
+function lienzoBlanco(){//listo
     event.preventDefault();
     console.log("entre a lienzooo blancoo");
 
-    //let imageData = context.getImageData(0,0,canvas.width,canvas.height);
+    imageData = context.getImageData(0,0,canvas.width,canvas.height);
     for(let i=0;i<canvas.width;i++){
         for(let j=0;j<canvas.height;j++){
             setPixel(imageData,i,j,255,255,255,255);
@@ -121,6 +143,8 @@ input1.onchange = e => {
 
                 // get imageData from content of canvas
                 imageData = context.getImageData(0, 0, imageScaledWidth, imageScaledHeight);
+                imagenOriginal = imageData;
+                imagenCargada =true;
                 // draw the modified image
                 context.putImageData(imageData, 0, 0);
             }
@@ -197,25 +221,49 @@ function brillo (){//listo
 }
 
 //4. aplicar al menos dos: Saturación | Suavizado| Detección de Bordes| Blur
-function saturacion(){}
+function saturacion(){
+    event.preventDefault();
+    console.log("me estoy saturando");
+    let value = ;
+    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+    let d = imageData.data;
+       for (let i = 0; i < d.length; i += 4) {
+           let r = d[i]; 
+           let g = d[i + 1];
+           let b = d[i + 2];
+           let gray = 0.2989*r + 0.5870*g + 0.1140*b; //weights from CCIR 601 spec
+           d[i] = -gray * value + d[i] * (1+value);
+           d[i+1] = -gray * value + d[i+1] * (1+value);
+           d[i+2] = -gray * value + d[i+2] * (1+value);
+           //normalize over- and under-saturated values
+           if(d[i] > 255) d[i] = 255;
+           if(d[i+1] > 255) d[i] = 255;
+           if(d[i+2] > 255) d[i] = 255;
+           if(d[i] < 0) d[i] = 0;
+           if(d[i+1] < 0) d[i] = 0;
+           if(d[i+2] < 0) d[i] = 0;
+        }
+        context.putImageData(imageData,0,0);
+    }
 function suavizado(){}
 function deteccionDeBordes(){}
 function blur(){}
 
 //5. guardar en disco la imagen o descartar y comenzar en lienzo vacio
 function guardar (el){//listo
-    console.log("entre a guardar");
-
+    //console.log("entre a guardar");
     dwn.href = canvas.toDataURL()
     dwn.download = "myImage.jpg"
 } 
 
 function descartar(){//listo
     event.preventDefault();
-    console.log("descartar y empezar en lienzo blanco");
-
+    //console.log("descartar y empezar en lienzo blanco");
     context.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo
-    empezarConLienzo();
+    lienzoBlanco();
+    lapiz=false;
+    goma =false;
 }
 //------------- getters y setters-------------------------
 function setPixel(imageData,x,y,r,g,b,a){    

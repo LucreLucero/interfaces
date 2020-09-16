@@ -46,6 +46,8 @@ function dibujar(x1, y1, x2, y2){
           color = document.querySelector("#color").value;
           grosor = document.querySelector("#grosor").value;
           context.strokeStyle = color;
+          context.lineJoin = 'round';
+          context.lineCap = 'round';
           context.lineWidth = grosor;
           context.moveTo(x1,y1);
           context.lineTo(x2,y2);
@@ -57,6 +59,8 @@ function dibujar(x1, y1, x2, y2){
           color = "white";
           grosor = 20;
           context.strokeStyle = color;
+          context.lineJoin = 'round';
+          context.lineCap = 'round';
           context.lineWidth = grosor;
           context.moveTo(x1,y1);
           context.lineTo(x2,y2);
@@ -224,37 +228,165 @@ function brillo (){//listo
 function saturacion(){
     event.preventDefault();
     console.log("me estoy saturando");
-    let value = 10;
+    //let value = 10;
     let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
     let d = imageData.data;
-       for (let i = 0; i < d.length; i += 4) {
-           let r = d[i]; 
-           let g = d[i + 1];
-           let b = d[i + 2];
-           let gray = 0.2989*r + 0.5870*g + 0.1140*b; //weights from CCIR 601 spec
-           d[i] = -gray * value + d[i] * (1+value);
-           d[i+1] = -gray * value + d[i+1] * (1+value);
-           d[i+2] = -gray * value + d[i+2] * (1+value);
-           //normalize over- and under-saturated values
-           if(d[i] > 255) d[i] = 255;
-           if(d[i+1] > 255) d[i] = 255;
-           if(d[i+2] > 255) d[i] = 255;
-           if(d[i] < 0) d[i] = 0;
-           if(d[i+1] < 0) d[i] = 0;
-           if(d[i+2] < 0) d[i] = 0;
-        }
-        context.putImageData(imageData,0,0);
+
+    for (let i = 0; i < d.length; i += 4) {
+        let r = d[i]; 
+        let g = d[i + 1];
+        let b = d[i + 2];
+
+        let hsv= RGBtoHSV ([r,g,b]);
+        alert(hsv)
+        hsv[1] *= 1.5;
+        alert(hsv)
+        let rgb= HSVtoRGB(hsv);
+        alert(rgb); 
+        //let gray = 0.2989*r + 0.5870*g + 0.1140*b; //weights from CCIR 601 spec
+        //d[i] = -gray * value + d[i] * (1+value);
+        //d[i+1] = -gray * value + d[i+1] * (1+value);
+        //d[i+2] = -gray * value + d[i+2] * (1+value);
+        //normalize over- and under-saturated values
+        //if(d[i] > 255) d[i] = 255;
+        //if(d[i+1] > 255) d[i] = 255;
+        //if(d[i+2] > 255) d[i] = 255;
+        //if(d[i] < 0) d[i] = 0;
+        //if(d[i+1] < 0) d[i] = 0;
+        //if(d[i+2] < 0) d[i] = 0;
     }
+    context.putImageData(imageData,0,0);
+}
 function suavizado(){}
 function deteccionDeBordes(){}
-
-let mat = [ 1/9, 1/9, 1/9,
-    1/9, 1/9, 1/9,
-    1/9, 1/9, 1/9 ];
 function blur(){
     let blur = getBlurValue(100);
 
+}
+// HSL (1978) = H: Hue / S: Saturation / L: Lightness
+HSL_RGB = function (o) { // { H: 0-360, S: 0-100, L: 0-100 }
+  var H = o.H / 360,
+      S = o.S / 100,
+      L = o.L / 100,
+      R, G, B, _1, _2;
+
+  function Hue_2_RGB(v1, v2, vH) {
+    if (vH < 0) vH += 1;
+    if (vH > 1) vH -= 1;
+    if ((6 * vH) < 1) return v1 + (v2 - v1) * 6 * vH;
+    if ((2 * vH) < 1) return v2;
+    if ((3 * vH) < 2) return v1 + (v2 - v1) * ((2 / 3) - vH) * 6;
+    return v1;
+  }
+
+  if (S == 0) { // HSL from 0 to 1
+    R = L * 255;
+    G = L * 255;
+    B = L * 255;
+  } else {
+    if (L < 0.5) {
+      _2 = L * (1 + S);
+    } else {
+      _2 = (L + S) - (S * L);
+    }
+    _1 = 2 * L - _2;
+
+    R = 255 * Hue_2_RGB(_1, _2, H + (1 / 3));
+    G = 255 * Hue_2_RGB(_1, _2, H);
+    B = 255 * Hue_2_RGB(_1, _2, H - (1 / 3));
+  }
+
+  return {
+    R: R,
+    G: G,
+    B: B
+  };
+};
+
+
+RGBtoHSV= function(color) {
+    let r,g,b,h,s,v;
+    r= color[0];
+    g= color[1];
+    b= color[2];
+    min = Math.min( r, g, b );
+    max = Math.max( r, g, b );
+
+
+    v = max;
+    delta = max - min;
+    if( max != 0 )
+        s = delta / max;        // s
+    else {
+        // r = g = b = 0        // s = 0, v is undefined
+        s = 0;
+        h = -1;
+        return [h, s, undefined];
+    }
+    if( r === max )
+        h = ( g - b ) / delta;      // between yellow & magenta
+    else if( g === max )
+        h = 2 + ( b - r ) / delta;  // between cyan & yellow
+    else
+        h = 4 + ( r - g ) / delta;  // between magenta & cyan
+    h *= 60;                // degrees
+    if( h < 0 )
+        h += 360;
+    if ( isNaN(h) )
+        h = 0;
+    return [h,s,v];
+};
+
+HSVtoRGB= function(color) {
+    let i;
+    let h,s,v,r,g,b;
+    h= color[0];
+    s= color[1];
+    v= color[2];
+    if(s === 0 ) {
+        // achromatic (grey)
+        r = g = b = v;
+        return [r,g,b];
+    }
+    h /= 60;            // sector 0 to 5
+    i = Math.floor( h );
+    f = h - i;          // factorial part of h
+    p = v * ( 1 - s );
+    q = v * ( 1 - s * f );
+    t = v * ( 1 - s * ( 1 - f ) );
+    switch( i ) {
+        case 0:
+            r = v;
+            g = t;
+            b = p;
+            break;
+        case 1:
+            r = q;
+            g = v;
+            b = p;
+            break;
+        case 2:
+            r = p;
+            g = v;
+            b = t;
+            break;
+        case 3:
+            r = p;
+            g = q;
+            b = v;
+            break;
+        case 4:
+            r = t;
+            g = p;
+            b = v;
+            break;
+        default:        // case 5:
+            r = v;
+            g = p;
+            b = q;
+            break;
+    }
+    return [r,g,b];
 }
 
 //5. guardar en disco la imagen o descartar y comenzar en lienzo vacio

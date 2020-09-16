@@ -16,6 +16,7 @@ let rect = canvas.getBoundingClientRect();//me da el left y top de donde esta el
 let x=0, y=0, dibujando=false, color='black', grosor=1, lapiz=false, goma =false;
 let imagenOriginal;
 let imagenCargada=false;
+let descartarImg=false;
 //para dibujar necesito 3 eventos: mousedown, mousemove y mouseup
 
 canvas.addEventListener('mousedown',function(e){
@@ -74,7 +75,7 @@ function dibujar(x1, y1, x2, y2){
 function restaurarOriginal(){
     //console.log(imagenOriginal);
     //console.log(imagenCargada);
-    if(imagenCargada===true)
+    if((imagenCargada===true)&&(descartarImg===false))
         context.putImageData(imagenOriginal, 0, 0);    
     lapiz=false;
     goma=false;
@@ -149,6 +150,7 @@ input1.onchange = e => {
                 imageData = context.getImageData(0, 0, imageScaledWidth, imageScaledHeight);
                 imagenOriginal = imageData;
                 imagenCargada =true;
+                descartarImg=false;
                 // draw the modified image
                 context.putImageData(imageData, 0, 0);
             }
@@ -228,93 +230,71 @@ function brillo (){//listo
 function saturacion(){
     event.preventDefault();
     console.log("me estoy saturando");
-    //let value = 10;
     let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    let d = imageData.data;
 
-    for (let i = 0; i < d.length; i += 4) {
-        let r = d[i]; 
-        let g = d[i + 1];
-        let b = d[i + 2];
-
+    for (let i=0;i<imageData.width;i++){
+        for(let j=0;j<imageData.height;j++){
+        let r = getRed(imageData,i,j);  
+        let g = getGreen(imageData,i,j);
+        let b = getBlue(imageData,i,j);
         let hsv= RGBtoHSV ([r,g,b]);
-        alert(hsv)
-        hsv[1] *= 1.5;
-        alert(hsv)
-        let rgb= HSVtoRGB(hsv);
-        alert(rgb); 
-        //let gray = 0.2989*r + 0.5870*g + 0.1140*b; //weights from CCIR 601 spec
-        //d[i] = -gray * value + d[i] * (1+value);
-        //d[i+1] = -gray * value + d[i+1] * (1+value);
-        //d[i+2] = -gray * value + d[i+2] * (1+value);
-        //normalize over- and under-saturated values
-        //if(d[i] > 255) d[i] = 255;
-        //if(d[i+1] > 255) d[i] = 255;
-        //if(d[i+2] > 255) d[i] = 255;
-        //if(d[i] < 0) d[i] = 0;
-        //if(d[i+1] < 0) d[i] = 0;
-        //if(d[i+2] < 0) d[i] = 0;
-    }
+        hsv[1] *= 1.5;        
+        let rgb = HSVtoRGB(hsv);
+        setPixel(imageData,i,j,rgb[0],rgb[1],rgb[2],255);
+    }}
     context.putImageData(imageData,0,0);
 }
 function suavizado(){}
 function deteccionDeBordes(){}
 function blur(){
-    let blur = getBlurValue(100);
-
+    //let blur = getBlurValue(100);
 }
-// HSL (1978) = H: Hue / S: Saturation / L: Lightness
-HSL_RGB = function (o) { // { H: 0-360, S: 0-100, L: 0-100 }
-  var H = o.H / 360,
-      S = o.S / 100,
-      L = o.L / 100,
-      R, G, B, _1, _2;
 
-  function Hue_2_RGB(v1, v2, vH) {
-    if (vH < 0) vH += 1;
-    if (vH > 1) vH -= 1;
-    if ((6 * vH) < 1) return v1 + (v2 - v1) * 6 * vH;
-    if ((2 * vH) < 1) return v2;
-    if ((3 * vH) < 2) return v1 + (v2 - v1) * ((2 / 3) - vH) * 6;
-    return v1;
-  }
+//5. guardar en disco la imagen o descartar y comenzar en lienzo vacio
+function guardar (el){//listo
+    //console.log("entre a guardar");
+    dwn.href = canvas.toDataURL()
+    dwn.download = "myImage.jpg"
+} 
 
-  if (S == 0) { // HSL from 0 to 1
-    R = L * 255;
-    G = L * 255;
-    B = L * 255;
-  } else {
-    if (L < 0.5) {
-      _2 = L * (1 + S);
-    } else {
-      _2 = (L + S) - (S * L);
-    }
-    _1 = 2 * L - _2;
-
-    R = 255 * Hue_2_RGB(_1, _2, H + (1 / 3));
-    G = 255 * Hue_2_RGB(_1, _2, H);
-    B = 255 * Hue_2_RGB(_1, _2, H - (1 / 3));
-  }
-
-  return {
-    R: R,
-    G: G,
-    B: B
-  };
-};
-
-
-RGBtoHSV= function(color) {
+function descartar(){//listo
+    event.preventDefault();
+    //console.log("descartar y empezar en lienzo blanco");
+    context.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo
+    lienzoBlanco();
+    descartarImg=true; 
+    lapiz=false;
+    goma =false;
+}
+//------------- getters y setters-------------------------
+function setPixel(imageData,x,y,r,g,b,a){    
+    let index = (x + y * imageData.width) * 4;
+    imageData.data[index + 0] = r;
+    imageData.data[index + 1] = g;
+    imageData.data[index + 2] = b;
+    imageData.data[index + 3] = a;               
+}
+function getRed(imageData,x,y){
+    return imageData.data[(x+y*imageData.width)*4+0];
+}
+function getGreen(imageData,x,y){
+    return imageData.data[(x+y*imageData.width)*4+1];
+}
+function getBlue(imageData,x,y){
+    return imageData.data[(x+y*imageData.width)*4+2];
+}
+//----------------------funciones de conversion
+function RGBtoHSV(color) {
     let r,g,b,h,s,v;
     r= color[0];
     g= color[1];
     b= color[2];
-    min = Math.min( r, g, b );
-    max = Math.max( r, g, b );
+    let min = Math.min( r, g, b );
+    let max = Math.max( r, g, b );
 
 
     v = max;
-    delta = max - min;
+    let delta = max - min;
     if( max != 0 )
         s = delta / max;        // s
     else {
@@ -337,7 +317,7 @@ RGBtoHSV= function(color) {
     return [h,s,v];
 };
 
-HSVtoRGB= function(color) {
+function HSVtoRGB(color) {
     let i;
     let h,s,v,r,g,b;
     h= color[0];
@@ -350,10 +330,10 @@ HSVtoRGB= function(color) {
     }
     h /= 60;            // sector 0 to 5
     i = Math.floor( h );
-    f = h - i;          // factorial part of h
-    p = v * ( 1 - s );
-    q = v * ( 1 - s * f );
-    t = v * ( 1 - s * ( 1 - f ) );
+    let f = h - i;          // factorial part of h
+    let p = v * ( 1 - s );
+    let q = v * ( 1 - s * f );
+    let t = v * ( 1 - s * ( 1 - f ) );
     switch( i ) {
         case 0:
             r = v;
@@ -387,38 +367,5 @@ HSVtoRGB= function(color) {
             break;
     }
     return [r,g,b];
-}
-
-//5. guardar en disco la imagen o descartar y comenzar en lienzo vacio
-function guardar (el){//listo
-    //console.log("entre a guardar");
-    dwn.href = canvas.toDataURL()
-    dwn.download = "myImage.jpg"
-} 
-
-function descartar(){//listo
-    event.preventDefault();
-    //console.log("descartar y empezar en lienzo blanco");
-    context.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo
-    lienzoBlanco();
-    lapiz=false;
-    goma =false;
-}
-//------------- getters y setters-------------------------
-function setPixel(imageData,x,y,r,g,b,a){    
-    let index = (x + y * imageData.width) * 4;
-    imageData.data[index + 0] = r;
-    imageData.data[index + 1] = g;
-    imageData.data[index + 2] = b;
-    imageData.data[index + 3] = a;               
-}
-function getRed(imageData,x,y){
-    return imageData.data[(x+y*imageData.width)*4+0];
-}
-function getGreen(imageData,x,y){
-    return imageData.data[(x+y*imageData.width)*4+1];
-}
-function getBlue(imageData,x,y){
-    return imageData.data[(x+y*imageData.width)*4+2];
 }
 });

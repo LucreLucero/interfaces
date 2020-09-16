@@ -17,9 +17,9 @@ ul{
 
 }
 
-.navigation{
+.navigation, .contenido{
     margin-bottom: 1%;
-    margin-left: 10%;
+    margin-left: 20%;
     /*border-bottom:5px solid grey;*/
 }
 .button1{ 
@@ -36,9 +36,7 @@ ul{
     color:rgb(255, 255, 255);
     font-family: Helvetica, sans-serif;
 }
-#contenido{
-    display: flex;
-}
+
 /*------footer------*/
 footer{
     font-family:Helvetica,sans-serif;

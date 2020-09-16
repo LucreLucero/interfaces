@@ -99,10 +99,10 @@ document.querySelector("#sepia").addEventListener("click", sepia);//anda
 document.querySelector("#negativo").addEventListener("click",negativo);//anda
 document.querySelector("#brillo").addEventListener("click",brillo);//anda
 
-document.querySelector("#saturacion").addEventListener("click", saturacion);//--mas color
-document.querySelector("#suavizado").addEventListener("click", suavizado);//--sacar detalle
-document.querySelector("#bordes").addEventListener("click",deteccionDeBordes); //suavizar bordes
-document.querySelector("#blur").addEventListener("click",blur);//difuminado
+document.querySelector("#saturacion").addEventListener("click", saturacion);//anda
+document.querySelector("#blur").addEventListener("click",blur);
+//document.querySelector("#suavizado").addEventListener("click", suavizado);
+//document.querySelector("#bordes").addEventListener("click",deteccionDeBordes); 
 
 document.querySelector("#dwn").addEventListener("click",guardar);//anda
 document.querySelector("#delete").addEventListener("click",descartar);//anda
@@ -244,11 +244,24 @@ function saturacion(){
     }}
     context.putImageData(imageData,0,0);
 }
-function suavizado(){}
-function deteccionDeBordes(){}
 function blur(){
     //let blur = getBlurValue(100);
+    event.preventDefault();
+    console.log("esto deberia tener efecto blur");
+    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+    for (let i=0;i<imageData.width;i++){
+        for(let j=0;j<imageData.height;j++){
+        let r = getRed(imageData,i,j);  
+        let g = getGreen(imageData,i,j);
+        let b = getBlue(imageData,i,j);
+        
+        setPixel(imageData,i,j,r,g,b,255);
+    }}
+    context.putImageData(imageData,0,0);
 }
+//function suavizado(){}
+//function deteccionDeBordes(){}
 
 //5. guardar en disco la imagen o descartar y comenzar en lienzo vacio
 function guardar (el){//listo

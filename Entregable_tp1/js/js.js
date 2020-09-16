@@ -100,7 +100,7 @@ document.querySelector("#negativo").addEventListener("click",negativo);//anda
 document.querySelector("#brillo").addEventListener("click",brillo);//anda
 
 document.querySelector("#saturacion").addEventListener("click", saturacion);//anda
-document.querySelector("#blur").addEventListener("click",blur);
+document.querySelector("#blur").addEventListener("click",blur);//no andaaaaaaa
 //document.querySelector("#suavizado").addEventListener("click", suavizado);
 //document.querySelector("#bordes").addEventListener("click",deteccionDeBordes); 
 
@@ -244,22 +244,64 @@ function saturacion(){
     }}
     context.putImageData(imageData,0,0);
 }
-function blur(){
-    //let blur = getBlurValue(100);
+function blur(opaque){
     event.preventDefault();
-    console.log("esto deberia tener efecto blur");
-    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-    for (let i=0;i<imageData.width;i++){
-        for(let j=0;j<imageData.height;j++){
-        let r = getRed(imageData,i,j);  
-        let g = getGreen(imageData,i,j);
-        let b = getBlue(imageData,i,j);
+    console.log("esto deberia tener efecto blur pero no anda");
         
-        setPixel(imageData,i,j,r,g,b,255);
-    }}
-    context.putImageData(imageData,0,0);
-}
+    /*let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+    let matReference = [1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36,
+        1/36, 1/36, 1/36 ]
+
+        let side = Math.round(Math.sqrt(matReference.length));
+        let halfSide = Math.floor(side/2);
+        let src = imageData.data;
+        let sw = imageData.width;
+        let sh = imageData.height;
+
+        let w = sw;
+        let h = sh;
+        let output = createImageData(w, h);
+        let dst = output.data;
+        let alphaFac = opaque ? 1 : 0;
+        for (let y=0; y<h; y++) {
+            for (let x=0; x<w; x++) {
+            let sy = y;
+            let sx = x;
+            let dstOff = (y*w+x)*4;
+            let r=0, g=0, b=0, a=0;
+            for (let cy=0; cy<side; cy++) {
+                for (let cx=0; cx<side; cx++) {
+                let scy = sy + cy - halfSide;
+                let scx = sx + cx - halfSide;
+                if (scy >= 0 && scy < sh && scx >= 0 && scx < sw) {
+                    let srcOff = (scy*sw+scx)*4;
+                    let wt = matReference[cy*side+cx];
+                    r += src[srcOff] * wt;
+                    g += src[srcOff+1] * wt;
+                    b += src[srcOff+2] * wt;
+                    a += src[srcOff+3] * wt;
+                }
+                }
+            }
+            dst[dstOff] = r;
+            dst[dstOff+1] = g;
+            dst[dstOff+2] = b;
+            dst[dstOff+3] = a + alphaFac*(255-a);
+            }
+        }
+        context.putImageData(output,0,0);*/
+    }
 //function suavizado(){}
 //function deteccionDeBordes(){}
 

@@ -134,6 +134,7 @@ input1.onchange = e => {
 
     // here we tell the reader what to do when it's done reading...
     reader.onload = readerEvent => {
+
             let content = readerEvent.target.result; // this is the content!
             let image = new Image();
             //image.crossOrigin = 'Anonymous';
@@ -141,18 +142,19 @@ input1.onchange = e => {
             image.onload = function () {
                 let imageAspectRatio = (1.0 * this.height) / this.width;
                 let imageScaledWidth = canvas.width;
-                let imageScaledHeight = canvas.width * imageAspectRatio;
+                let imageScaledHeight = canvas.width * imageAspectRatio;                
 
                 // draw image on canvas
                 context.drawImage(this, 0, 0, imageScaledWidth, imageScaledHeight);
 
                 // get imageData from content of canvas
                 imageData = context.getImageData(0, 0, imageScaledWidth, imageScaledHeight);
+                
+                context.putImageData(imageData, 0, 0);
                 imagenOriginal = imageData;
                 imagenCargada =true;
                 descartarImg=false;
                 // draw the modified image
-                context.putImageData(imageData, 0, 0);
             }
     }
 }
@@ -168,7 +170,7 @@ function binarizacion(){ //blanco y negro
     let umbral = 50;
     for(let i = 0; i<canvas.width-1; i++){
         for(let j = 0; j<canvas.height; j++){
-            let prom = Math.floor((getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j))/3);
+            let prom = matReferenceh.floor((getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j))/3);
             if(prom>umbral){
                 setPixel(imageData,i,j,255,255,255,255);
             }else{
@@ -186,10 +188,10 @@ function sepia(){//listo - corroborar
     imageData = context.getImageData(0, 0, canvas.width, canvas.height);    
     for (let i=0;i<imageData.width;i++){
         for(let j=0;j<imageData.height;j++){            
-            let prom = Math.floor(getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j)/3);
-            let r = Math.min(prom+40, 255);
-            let g = Math.min(prom+15, 255);
-            let b = Math.min(prom, 255);
+            let prom = matReferenceh.floor(getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j)/3);
+            let r = matReferenceh.min(prom+40, 255);
+            let g = matReferenceh.min(prom+15, 255);
+            let b = matReferenceh.min(prom, 255);
             setPixel(imageData,i,j,r,g,b, 255);
         }
     }
@@ -244,13 +246,12 @@ function saturacion(){
     }}
     context.putImageData(imageData,0,0);
 }
-function blur(opaque){
+function blur(){
     event.preventDefault();
-    console.log("esto deberia tener efecto blur pero no anda");
-        
-    /*let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    console.log("esto deberia tener efecto blur pero no anda");        
+    imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
-    let matReference = [1/36, 1/36, 1/36,
+    /*let matReferenceReference = [1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
@@ -261,46 +262,105 @@ function blur(opaque){
         1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
-        1/36, 1/36, 1/36 ]
+        1/36, 1/36, 1/36 ]*/
+    let matReference = 1/25;
 
-        let side = Math.round(Math.sqrt(matReference.length));
-        let halfSide = Math.floor(side/2);
-        let src = imageData.data;
-        let sw = imageData.width;
-        let sh = imageData.height;
+    let r = 0.0;
+    let g = 0.0;
+    let b = 0.0;
+    for (let x = 0; x < imageData.width; x++) {
+        for (let y = 2; y < imageData.height - 2; y++) {
+          r =
+            getRed(imageData, x - 2, y - 2) * matReference +
+            getRed(imageData, x - 1, y - 2) * matReference +
+            getRed(imageData, x, y - 2) * matReference +
+            getRed(imageData, x + 1, y - 2) * matReference +
+            getRed(imageData, x + 2, y - 2) * matReference +
+            getRed(imageData, x - 2, y - 1) * matReference +
+            getRed(imageData, x - 1, y - 1) * matReference +
+            getRed(imageData, x, y - 1) * matReference +
+            getRed(imageData, x + 1, y - 1) * matReference +
+            getRed(imageData, x + 2, y - 1) * matReference +
+            getRed(imageData, x - 2, y) * matReference +
+            getRed(imageData, x - 1, y) * matReference +
+            getRed(imageData, x, y) * matReference +
+            getRed(imageData, x + 1, y) * matReference +
+            getRed(imageData, x + 2, y) * matReference +
+            getRed(imageData, x - 2, y + 1) * matReference +
+            getRed(imageData, x - 1, y + 1) * matReference +
+            getRed(imageData, x, y + 1) * matReference +
+            getRed(imageData, x + 1, y + 1) * matReference +
+            getRed(imageData, x + 2, y + 1) * matReference +
+            getRed(imageData, x - 2, y + 2) * matReference +
+            getRed(imageData, x - 1, y + 2) * matReference +
+            getRed(imageData, x, y + 2) * matReference +
+            getRed(imageData, x + 1, y + 2) * matReference +
+            getRed(imageData, x + 2, y + 2) * matReference;
+    
+          g =
+            getGreen(imageData, x - 2, y - 2) * matReference +
+            getGreen(imageData, x - 1, y - 2) * matReference +
+            getGreen(imageData, x, y - 2) * matReference +
+            getGreen(imageData, x + 1, y - 2) * matReference +
+            getGreen(imageData, x + 2, y - 2) * matReference +
+            getGreen(imageData, x - 2, y - 1) * matReference +
+            getGreen(imageData, x - 1, y - 1) * matReference +
+            getGreen(imageData, x, y - 1) * matReference +
+            getGreen(imageData, x + 1, y - 1) * matReference +
+            getGreen(imageData, x + 2, y - 1) * matReference +
+            getGreen(imageData, x - 2, y) * matReference +
+            getGreen(imageData, x - 1, y) * matReference +
+            getGreen(imageData, x, y) * matReference +
+            getGreen(imageData, x + 1, y) * matReference +
+            getGreen(imageData, x + 2, y) * matReference +
+            getGreen(imageData, x - 2, y + 1) * matReference +
+            getGreen(imageData, x - 1, y + 1) * matReference +
+            getGreen(imageData, x, y + 1) * matReference +
+            getGreen(imageData, x + 1, y + 1) * matReference +
+            getGreen(imageData, x + 2, y + 1) * matReference +
+            getGreen(imageData, x - 2, y + 2) * matReference +
+            getGreen(imageData, x - 1, y + 2) * matReference +
+            getGreen(imageData, x, y + 2) * matReference +
+            getGreen(imageData, x + 1, y + 2) * matReference +
+            getGreen(imageData, x + 2, y + 2) * matReference;
+    
+          b =
+            getBlue(imageData, x - 2, y - 2) * matReference +
+            getBlue(imageData, x - 1, y - 2) * matReference +
+            getBlue(imageData, x, y - 2) * matReference +
+            getBlue(imageData, x + 1, y - 2) * matReference +
+            getBlue(imageData, x + 2, y - 2) * matReference +
+            getBlue(imageData, x - 2, y - 1) * matReference +
+            getBlue(imageData, x - 1, y - 1) * matReference +
+            getBlue(imageData, x, y - 1) * matReference +
+            getBlue(imageData, x + 1, y - 1) * matReference +
+            getBlue(imageData, x + 2, y - 2) * matReference +
+            getBlue(imageData, x - 2, y) * matReference +
+            getBlue(imageData, x - 1, y) * matReference +
+            getBlue(imageData, x, y) * matReference +
+            getBlue(imageData, x + 1, y) * matReference +
+            getBlue(imageData, x + 2, y) * matReference +
+            getBlue(imageData, x - 2, y + 1) * matReference +
+            getBlue(imageData, x - 1, y + 1) * matReference +
+            getBlue(imageData, x, y + 1) * matReference +
+            getBlue(imageData, x + 1, y + 1) * matReference +
+            getBlue(imageData, x + 2, y + 1) * matReference +
+            getBlue(imageData, x - 2, y + 2) * matReference +
+            getBlue(imageData, x - 1, y + 2) * matReference +
+            getBlue(imageData, x, y + 2) * matReference +
+            getBlue(imageData, x + 1, y + 2) * matReference +
+            getBlue(imageData, x + 2, y + 2) * matReference;
+    
+          setPixel(imageData, x, y, r, g, b,255);
+        }
+      }
 
-        let w = sw;
-        let h = sh;
-        let output = createImageData(w, h);
-        let dst = output.data;
-        let alphaFac = opaque ? 1 : 0;
-        for (let y=0; y<h; y++) {
-            for (let x=0; x<w; x++) {
-            let sy = y;
-            let sx = x;
-            let dstOff = (y*w+x)*4;
-            let r=0, g=0, b=0, a=0;
-            for (let cy=0; cy<side; cy++) {
-                for (let cx=0; cx<side; cx++) {
-                let scy = sy + cy - halfSide;
-                let scx = sx + cx - halfSide;
-                if (scy >= 0 && scy < sh && scx >= 0 && scx < sw) {
-                    let srcOff = (scy*sw+scx)*4;
-                    let wt = matReference[cy*side+cx];
-                    r += src[srcOff] * wt;
-                    g += src[srcOff+1] * wt;
-                    b += src[srcOff+2] * wt;
-                    a += src[srcOff+3] * wt;
-                }
-                }
-            }
-            dst[dstOff] = r;
-            dst[dstOff+1] = g;
-            dst[dstOff+2] = b;
+/*        
+            
             dst[dstOff+3] = a + alphaFac*(255-a);
             }
-        }
-        context.putImageData(output,0,0);*/
+        }*/
+        context.putImageData(imageData,0,0);
     }
 //function suavizado(){}
 //function deteccionDeBordes(){}
@@ -344,8 +404,8 @@ function RGBtoHSV(color) {
     r= color[0];
     g= color[1];
     b= color[2];
-    let min = Math.min( r, g, b );
-    let max = Math.max( r, g, b );
+    let min = matReferenceh.min( r, g, b );
+    let max = matReferenceh.max( r, g, b );
 
 
     v = max;
@@ -379,12 +439,12 @@ function HSVtoRGB(color) {
     s= color[1];
     v= color[2];
     if(s === 0 ) {
-        // achromatic (grey)
+        // achromatReferenceic (grey)
         r = g = b = v;
         return [r,g,b];
     }
     h /= 60;            // sector 0 to 5
-    i = Math.floor( h );
+    i = matReferenceh.floor( h );
     let f = h - i;          // factorial part of h
     let p = v * ( 1 - s );
     let q = v * ( 1 - s * f );

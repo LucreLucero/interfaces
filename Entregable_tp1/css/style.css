@@ -5,22 +5,19 @@ body{
 }
 h1{
     font-family: Helvetica, sans-serif;
-    text-transform: uppercase;
     text-align: center;
+    color:rgb(66, 71, 73);
 }
-ul{
+/*ul{
     align-content: center;
-}
+}*/
 
 .navigation li:hover {
-    background-color: grey;
+    background-color:rgb(88, 96, 99);
 
 }
-
 .navigation, .contenido{
-    margin-bottom: 1%;
-    margin-left: 20%;
-    /*border-bottom:5px solid grey;*/
+    text-align: center;
 }
 .button1{ 
     height: 35px;

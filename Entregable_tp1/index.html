@@ -2,16 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Primer entregable - Lucero Lucrecia</title>
+		<script src="https://kit.fontawesome.com/bff2fc4124.js" crossorigin="anonymous"></script>
 		<link href="css/style.css" rel="stylesheet" type="text/css">
+		
+		<title>Primer entregable - Lucero Lucrecia</title>
+		
 		<script src="js/js.js"></script>
 	</head>
 	<body>
 		<!--Menu de navegacion-->
-		
+		<header>
+			<h1><i class="fas fa-palette" style="color:rgb(66, 71, 73);"></i> Mi casi Paint :)</h1>
+		</header>
 		<!--Label | button con input | option | select -->
 		<nav class="navigation"> 
-			<!--<h1>Mi casi Paint :)</h1>-->
 			<ul>
 				<button id="lapiz" onclick="document.querySelector('#color').click();" class="button1">Lapiz</button>
 				<input type="color" hidden id="color">
@@ -39,9 +43,9 @@
 			</ul>
 		</nav>
 		<article class="contenido">
-			<ul>
-				<canvas id="myCanvas"  width="500" height="500" class="myCanvas" style="border: 1px solid black;background: rgb(255, 255, 255)"></canvas>
-			</ul>
+			
+				<canvas id="myCanvas"  width="800" height="600" class="myCanvas" style="border: 1px solid black;background: rgb(255, 255, 255)"></canvas>
+			
 		</article>
 		<!--<footer>
 			<p>Entregable n° 1 - interfaces | &copy; Lucero Lucrecia</p>

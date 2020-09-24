@@ -113,7 +113,7 @@ function lienzoBlanco(){//listo
     event.preventDefault();
     console.log("entre a lienzooo blancoo");
 
-    imageData = context.getImageData(0,0,canvas.width,canvas.height);
+    let imageData = context.getImageData(0,0,canvas.width,canvas.height);
     for(let i=0;i<canvas.width;i++){
         for(let j=0;j<canvas.height;j++){
             setPixel(imageData,i,j,255,255,255,255);
@@ -124,7 +124,8 @@ function lienzoBlanco(){//listo
 
 //cargo imagen
 input1.onchange = e => {
-    context.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo
+    //context.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo
+    //descartar();
     // getting a hold of the file reference
     let file = e.target.files[0];
 
@@ -140,25 +141,26 @@ input1.onchange = e => {
             //image.crossOrigin = 'Anonymous';
             image.src = content;
             image.onload = function () {
+            
                 let imageAspectRatio = (1.0 * this.height) / this.width;
                 let imageScaledWidth = canvas.width;
                 let imageScaledHeight = canvas.width * imageAspectRatio;                
 
                 // draw image on canvas
+                context.canvas.width = imageScaledWidth;
+                context.canvas.height = imageScaledHeight;
                 context.drawImage(this, 0, 0, imageScaledWidth, imageScaledHeight);
 
                 // get imageData from content of canvas
-                imageData = context.getImageData(0, 0, imageScaledWidth, imageScaledHeight);
-                
+                let imageData = context.getImageData(0, 0, imageScaledWidth, imageScaledHeight);
                 context.putImageData(imageData, 0, 0);
+
                 imagenOriginal = imageData;
                 imagenCargada =true;
                 descartarImg=false;
-                // draw the modified image
             }
     }
 }
-
 
 //----------------------------------------------
 //3. aplicar filtros por pixeles a la imagen actual: negativo|brillo|binarizacion(byn)|sepia
@@ -166,11 +168,11 @@ function binarizacion(){ //blanco y negro
     event.preventDefault();
     console.log("binarizameee");
     //necesito aplicar umbral para tomar los grises
-    imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     let umbral = 50;
     for(let i = 0; i<canvas.width-1; i++){
         for(let j = 0; j<canvas.height; j++){
-            let prom = matReferenceh.floor((getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j))/3);
+            let prom = Math.floor((getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j))/3);
             if(prom>umbral){
                 setPixel(imageData,i,j,255,255,255,255);
             }else{
@@ -185,13 +187,13 @@ function sepia(){//listo - corroborar
     event.preventDefault();
     console.log("sepiaaaaaaaaaaa");
 
-    imageData = context.getImageData(0, 0, canvas.width, canvas.height);    
+    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);    
     for (let i=0;i<imageData.width;i++){
         for(let j=0;j<imageData.height;j++){            
-            let prom = matReferenceh.floor(getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j)/3);
-            let r = matReferenceh.min(prom+40, 255);
-            let g = matReferenceh.min(prom+15, 255);
-            let b = matReferenceh.min(prom, 255);
+            let prom = Math.floor(getRed(imageData,i,j)+getGreen(imageData,i,j)+getBlue(imageData,i,j)/3);
+            let r = Math.min(prom+40, 255);
+            let g = Math.min(prom+15, 255);
+            let b = Math.min(prom, 255);
             setPixel(imageData,i,j,r,g,b, 255);
         }
     }
@@ -215,7 +217,7 @@ function brillo (){//listo
     event.preventDefault();
     console.log("en el brillo");
     let brillo = 10;
-    imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     //el brillo lo que hace es darle mas intensidad al color asi que le sumo una constante
     for (let i=0;i<imageData.width;i++){
         for(let j=0;j<imageData.height;j++){
@@ -248,10 +250,10 @@ function saturacion(){
 }
 function blur(){
     event.preventDefault();
-    console.log("esto deberia tener efecto blur pero no anda");        
-    imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    console.log("andaaa el blur!!!");        
+    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
-    /*let matReferenceReference = [1/36, 1/36, 1/36,
+    /*let matReference = [1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
         1/36, 1/36, 1/36,
@@ -354,19 +356,13 @@ function blur(){
           setPixel(imageData, x, y, r, g, b,255);
         }
       }
-
-/*        
-            
-            dst[dstOff+3] = a + alphaFac*(255-a);
-            }
-        }*/
         context.putImageData(imageData,0,0);
     }
 //function suavizado(){}
 //function deteccionDeBordes(){}
 
 //5. guardar en disco la imagen o descartar y comenzar en lienzo vacio
-function guardar (el){//listo
+function guardar (){//listo
     //console.log("entre a guardar");
     dwn.href = canvas.toDataURL()
     dwn.download = "myImage.jpg"
@@ -404,8 +400,8 @@ function RGBtoHSV(color) {
     r= color[0];
     g= color[1];
     b= color[2];
-    let min = matReferenceh.min( r, g, b );
-    let max = matReferenceh.max( r, g, b );
+    let min = Math.min( r, g, b );
+    let max = Math.max( r, g, b );
 
 
     v = max;
@@ -444,7 +440,7 @@ function HSVtoRGB(color) {
         return [r,g,b];
     }
     h /= 60;            // sector 0 to 5
-    i = matReferenceh.floor( h );
+    i = Math.floor( h );
     let f = h - i;          // factorial part of h
     let p = v * ( 1 - s );
     let q = v * ( 1 - s * f );

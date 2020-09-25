@@ -11,6 +11,7 @@ h1{
 }
 ul{
     align-content: center;
+    text-align: center;
 }
 .navigation, .content, .item{
     text-align: center;

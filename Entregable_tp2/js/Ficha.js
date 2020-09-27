@@ -30,10 +30,11 @@ class Ficha{
         if(this.ctx){
             //ctx.beginPath();                 
             //ctx.closePath();
-            //ctx.fill();
             if(this.color === this.rojo){ 
                 //console.log("estoy en ficha roja")
-                this.ctx.drawImage(this.img, this.posX, this.posY, this.tamFicha, this.tamFicha)    
+                this.ctx.drawImage(this.img, this.posX, this.posY, this.tamFicha, this.tamFicha)                    
+                //this.ctx.strokeStyle("black");
+                //this.ctx.stroke();
             }else{
                 //console.log("estoy en ficha azul")
                 this.ctx.drawImage(this.img2, this.posX, this.posY, this.tamFicha, this.tamFicha) 

@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function(){
     let ctx = canvas.getContext('2d');
     let width = canvas.width;// = window.width;
     let height = canvas.height;// = window.height;
+    document.querySelector('#jugar').addEventListener('click',inicial);
+    document.querySelector('#reiniciar').addEventListener('click',reiniciarJuego);
+
     //let imageData = ctx.createImageData(width, height);
     //necesito-- tablero(celdas)--matrix
     //ficha(fichas)--movimientos--
@@ -12,6 +15,11 @@ document.addEventListener("DOMContentLoaded", function(){
     //---------------Tablero------------
     const fila=7; const col=6;
     let clickedFigure=false;
+
+    function inicial(){
+        crearTablero();
+        createFichitas();
+    }
 
     function crearTablero(){ 
         let mat=[fila];
@@ -39,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function(){
         }
         let miPatron = ctx.createPattern(img, 'repeat');
         ctx.fillStyle = miPatron;
-        ctx.fillRect(250,100, img.width*fila, img.width*col);      
+        ctx.fillRect(250,250, img.width*fila, img.width*col);      
     }
-    crearTablero();
+    
 
     function puedoIngresarFicha(){
         //si estoy en el tablero
@@ -54,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function(){
     //declaraciones
     let cantFichas = (fila*col)/2;
     let tamFicha = 50;
-    let x =30,y=10;
     let rojas=[]; let azules=[]; let r=0; let a=0;
     let posX, posY;
     //---empiezo
@@ -62,52 +69,38 @@ document.addEventListener("DOMContentLoaded", function(){
     img.src = "image/fichaRoja.png";
     let img2 = new Image();        
     img2.src = "image/fichaAzul.png";
-    console.log(img);
-
+    //console.log(img);
 
     function createFichitas(){
+        let x =30,y=10;
     //rooojaaaaass
-        let _x = x; 
+        let _x = x;
+        let _y = y; 
         for (let i=0; i<cantFichas;i++){
             rojas[r] = new Ficha(ctx, x, y, "#f00", tamFicha);
-                console.log(rojas);
-                r++;
+            //console.log(rojas);
+            r++;
             x+=30;
             if(r%7==0){
-                y+=20;
+                x=_x;
+                y+=45;
             }
         }
         x = _x ;
+        y= _y;
     //azuuleees
-        for (let i=0; i<cantFichas;i++){
-            azules[a] = new Ficha(ctx, canvas.width-250 + x, y,"#00f", tamFicha);
-            console.log(rojas);
+        for (let j=0; j<cantFichas;j++){
+            azules[a] = new Ficha(ctx, x+500, y,"#00f", tamFicha);
+            //console.log(azules);
             a++;
             x+=30;
-            if(r%7==0){
-                y+=20;
+            if(a%7==0){
+                x=_x;
+                y+=45;
             }
         }
         x = _x ;
-
-        /*let _x = x; 
-        for (let i=1;i<=7;i++) { //bucles para crear fichas.
-            for (let j=1;j<=3;j++) {
-                rojas[r] = new Ficha(ctx,x,y,"#f00");
-                console.log(rojas);
-
-                azules[a] = new Ficha(ctx,canvas.width-250 + x,y,"#00f");
-                console.log(azules);
-                r++;a++;
-                x+=50;
-            }
-            y+=40; //posición y para ficha siguiente
-            x=_x;
-        }*/
     }
-createFichitas();
-
-
     
     function getPosition(){
         return{
@@ -122,11 +115,11 @@ createFichitas();
         return canvas.posY;
     }
     
-
     
 //------------------------------------Main-------------------------------------------
     let elementR, elementA; 
     let hiceClick = null;
+    let findClicked;
 
     function findClickedFigure(x,y){
         for(let r=0;r<rojas.lenght;r++){
@@ -158,10 +151,8 @@ createFichitas();
     }
 
     function actualizar(){
-        //ctx.fillStyle="#f0f0f0";
+        //ctx.fillStyle="#fff";
         //ctx.fillRect(0,0,width,height);
-        
-        crearTablero();
         
         for (let i in rojas) {
             rojas[i].createFichitas()
@@ -169,8 +160,25 @@ createFichitas();
         for (let j in azules){
             azules[j].createFichitas()
         } 
+        console.log("actualice fichas y ahora el tablero")
+        crearTablero();
+        
     }
 
+    function reiniciarJuego(){
+        console.log(rojas.length);
+        console.log(azules.length);
+       
+        rojas=[];
+        azules.splice(0);
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo        
+        inicial();
+        console.log(rojas.length);
+        console.log(azules.length);
+
+
+    }
 
     canvas.addEventListener('mousedown',function(e){
         //en el elemento uso e.layerX , e.layerY
@@ -198,4 +206,8 @@ createFichitas();
             hiceClick=null;                   
         }
     });
+
+
+    createFichitas();
+    crearTablero();
 });

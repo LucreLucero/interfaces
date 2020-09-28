@@ -42,4 +42,12 @@ class Ficha{
             }
         }
     }
+    isPointInside(x,y){// para ver si estoy agarrando una ficha
+        let radio = this.tamFicha/2;
+        
+        let pos_x = (this.posX + radio) - x;
+        let pos_y = (this.posY + radio) - y;
+
+        return Math.sqrt(pos_x * pos_x + pos_y * pos_y) < radio;
+    }
 }

@@ -4,8 +4,65 @@ document.addEventListener("DOMContentLoaded", function(){
     let ctx = canvas.getContext('2d');
     let width = canvas.width;// = window.width;
     let height = canvas.height;// = window.height;
+    const fila=7; 
+    const col=6;
+    let cantFichas = (fila*col)/2;
+    let tamFicha = 50;
+
+    //let clickedFigure;
+    let hiceClick = null;
+
+    let rojas=[]; let azules=[]; let r=0; let a=0;
+    let posX, posY;
+    //---empiezo
+    let img = new Image();        
+    img.src = "image/fichaRoja.png";
+    let img2 = new Image();        
+    img2.src = "image/fichaAzul.png";
+
+    //----------------------eventos----------------
+    //let fila = document.querySelector('#alto').value;
+    //let col = document.querySelector('#ancho').value;
     document.querySelector('#jugar').addEventListener('click',inicial);
     document.querySelector('#reiniciar').addEventListener('click',reiniciarJuego);
+
+    canvas.addEventListener('mousedown',function(e){
+
+        let eX = e.layerX;
+        let eY = e.layerY;
+        
+        let clickedFigure = findClickedFigure(eX, eY)
+        console.log(clickedFigure)
+
+        if(clickedFigure != undefined){
+            return clickedFigure
+        }else {
+
+            return null
+        }
+        //clickedFigure = hiceClick
+        //if(elemento.jugadores == jugadores[i]){
+          //  hiceClick = elemento;
+        //        
+    });
+    canvas.addEventListener('mousemove',function(e){
+            if(hiceClick != undefined){
+                //x, y del comienzo | x, y de donde estoy
+                //moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
+                hiceClick.x = e.clientX;
+                hiceClick.y = e.clientY;
+            }
+            //actualizar(); 
+    });
+    canvas.addEventListener('mouseup',function(e){
+        if(hiceClick != null){
+            moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
+            x=0;
+            y=0;
+
+            hiceClick=null;                   
+        }
+    });
 
     //let imageData = ctx.createImageData(width, height);
     //necesito-- tablero(celdas)--matrix
@@ -13,10 +70,10 @@ document.addEventListener("DOMContentLoaded", function(){
     //jugadores--quien gana(ficha-tab)
 
     //---------------Tablero------------
-    const fila=7; const col=6;
-    let clickedFigure=false;
-
+   
     function inicial(){
+        rojas=[];
+        azules=[];
         crearTablero();
         createFichitas();
     }
@@ -28,8 +85,9 @@ document.addEventListener("DOMContentLoaded", function(){
             for (let c=0;c<col;c++){
                 mat[f][c]=null;
             }
+            console.log(mat);
         }
-        console.log(mat);
+        console.log("miro la matriz")
 
         let img = new Image();
         img.src = "image/tablero.png";
@@ -60,16 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //---------------------------Fichas---------------------------------
     //declaraciones
-    let cantFichas = (fila*col)/2;
-    let tamFicha = 50;
-    let rojas=[]; let azules=[]; let r=0; let a=0;
-    let posX, posY;
-    //---empiezo
-    let img = new Image();        
-    img.src = "image/fichaRoja.png";
-    let img2 = new Image();        
-    img2.src = "image/fichaAzul.png";
-    //console.log(img);
+    
 
     function createFichitas(){
         let x =30,y=10;
@@ -117,19 +166,29 @@ document.addEventListener("DOMContentLoaded", function(){
     
     
 //------------------------------------Main-------------------------------------------
-    let elementR, elementA; 
-    let hiceClick = null;
-    let findClicked;
+    
 
     function findClickedFigure(x,y){
-        for(let r=0;r<rojas.lenght;r++){
-            elementR = rojas[i];
 
-            if(elementR.isPointInside(x,y)){
-                return elementR;
+        console.log(x)
+        console.log(y)
+        console.log(rojas)
+
+let hol=rojas.length;
+        // tengo que recorrer los arreglos de cada ficha y ver si toque a alguna
+        for(let r=0; r<hol; r++){
+            hol[r].isPointInside(x,y)
+            console.log(hol[r])
+
+            if (rojas[r].isPointInside(x,y)){
+                return rojas[r]
             }
+
+            //if(elementR.isPointInside(x,y)){
+              //  return elementR;
+            //}
         }
-        for(let a=0;a<azules.lenght;a++){
+        for(let a=0; a<azules.lenght; a++){
             elementA = azules[a];
             if(elementA.isPointInside(x,y)){
                 return elementA;
@@ -154,12 +213,13 @@ document.addEventListener("DOMContentLoaded", function(){
         //ctx.fillStyle="#fff";
         //ctx.fillRect(0,0,width,height);
         
-        for (let i in rojas) {
-            rojas[i].createFichitas()
+        createFichitas()
+        /*for (let i in rojas) {
+            rojas[i].createFichitas();
         }
         for (let j in azules){
-            azules[j].createFichitas()
-        } 
+            azules[j].createFichitas();
+        } */
         console.log("actualice fichas y ahora el tablero")
         crearTablero();
         
@@ -179,34 +239,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     }
-
-    canvas.addEventListener('mousedown',function(e){
-        //en el elemento uso e.layerX , e.layerY
-        let elemento = findClicked(e.pageX - canvas.offsetLeft, e.pageY - this.offsetTop)
-        if(elemento == null){return}
-        //if(elemento.jugadores == jugadores[i]){
-          //  hiceClick = elemento;
-        //        
-    });
-    canvas.addEventListener('mousemove',function(e){
-            if(hiceClick != null){
-                //x, y del comienzo | x, y de donde estoy
-                //moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
-                hiceClick.x = e.clientX;
-                hiceClick.y = e.clientY;
-            }
-            actualizar(); 
-    });
-    canvas.addEventListener('mouseup',function(e){
-        if(hiceClick != null){
-            moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
-            x=0;
-            y=0;
-
-            hiceClick=null;                   
-        }
-    });
-
 
     createFichitas();
     crearTablero();

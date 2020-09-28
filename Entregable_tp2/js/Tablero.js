@@ -19,25 +19,32 @@ class Tablero{
     }
 
     crearTablero(){ 
-        //let img = new Image();
-        //img.src = "image/tablero.png";
+        let mat=[this.fila];
+        for (let f=0;f<this.fila;f++){
+            mat [f]=[];
+            for (let c=0;c<this.col;c++){
+                mat[f][c]=null;
+            }
+            console.log(mat);
+        }
+        console.log("miro la matriz")
 
+        let t = this // porque tengo que hacer una variable? .. no lo se, pero funciona
         this.img.onload = function(){ 
-            redibujarTablero();
+            t.redibujarTablero();
         }
     }
     redibujarTablero(){ 
-        //let img = new Image();
-        //img.src = "image/tablero.png";
-        let miPatron;
-        this.miPatron = this.ctx.createPattern(img, 'repeat');
-        this.ctx.fillStyle = miPatron;
-        this.ctx.fillRect(250,100, img.width*fila, img.width*col);
-        
+        //let miPatron;
+        for (let f=0;f<this.fila;f++){
+            for (let c=0;c<this.col;c++){
+                this.mat[f][c]= this.img;    
+                
+            }
+        }
+        let miPatron = this.ctx.createPattern(this.img, 'repeat');
+        this.ctx.fillStyle = this.miPatron;
+        this.ctx.fillRect(250,250, this.img.width * this.fila, this.img.width*this.col);      
     }
-
-
-
-
-
+    
 }

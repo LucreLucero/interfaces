@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let tamFicha = 50;
 
     //let clickedFigure;
-    let hiceClick = null;
+    let clickedFigure = null;
 
     let rojas=[]; let azules=[]; let r=0; let a=0;
     let posX, posY;
@@ -27,48 +27,51 @@ document.addEventListener("DOMContentLoaded", function(){
     document.querySelector('#reiniciar').addEventListener('click',reiniciarJuego);
 
     canvas.addEventListener('mousedown',function(e){
-
+        //let clicked = findClicked(e.pageX - canvas.offsetLeft, e.pageY - this.offsetTop)
         let eX = e.layerX;
-        let eY = e.layerY;
+        let eY = e.layerY;        
+        let hiceClick = findClickedFigure(eX, eY)
+        console.log(hiceClick)
         
-        let clickedFigure = findClickedFigure(eX, eY)
-        console.log(clickedFigure)
-
-        if(clickedFigure != undefined){
-            return clickedFigure
-        }else {
-
-            return null
+        if(hiceClick != null){
+            //console.log(clickedFigure)
+            //console.log(hiceClick)
+            clickedFigure = hiceClick;
+            return hiceClick
         }
-        //clickedFigure = hiceClick
-        //if(elemento.jugadores == jugadores[i]){
+        //if(clickedFigure.jugador == jugadores[i]){
           //  hiceClick = elemento;
         //        
     });
-    canvas.addEventListener('mousemove',function(e){
-            if(hiceClick != undefined){
-                //x, y del comienzo | x, y de donde estoy
-                //moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
-                hiceClick.x = e.clientX;
-                hiceClick.y = e.clientY;
+    canvas.addEventListener('mouseup',function(e){ //todavia no anda
+
+        if(clickedFigure != null){//como en ej figuras
+            //aca deberia probar si puedo insertar en el tablero 
+            let estaFicha = puedoIngresarFicha(clickedFigure)
+            if(estaFicha != null){
+                ingresarFicha(estaFicha) //poner en el tablero                 
             }
-            //actualizar(); 
-    });
-    canvas.addEventListener('mouseup',function(e){
-        if(hiceClick != null){
-            moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
-            x=0;
-            y=0;
-
-            hiceClick=null;                   
         }
+        //clickedFigure = null; 
+        
+    });
+    canvas.addEventListener('mousemove',function(e){
+        //console.log(clickedFigure)
+        console.log("mousemoveee")
+        if(clickedFigure == null){return} //dataso! si uso solo return freno la ejecucion
+
+                //moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
+                clickedFigure.setPos(e.layerX, e.layerY)//le paso las coordenadas de inicio a donde estoy            
+        actualizar(); 
+    });
+    
+    canvas.addEventListener("mouseleave", function(){
+        clickedFigure = null; 
     });
 
-    //let imageData = ctx.createImageData(width, height);
     //necesito-- tablero(celdas)--matrix
     //ficha(fichas)--movimientos--
     //jugadores--quien gana(ficha-tab)
-
     //---------------Tablero------------
    
     function inicial(){
@@ -85,9 +88,9 @@ document.addEventListener("DOMContentLoaded", function(){
             for (let c=0;c<col;c++){
                 mat[f][c]=null;
             }
-            console.log(mat);
+            //console.log(mat);
         }
-        console.log("miro la matriz")
+        //console.log("miro la matriz")
 
         let img = new Image();
         img.src = "image/tablero.png";
@@ -107,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function(){
         ctx.fillStyle = miPatron;
         ctx.fillRect(250,250, img.width*fila, img.width*col);      
     }
-    
 
     function puedoIngresarFicha(){
         //si estoy en el tablero
@@ -119,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function(){
     //---------------------------Fichas---------------------------------
     //declaraciones
     
-
     function createFichitas(){
         let x =30,y=10;
     //rooojaaaaass
@@ -164,65 +165,68 @@ document.addEventListener("DOMContentLoaded", function(){
         return canvas.posY;
     }
     
-    
 //------------------------------------Main-------------------------------------------
     
 
     function findClickedFigure(x,y){
-
-        console.log(x)
-        console.log(y)
-        console.log(rojas)
-
-let hol=rojas.length;
         // tengo que recorrer los arreglos de cada ficha y ver si toque a alguna
-        for(let r=0; r<hol; r++){
-            hol[r].isPointInside(x,y)
-            console.log(hol[r])
+        for(let r=0; r<rojas.length; r++){
+            rojas[r].isPointInside(x,y)
+            //console.log(rojas[r].isPointInside(x,y))
 
             if (rojas[r].isPointInside(x,y)){
                 return rojas[r]
             }
 
-            //if(elementR.isPointInside(x,y)){
-              //  return elementR;
-            //}
         }
         for(let a=0; a<azules.lenght; a++){
-            elementA = azules[a];
-            if(elementA.isPointInside(x,y)){
-                return elementA;
+            azules[a].isPointInside(x,y)
+            //console.log(azules[a].isPointInside(x,y))
+
+            if (azules[a].isPointInside(x,y)){
+                return azules[a]
             }
         }
     }
       
-    function setPos(x,y){
+    /*function setPos(x,y){
         posX = (x-25) + pos_x;
         posY = (y-25) + pos_y;
-    }
-
-    function isPointInside(x,y){// para ver si estoy agarrando una ficha
-        let radio = tamFicha/2;
-        let pos_x = posX - x;
-        let pos_y = posY - y;
-
-        return Math.sqrt(pos_x *pos_x +pos_y*pos_y) < radio;
-    }
+    }*/
 
     function actualizar(){
-        //ctx.fillStyle="#fff";
-        //ctx.fillRect(0,0,width,height);
+        ctx.fillStyle="#fff";
+        ctx.fillRect(0,0,width,height);
         
-        createFichitas()
-        /*for (let i in rojas) {
-            rojas[i].createFichitas();
-        }
-        for (let j in azules){
-            azules[j].createFichitas();
-        } */
-        console.log("actualice fichas y ahora el tablero")
         crearTablero();
         
+    
+        for (const i in rojas) {
+            //console.log(rojas[i])
+            rojas[i].dibujarFicha();
+        }
+        for (let j in azules){
+            azules[j].dibujarFicha();
+        }
+        console.log("actualice fichas y ahora el tablero")
+        
+    }
+    function dibujarFicha(){
+        //console.log("holi")
+        if(ctx){
+            //ctx.beginPath();                 
+            //ctx.closePath();
+            if(color === rojo){ 
+                //console.log("estoy en ficha roja")
+                this.ctx.drawImage(this.img, this.posX, this.posY, this.tamFicha, this.tamFicha)                    
+                //this.ctx.strokeStyle("black");
+                //this.ctx.stroke();
+            }else{
+                //console.log("estoy en ficha azul")
+                this.ctx.drawImage(this.img2, this.posX, this.posY, this.tamFicha, this.tamFicha) 
+
+            }
+        }
     }
 
     function reiniciarJuego(){

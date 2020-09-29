@@ -43,7 +43,7 @@ class Tablero{
             }
         }
         let miPatron = this.ctx.createPattern(this.img, 'repeat');
-        this.ctx.fillStyle = this.miPatron;
+        this.ctx.fillStyle = miPatron;
         this.ctx.fillRect(250,250, this.img.width * this.fila, this.img.width*this.col);      
     }
     

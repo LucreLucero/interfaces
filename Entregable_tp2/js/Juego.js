@@ -1,4 +1,4 @@
-class Juego{
+/*class Juego{
     constructor(jugador){
         this.jugador1 = jugador;
     }
@@ -8,4 +8,4 @@ class Juego{
     asignarTurno(){}
     armarTablero(){}
 
-}
+}*/

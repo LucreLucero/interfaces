@@ -8,18 +8,23 @@ document.addEventListener("DOMContentLoaded", function(){
     const col=6;
     let cantFichas = (fila*col)/2;
     let tamFicha = 50;
-
-    //let clickedFigure;
     let clickedFigure = null;
 
-    let rojas=[]; let azules=[]; let r=0; let a=0;
+    let rojas=[]; let azules=[]; let r=0; let a=0; 
+    let jugadores=[];
     let posX, posY;
-    //---empiezo
+    //---empiezo---------------------
     let img = new Image();        
     img.src = "image/fichaRoja.png";
     let img2 = new Image();        
     img2.src = "image/fichaAzul.png";
 
+    let jugador1 = "Luis";
+    let jugador2 = "Cristian";
+    jugadores[0] = jugador1; //luis
+    jugadores[1] = jugador2; //cristian
+    let esSuTurno = false;
+    
     //----------------------eventos----------------
     //let fila = document.querySelector('#alto').value;
     //let col = document.querySelector('#ancho').value;
@@ -33,17 +38,21 @@ document.addEventListener("DOMContentLoaded", function(){
         let hiceClick = findClickedFigure(eX, eY)
         console.log(hiceClick)
         
-        if(hiceClick != null){
-            //console.log(clickedFigure)
+        if((hiceClick != null) ){
+            console.log(hiceClick.jugador)
             //console.log(hiceClick)
             clickedFigure = hiceClick;
-            return hiceClick
         }
-        //if(clickedFigure.jugador == jugadores[i]){
-          //  hiceClick = elemento;
-        //        
     });
-    canvas.addEventListener('mouseup',function(e){ //todavia no anda
+
+    /*let clicked = this.findClicked(e.pageX - this.canvas.offsetLeft, e.pageY - this.canvas.offsetTop)
+    if(clicked == null){return}
+    // If the piece belongs to == the player whose turn is
+    if(clicked.player == this.players[this.playerTourn]){
+        this.clickedElem = clicked
+    }*/
+
+    canvas.addEventListener('mouseup',function(){ //todavia no anda
 
         if(clickedFigure != null){//como en ej figuras
             //aca deberia probar si puedo insertar en el tablero 
@@ -106,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 
             }
         }
+        console.log(mat)
         let miPatron = ctx.createPattern(img, 'repeat');
         ctx.fillStyle = miPatron;
         ctx.fillRect(250,250, img.width*fila, img.width*col);      
@@ -127,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let _x = x;
         let _y = y; 
         for (let i=0; i<cantFichas;i++){
-            rojas[r] = new Ficha(ctx, x, y, "#f00", tamFicha);
+            rojas[r] = new Ficha(ctx, x, y, "#f00", tamFicha,jugador1);
             //console.log(rojas);
             r++;
             x+=30;
@@ -140,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function(){
         y= _y;
     //azuuleees
         for (let j=0; j<cantFichas;j++){
-            azules[a] = new Ficha(ctx, x+500, y,"#00f", tamFicha);
+            azules[a] = new Ficha(ctx, x+500, y,"#00f", tamFicha,jugador2);
             //console.log(azules);
             a++;
             x+=30;
@@ -188,12 +198,7 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
     }
-      
-    /*function setPos(x,y){
-        posX = (x-25) + pos_x;
-        posY = (y-25) + pos_y;
-    }*/
-
+    
     function actualizar(){
         ctx.fillStyle="#fff";
         ctx.fillRect(0,0,width,height);

@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.querySelector('#jugar').addEventListener('click',inicial);
     document.querySelector('#reiniciar').addEventListener('click',reiniciarJuego);
 
-    canvas.addEventListener('mousedown',function(e){
+    canvas.addEventListener('mousedown',function(e){//CUANDO HAGO CLICK
         //let clicked = findClicked(e.pageX - canvas.offsetLeft, e.pageY - this.offsetTop)
         let eX = e.layerX;
         let eY = e.layerY;        
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
-    canvas.addEventListener('mouseup',function(){ //todavia no anda
+    canvas.addEventListener('mouseup',function(){ //todavia no anda //LO QUE HAGO AL SOLTAR LA FICHA
 
         if(clickedFigure != null){//como en ej figuras
             //aca deberia probar si puedo insertar en el tablero 
@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function(){
         clickedFigure = null; 
         
     });
-    canvas.addEventListener('mousemove',function(e){
+    canvas.addEventListener('mousemove',function(e){ //ES PARA CUANDO MUEVO EL MOUSE
         if(clickedFigure == null){return} //dataso! si uso solo return freno la ejecucion
         clickedFigure.setPos(e.layerX, e.layerY)//le paso las coordenadas de inicio a donde estoy   
         actualizar(); 
     });    
 
-    canvas.addEventListener("mouseleave", function(){
+    canvas.addEventListener("mouseleave", function(){//CUANDO EL PUNTERO DEL MOUSE DEJA EL ELEMENTO SELECCIONADO
         clickedFigure = null; 
     });
 

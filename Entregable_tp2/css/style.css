@@ -8,21 +8,38 @@ h1{
     font-family: Helvetica, sans-serif;
     text-align: center;
     color:white;
+    width: 300px;
 }
 ul{
     align-content: center;
     text-align: center;
 }
 .navigation, .content, .item{
+    margin-top: 10px;
     text-align: center;
 }
 .item{ 
-    height: 35px;
+    height: 45px;
     border-radius: 5px;
     background-color: rgb(87, 80, 80);
     color:rgb(231, 228, 226);
     font-family: Helvetica, sans-serif;
 }
+.logo{
+    margin-left: 3%;
+    /*display:flex;*/
+    float: left;
+}
 .jugador1, .jugador2{
+    margin-left: 40%;
+    margin-right: 10%;
     color:white;
+    background-color:rgb(209, 152, 99);
+    align-items: flex-end;
+}
+.jugador1:hover{
+    background-color: red;
+}
+.jugador2:hover{
+    background-color: blue;
 }

@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function(){
         //let clicked = findClicked(e.pageX - canvas.offsetLeft, e.pageY - this.offsetTop)
         let eX = e.layerX;
         let eY = e.layerY;        
-        let hiceClick = findClickedFigure(eX, eY)
-        //console.log(hiceClick)
+        let hiceClick = findClickedFigure(eX, eY);
+        console.log(hiceClick)
         
         if((hiceClick != null) ){
             //console.log(hiceClick.jugador)//me trae el jugador..interesantee...
@@ -94,12 +94,12 @@ document.addEventListener("DOMContentLoaded", function(){
     //rooojaaaaass
         let _x = x;
         let _y = y; 
-        for (let i=0; i<cantFichas;i++){
-            rojas[r] = new Ficha(ctx, x, y, "#f00", tamFicha,jugador1);
+        for (let i=1; i<=cantFichas;i++){
+            rojas[i-1] = new Ficha(ctx, x, y, "#f00", tamFicha,jugador1);
             //console.log(rojas);
-            r++;
+            //r++;
             x+=30;
-            if(r%7==0){
+            if(i%7==0){
                 x=_x;
                 y+=45;
             }
@@ -107,12 +107,12 @@ document.addEventListener("DOMContentLoaded", function(){
         x = _x ;
         y= _y;
     //azuuleees
-        for (let j=0; j<cantFichas;j++){
-            azules[a] = new Ficha(ctx, x+500, y,"#00f", tamFicha,jugador2);
+        for (let j=1; j<=cantFichas;j++){
+            azules[j-1] = new Ficha(ctx, x+500, y,"#00f", tamFicha,jugador2);
             //console.log(azules);
-            a++;
+            //a++;
             x+=30;
-            if(a%7==0){
+            if(j%7==0){
                 x=_x;
                 y+=45;
             }
@@ -136,6 +136,9 @@ document.addEventListener("DOMContentLoaded", function(){
 //------------------------------------Main-------------------------------------------
     function findClickedFigure(x,y){
         // tengo que recorrer los arreglos de cada ficha y ver si toque a alguna
+        console.log(x)
+        console.log(y)
+
         for(let r=0; r<rojas.length; r++){
             rojas[r].isPointInside(x,y)
             //console.log(rojas[r].isPointInside(x,y))
@@ -168,11 +171,11 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function reiniciarJuego(){       
+        ctx.fillStyle="#fff";
+        ctx.fillRect(0,0,width,height); 
         rojas=[];
         azules=[];
-        //azules.splice(0);
 
-        ctx.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo        
         inicial();
     }
 

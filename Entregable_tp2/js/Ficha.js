@@ -27,25 +27,16 @@ class Ficha{
     }
 
     dibujarFicha(){
-        console.log("holi")
+        //console.log("holi")
         if(this.ctx){
             //ctx.beginPath();                 
             //ctx.closePath();
             if(this.color === this.rojo){ 
                 //console.log("estoy en ficha roja")
-                /*this.ctx.fillStyle = this.color
-                this.ctx.beginPath()
-                //ctx.arc(x, y, tam, 0(circ_entero), 2 * Math.PI,);
-                this.ctx.arc(this.posX+this.tamFicha/2, this.posY+this.tamFicha/2, this.tamFicha/2, 0, 2*Math.PI)
-                this.ctx.closePath()
-                this.ctx.fill()*/
-
-                this.ctx.drawImage(this.img, this.posX, this.posY, this.tamFicha, this.tamFicha)                    
-                
+                this.ctx.drawImage(this.img, this.posX, this.posY, this.tamFicha, this.tamFicha)                                    
             }else{
                 //console.log("estoy en ficha azul")
                 this.ctx.drawImage(this.img2, this.posX, this.posY, this.tamFicha, this.tamFicha) 
-
             }
         }
     }
@@ -56,12 +47,15 @@ class Ficha{
 
         return Math.sqrt(pos_x * pos_x + pos_y * pos_y) < radio;
     }
+    // setPos(e.layerX, e.layerY)
     setPos(x,y){
+        console.log(x)
+        console.log(y)
         let radio = this.tamFicha/2;
-        let pos_x = (this.posX + radio) - x;
-        let pos_y = (this.posY + radio) - y;
-
-        this.posX = x - radio + pos_x;
-        this.posY = y - radio + pos_y;
+        
+        this.posX = x - radio// 
+        this.posY = y - radio //
+        console.log(this.posX)
+        console.log(this.posY)
     }
 }

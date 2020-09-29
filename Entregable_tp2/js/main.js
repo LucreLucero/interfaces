@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function(){
     let tamFicha = 50;
     let clickedFigure = null;
 
-    let rojas=[]; let azules=[]; let r=0; let a=0; 
+    let tablero;
+    let rojas=[]; let azules=[]; 
+    let r=0; let a=0; 
     let jugadores=[];
     let posX, posY;
     //---empiezo---------------------
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let jugador2 = "Cristian";
     jugadores[0] = jugador1; //luis
     jugadores[1] = jugador2; //cristian
-    let esSuTurno = false;
+    let esSuTurno = false;// alternar turnos para fichas ??
     
     //----------------------eventos----------------
     //let fila = document.querySelector('#alto').value;
@@ -36,21 +38,14 @@ document.addEventListener("DOMContentLoaded", function(){
         let eX = e.layerX;
         let eY = e.layerY;        
         let hiceClick = findClickedFigure(eX, eY)
-        console.log(hiceClick)
+        //console.log(hiceClick)
         
         if((hiceClick != null) ){
-            console.log(hiceClick.jugador)
+            //console.log(hiceClick.jugador)//me trae el jugador..interesantee...
             //console.log(hiceClick)
             clickedFigure = hiceClick;
         }
     });
-
-    /*let clicked = this.findClicked(e.pageX - this.canvas.offsetLeft, e.pageY - this.canvas.offsetTop)
-    if(clicked == null){return}
-    // If the piece belongs to == the player whose turn is
-    if(clicked.player == this.players[this.playerTourn]){
-        this.clickedElem = clicked
-    }*/
 
     canvas.addEventListener('mouseup',function(){ //todavia no anda
 
@@ -61,19 +56,15 @@ document.addEventListener("DOMContentLoaded", function(){
                 ingresarFicha(estaFicha) //poner en el tablero                 
             }
         }
-        //clickedFigure = null; 
+        clickedFigure = null; 
         
     });
     canvas.addEventListener('mousemove',function(e){
-        //console.log(clickedFigure)
-        console.log("mousemoveee")
         if(clickedFigure == null){return} //dataso! si uso solo return freno la ejecucion
-
-                //moviendo(x, y, e.clientX - rect.left, e.clientY - rect.top)//le paso las coordenadas de inicio a donde estoy
-                clickedFigure.setPos(e.layerX, e.layerY)//le paso las coordenadas de inicio a donde estoy            
+        clickedFigure.setPos(e.layerX, e.layerY)//le paso las coordenadas de inicio a donde estoy   
         actualizar(); 
-    });
-    
+    });    
+
     canvas.addEventListener("mouseleave", function(){
         clickedFigure = null; 
     });
@@ -90,36 +81,10 @@ document.addEventListener("DOMContentLoaded", function(){
         createFichitas();
     }
 
-    function crearTablero(){ 
-        let mat=[fila];
-        for (let f=0;f<fila;f++){
-            mat [f]=[];
-            for (let c=0;c<col;c++){
-                mat[f][c]=null;
-            }
-            //console.log(mat);
-        }
-        //console.log("miro la matriz")
-
-        let img = new Image();
-        img.src = "image/tablero.png";
-        img.onload = function(){ 
-            redibujarTablero(img,mat);
-        }
+    function crearTablero(){
+        tablero = new Tablero(canvas,ctx,fila,col)        
     }
-    function redibujarTablero(img,mat){ 
-        //let miPatron;
-        for (let f=0;f<fila;f++){
-            for (let c=0;c<col;c++){
-                mat[f][c]= img;    
-                
-            }
-        }
-        console.log(mat)
-        let miPatron = ctx.createPattern(img, 'repeat');
-        ctx.fillStyle = miPatron;
-        ctx.fillRect(250,250, img.width*fila, img.width*col);      
-    }
+    crearTablero()//--------------- comentar despues, es para probar
 
     function puedoIngresarFicha(){
         //si estoy en el tablero
@@ -176,8 +141,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
 //------------------------------------Main-------------------------------------------
-    
-
     function findClickedFigure(x,y){
         // tengo que recorrer los arreglos de cada ficha y ver si toque a alguna
         for(let r=0; r<rojas.length; r++){
@@ -187,11 +150,10 @@ document.addEventListener("DOMContentLoaded", function(){
             if (rojas[r].isPointInside(x,y)){
                 return rojas[r]
             }
-
         }
-        for(let a=0; a<azules.lenght; a++){
+
+        for(let a=0; a<azules.length; a++){
             azules[a].isPointInside(x,y)
-            //console.log(azules[a].isPointInside(x,y))
 
             if (azules[a].isPointInside(x,y)){
                 return azules[a]
@@ -201,54 +163,26 @@ document.addEventListener("DOMContentLoaded", function(){
     
     function actualizar(){
         ctx.fillStyle="#fff";
-        ctx.fillRect(0,0,width,height);
+        ctx.fillRect(0,0,width,height);        
+        tablero.redibujarTablero();
         
-        crearTablero();
-        
-    
         for (const i in rojas) {
-            //console.log(rojas[i])
             rojas[i].dibujarFicha();
         }
         for (let j in azules){
             azules[j].dibujarFicha();
-        }
-        console.log("actualice fichas y ahora el tablero")
-        
-    }
-    function dibujarFicha(){
-        //console.log("holi")
-        if(ctx){
-            //ctx.beginPath();                 
-            //ctx.closePath();
-            if(color === rojo){ 
-                //console.log("estoy en ficha roja")
-                this.ctx.drawImage(this.img, this.posX, this.posY, this.tamFicha, this.tamFicha)                    
-                //this.ctx.strokeStyle("black");
-                //this.ctx.stroke();
-            }else{
-                //console.log("estoy en ficha azul")
-                this.ctx.drawImage(this.img2, this.posX, this.posY, this.tamFicha, this.tamFicha) 
-
-            }
-        }
+        }        
     }
 
-    function reiniciarJuego(){
-        console.log(rojas.length);
-        console.log(azules.length);
-       
+    function reiniciarJuego(){       
         rojas=[];
-        azules.splice(0);
+        azules=[];
+        //azules.splice(0);
 
         ctx.clearRect(0,0,canvas.width,canvas.height);//limpia el lienzo        
         inicial();
-        console.log(rojas.length);
-        console.log(azules.length);
-
-
     }
 
-    createFichitas();
-    crearTablero();
+    createFichitas();//--------------- comentar despues, es para probar
+    crearTablero();//--------------- comentar despues, es para probar
 });

@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function(){
         
         if((hiceClick != null) ){
             //console.log(hiceClick.jugador)//me trae el jugador..interesantee...
-            //console.log(hiceClick)
             clickedFigure = hiceClick;
         }
     });
@@ -51,10 +50,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if(clickedFigure != null){//como en ej figuras
             //aca deberia probar si puedo insertar en el tablero 
-            let estaFicha = puedoIngresarFicha(clickedFigure)
-            if(estaFicha != null){
-                ingresarFicha(estaFicha) //poner en el tablero                 
-            }
+            let estaFicha = tablero.puedoIngresarFicha(clickedFigure)
+            console.log(estaFicha)
+            //if(estaFicha != null){
+             //   ingresarFicha(clickedFigure) //poner en el tablero                 
+            //}
         }
         clickedFigure = null; 
         
@@ -85,13 +85,6 @@ document.addEventListener("DOMContentLoaded", function(){
         tablero = new Tablero(canvas,ctx,fila,col)        
     }
     crearTablero()//--------------- comentar despues, es para probar
-
-    function puedoIngresarFicha(){
-        //si estoy en el tablero
-        //ingreso ficha
-    }
-    function ingresarFicha(){}
-    function corroborarPos(){}
 
     //---------------------------Fichas---------------------------------
     //declaraciones

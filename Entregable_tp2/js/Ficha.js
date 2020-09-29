@@ -47,15 +47,10 @@ class Ficha{
 
         return Math.sqrt(pos_x * pos_x + pos_y * pos_y) < radio;
     }
-    // setPos(e.layerX, e.layerY)
     setPos(x,y){
-        console.log(x)
-        console.log(y)
         let radio = this.tamFicha/2;
         
-        this.posX = x - radio// 
-        this.posY = y - radio //
-        console.log(this.posX)
-        console.log(this.posY)
+        this.posX = x - radio 
+        this.posY = y - radio         
     }
 }

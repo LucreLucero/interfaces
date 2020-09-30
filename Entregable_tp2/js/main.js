@@ -30,15 +30,14 @@ document.addEventListener("DOMContentLoaded", function(){
     //----------------------eventos----------------
     //let fila = document.querySelector('#alto').value;
     //let col = document.querySelector('#ancho').value;
-    document.querySelector('#jugar').addEventListener('click',inicial);
+    let j = document.querySelector('#jugar').addEventListener('click',inicial);
     document.querySelector('#reiniciar').addEventListener('click',reiniciarJuego);
-
     canvas.addEventListener('mousedown',function(e){//CUANDO HAGO CLICK
         //let clicked = findClicked(e.pageX - canvas.offsetLeft, e.pageY - this.offsetTop)
         let eX = e.layerX;
         let eY = e.layerY;        
         let hiceClick = findClickedFigure(eX, eY);
-        console.log(hiceClick)
+        //console.log(hiceClick)
         
         if((hiceClick != null) ){
             //console.log(hiceClick.jugador)//me trae el jugador..interesantee...
@@ -50,11 +49,28 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if(clickedFigure != null){//como en ej figuras
             //aca deberia probar si puedo insertar en el tablero 
-            let estaFicha = tablero.puedoIngresarFicha(clickedFigure)
-            console.log(estaFicha)
-            //if(estaFicha != null){
-             //   ingresarFicha(clickedFigure) //poner en el tablero                 
-            //}
+
+            let filaDeEstaFicha = tablero.puedoIngresarFicha(clickedFigure) // me va a retornar la fila o -1
+            console.log(filaDeEstaFicha)
+
+            if(filaDeEstaFicha != -1){
+                console.log(clickedFigure)
+                console.log( "ingreso la ficha")
+                //clickedFigure.setPos(x,y)
+                tablero.ingresarFicha(clickedFigure, filaDeEstaFicha) //poner en el tablero  
+                console.log("acaa")
+                let indiceFichaR = rojas.indexOf(clickedFigure) // busca si esa ficha esta en de ese arreglo -- me da el indice y sino -1
+                if(indiceFichaR != -1){
+                    rojas.splice(indiceFichaR, 1) //borro la ficha en ese indice
+                }else{
+                    let indiceFichaA = azules.indexOf(clickedFigure) // busca si esa ficha esta en de ese arreglo -- me da el indice y sino -1
+                    if(indiceFichaA != -1){
+                        azules.splice(indiceFichaA, 1) //borro la ficha en ese indice
+                    }
+
+                }
+                actualizar()
+            }
         }
         clickedFigure = null; 
         
@@ -89,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //---------------------------Fichas---------------------------------
     //declaraciones
     
+
     function createFichitas(){
         let x =30,y=10;
     //rooojaaaaass
@@ -136,8 +153,8 @@ document.addEventListener("DOMContentLoaded", function(){
 //------------------------------------Main-------------------------------------------
     function findClickedFigure(x,y){
         // tengo que recorrer los arreglos de cada ficha y ver si toque a alguna
-        console.log(x)
-        console.log(y)
+        console.log("x: " + x)
+        console.log("y: " + y)
 
         for(let r=0; r<rojas.length; r++){
             rojas[r].isPointInside(x,y)

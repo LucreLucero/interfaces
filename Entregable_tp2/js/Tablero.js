@@ -6,7 +6,8 @@ class Tablero{
         this.fila=fila;
         this.col=col;
         
-        this.ini = 2
+        this.cantRondas = 1
+
         this.tamFicha = 50
         this.punto = "#862"
         this.img = new Image();
@@ -20,7 +21,6 @@ class Tablero{
                 this.mat[f][c] = null;
             }
         }
-        //console.log("miro la matriz")
 
         this.crearTablero();
     }
@@ -58,11 +58,9 @@ class Tablero{
     puedoIngresarFicha(clickedFigure){
         console.log("puedo ingresar ficha")
         //le paso una ficha 
-            
         let ubicacionX = clickedFigure.posX + this.tamFicha/2;//
         let ubicacionY = clickedFigure.posY + this.tamFicha/2;//
-        
-        
+
         for (let i=0;i<this.fila;i++){ //recorro por la cantidad de puntos
             //tengo que corroborar que el x coincida desde el centro, un poco mas            
             let x_delPunto = 275+this.tamFicha*i;
@@ -70,8 +68,7 @@ class Tablero{
 
             let distancia = Math.sqrt((ubicacionX - x_delPunto) * (ubicacionX - x_delPunto) + (ubicacionY - y_delPunto) * (ubicacionY - y_delPunto))
             //console.log(distancia)
-
-            if((distancia < 10)&&(this.mat[i][0] == null)){// distancia al tamaño de mi puntito :)
+            if((distancia < 20)&&(this.mat[i][0] == null)){// distancia al tamaño de mi puntito :)
                 console.log("estoy en el puntito")
                 return i;
             }  
@@ -101,6 +98,17 @@ class Tablero{
         console.log(y)
         console.log(clickedFigure)
     }
-    corroborarPos(){}
+    corroborarPos(){
+        //tengo que recorrer la matriz 
+
+        for (let f=0;f<this.fila;f++){
+            for (let c=0;c<this.col;c++){                
+                if(this.mat[f][c] != null){
+                    this.mat[f][c].dibujarFicha()
+                }
+                //console.log(this.img)
+            }
+        }
+    }
     
 }

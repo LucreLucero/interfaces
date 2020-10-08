@@ -1,11 +1,12 @@
 class Ficha{
-    constructor(ctx,posX,posY, color, tamFicha,jugador){
+    constructor(ctx,posX,posY, color, tamFicha,jugador, turnoJugador){
         this.ctx = ctx
         this.posX = posX
         this.posY = posY
         this.color=color
         this.tamFicha = tamFicha
         this.jugador=jugador
+        this.turnoJugador=turnoJugador
 
         this.rojo = "#f00"
         this.img = new Image()        

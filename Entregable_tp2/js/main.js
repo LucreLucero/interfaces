@@ -20,45 +20,51 @@ document.addEventListener("DOMContentLoaded", function(){
     img.src = "image/fichaRoja.png";
     let img2 = new Image();        
     img2.src = "image/fichaAzul.png";
-
-    let jugador1 = "Luis";
-    let jugador2 = "Cristian";
-    jugadores[0] = jugador1; //luis
-    jugadores[1] = jugador2; //cristian
-    let esSuTurno = false;// alternar turnos para fichas ??
+    
+    let tieneTurno = true;
+    //let jugador1 = "Luis";
+    //let jugador2 = "Cristian";
     
     //----------------------eventos----------------
+    let jugador1 = document.querySelector('#jugador1').value
+    let jugador2 = document.querySelector('#jugador2').value
+    console.log(jugador1)
+
+    jugadores[0] = jugador1; //luis
+    jugadores[1] = jugador2; //cristian
     //let fila = document.querySelector('#alto').value;
     //let col = document.querySelector('#ancho').value;
-    let j = document.querySelector('#jugar').addEventListener('click',inicial);
+    document.querySelector('#jugar').addEventListener('click',inicial);
     document.querySelector('#reiniciar').addEventListener('click',reiniciarJuego);
     canvas.addEventListener('mousedown',function(e){//CUANDO HAGO CLICK
         //let clicked = findClicked(e.pageX - canvas.offsetLeft, e.pageY - this.offsetTop)
         let eX = e.layerX;
         let eY = e.layerY;        
         let hiceClick = findClickedFigure(eX, eY);
-        //console.log(hiceClick)
-        
-        if((hiceClick != null) ){
+        let turnoJugador = hiceClick.turnoJugador //inicio con el turno de rojas y despues veo si es el turno del jugador
+
+        if((hiceClick != null)&&(tieneTurno == turnoJugador) ){
             //console.log(hiceClick.jugador)//me trae el jugador..interesantee...
-            clickedFigure = hiceClick;
+            clickedFigure = hiceClick;            
         }
     });
 
     canvas.addEventListener('mouseup',function(){ //todavia no anda //LO QUE HAGO AL SOLTAR LA FICHA
-
         if(clickedFigure != null){//como en ej figuras
             //aca deberia probar si puedo insertar en el tablero 
-
             let filaDeEstaFicha = tablero.puedoIngresarFicha(clickedFigure) // me va a retornar la fila o -1
             console.log(filaDeEstaFicha)
 
             if(filaDeEstaFicha != -1){
-                console.log(clickedFigure)
-                console.log( "ingreso la ficha")
-                //clickedFigure.setPos(x,y)
+                //console.log( "ingreso la ficha")
                 tablero.ingresarFicha(clickedFigure, filaDeEstaFicha) //poner en el tablero  
-                console.log("acaa")
+                //cuando la pongo en el tablero cambio el turno
+                if (tieneTurno==true)
+                tieneTurno = false
+                else
+                tieneTurno = true
+
+                //elimino las fichas ingresadas del arr de fichas
                 let indiceFichaR = rojas.indexOf(clickedFigure) // busca si esa ficha esta en de ese arreglo -- me da el indice y sino -1
                 if(indiceFichaR != -1){
                     rojas.splice(indiceFichaR, 1) //borro la ficha en ese indice
@@ -69,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     }
 
                 }
-                actualizar()
+                actualizar() //actualizo mi vista
             }
         }
         clickedFigure = null; 
@@ -91,6 +97,9 @@ document.addEventListener("DOMContentLoaded", function(){
     //---------------Tablero------------
    
     function inicial(){
+        ctx.fillStyle="#fff";
+        ctx.fillRect(0,0,width,height); 
+    
         rojas=[];
         azules=[];
         crearTablero();
@@ -100,19 +109,19 @@ document.addEventListener("DOMContentLoaded", function(){
     function crearTablero(){
         tablero = new Tablero(canvas,ctx,fila,col)        
     }
-    crearTablero()//--------------- comentar despues, es para probar
 
     //---------------------------Fichas---------------------------------
     //declaraciones
     
-
     function createFichitas(){
+        let turnoJugadorRojo = true; // alternar turnos para fichas ??
+        let turnoJugadorAzul = false;
         let x =30,y=10;
     //rooojaaaaass
         let _x = x;
         let _y = y; 
         for (let i=1; i<=cantFichas;i++){
-            rojas[i-1] = new Ficha(ctx, x, y, "#f00", tamFicha,jugador1);
+            rojas[i-1] = new Ficha(ctx, x, y, "#f00", tamFicha,jugador1,turnoJugadorRojo);
             //console.log(rojas);
             //r++;
             x+=30;
@@ -125,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function(){
         y= _y;
     //azuuleees
         for (let j=1; j<=cantFichas;j++){
-            azules[j-1] = new Ficha(ctx, x+500, y,"#00f", tamFicha,jugador2);
+            azules[j-1] = new Ficha(ctx, x+500, y,"#00f", tamFicha,jugador2,turnoJugadorAzul);
             //console.log(azules);
             //a++;
             x+=30;
@@ -195,7 +204,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
         inicial();
     }
-
     createFichitas();//--------------- comentar despues, es para probar
     crearTablero();//--------------- comentar despues, es para probar
 });

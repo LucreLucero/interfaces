@@ -15,29 +15,32 @@
 
 </head>
 <body>
+    <nav class="navigation">
          
         <div class="logo">            
             <img src="image/cuatrox4logo.png" alt="logo">
           
-            <h1><i class="fas fa-star" style="color:rgb(247, 204, 15);"></i> 
+            <!--<h1><i class="fas fa-star" style="color:rgb(247, 204, 15);"></i> 
                 4 en fila!<i class="fas fa-star" style="color:rgb(247, 204, 15);"></i> Juguemos!
-            </h1>
-            
+            </h1>-->
+            <ul>
+                <input type="button" id="jugar" class="item" value="Juguemos!">
+                <input type="button" id="reiniciar"class="item" value="Reintentar!">
+                <!--<a>Tamaño</a>
+                    <input type="number" id="alto" class="item" min ="6" max="10"value="6">-->
+            </ul>
+            <h1>Turno:</h1>
+            <div class="jugador1"><i class="fas fa-angle-double-right" style="color: red;"></i> Jugador 1 </div>
+            <input type="text" id="jugador1" class="jugador1"  value="Jugador 1">
+            <div class="jugador2"> Jugador 2 <i class="fas fa-angle-double-left" style="color:blue;"></i></div>
+            <input type="text" id="jugador2" class="jugador2" value="Jugador 2">
+
         </div>        
     
-    <nav class="navigation">
-        <ul>
-            <input type="button" id="jugar" class="item" value="Juguemos!">
-            <input type="button" id="reiniciar"class="item" value="Reintentar!">
-            <!--<a>Tamaño</a>
-            <input type="number" id="alto" class="item" min ="6" max="10"value="6">-->
-        </ul>
-        <div class="jugador1"><i class="fas fa-angle-double-right" style="color: red;"></i> Jugador 1 </div>
-        <div class="jugador2"> Jugador 2 <i class="fas fa-angle-double-left" style="color:blue;"></i></div>
     </nav>
-    <ul>
-    </ul>
+    
     <article class="content">
+       <!--- <h1>jugador 1</h1> <h1>jugador2</h1>-->
         <canvas id="myCanvas"  width="800" height="600" class="myCanvas" style="border: 1px solid black;    border-radius: 5px;
         background: rgb(255, 255, 255)"></canvas>
         

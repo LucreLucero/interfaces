@@ -13,6 +13,8 @@ class Tablero{
         this.img = new Image();
         this.img.src = "image/tablero.png";
 
+        this.posFicha = {f:0,c:0} 
+
         //tengo que crear la matriz donde voy a poner mi tablero
         this.mat = [this.fila];
         for (let f=0; f<this.fila; f++){
@@ -42,7 +44,7 @@ class Tablero{
             }
         }
         // hago los indicadores del tablero por cada filas
-        for (let i=0;i<this.fila;i++){
+        for (let i=0;i<this.col;i++){
             this.ctx.beginPath()
             this.ctx.fillStyle = this.punto
             this.ctx.arc(275+this.img.width*i, 220, 10, 0, 2 * Math.PI)
@@ -52,63 +54,149 @@ class Tablero{
         //creo el tablero con la imagen
         let miPatron = this.ctx.createPattern(this.img, 'repeat');
         this.ctx.fillStyle = miPatron;
-        this.ctx.fillRect(250,250, this.img.width * this.fila, this.img.width*this.col);     
+        this.ctx.fillRect(250,250, this.img.width * this.col, this.img.width*this.fila);     
     }
 
     puedoIngresarFicha(clickedFigure){
-        console.log("puedo ingresar ficha")
+        //console.log("puedo ingresar ficha")
         //le paso una ficha 
         let ubicacionX = clickedFigure.posX + this.tamFicha/2;//
         let ubicacionY = clickedFigure.posY + this.tamFicha/2;//
 
-        for (let i=0;i<this.fila;i++){ //recorro por la cantidad de puntos
+        for (let i=0;i<this.col;i++){ //recorro por la cantidad de puntos
             //tengo que corroborar que el x coincida desde el centro, un poco mas            
             let x_delPunto = 275+this.tamFicha*i;
-            let y_delPunto = 220//this.tamFicha*this.col;
+            let y_delPunto = 220//this.tamFicha*this.col
 
             let distancia = Math.sqrt((ubicacionX - x_delPunto) * (ubicacionX - x_delPunto) + (ubicacionY - y_delPunto) * (ubicacionY - y_delPunto))
             //console.log(distancia)
-            if((distancia < 20)&&(this.mat[i][0] == null)){// distancia al tamaño de mi puntito :)
-                console.log("estoy en el puntito")
+            if((distancia < 30)&&(this.mat[0][i] == null)){// distancia al tamaño de mi puntito :)
+                //console.log("estoy en el puntito")
                 return i;
             }  
         }
         return -1;          
 
     }
-    ingresarFicha(clickedFigure, filaDeEstaFicha){
+    ingresarFicha(clickedFigure, colDeEstaFicha){
         //meterla en la fila de la matriz si no esta vacia //desde atras para adelante
-        let finalC = this.col -1
-        let x = 275+this.tamFicha*filaDeEstaFicha
+        this.posFicha.c = colDeEstaFicha
+
+        let finalF = this.fila -1
+        let x = 275+this.tamFicha*colDeEstaFicha
         let y = 0
-        for (let c=finalC; c >= 0; c--){
-            console.log(this.mat[filaDeEstaFicha][c])
+        for (let f=finalF; f >= 0; f--){
+            //console.log(this.mat[filaDeEstaFicha][c])
 
-            if(this.mat[filaDeEstaFicha][c]==null){
-                console.log("entro aca")
+            if(this.mat[f][colDeEstaFicha]==null){
+                //console.log("entro aca")
+                this.mat[f][colDeEstaFicha] = clickedFigure;                  
+                this.posFicha.f = f
+                console.log(this.posFicha.f)
 
-                this.mat[filaDeEstaFicha][c] = clickedFigure;  
-                //console.log(this.mat[filaDeEstaFicha][c])
-                y =  275 + this.tamFicha * c
+                y =  275 + this.tamFicha * f
                 clickedFigure.setPos(x,y)
                 break
             } 
         }
-        console.log(x)
-        console.log(y)
-        console.log(clickedFigure)
+        console.log(this.mat)
+        //console.log(y)
+        //console.log(clickedFigure)
     }
-    corroborarPos(){
-        //tengo que recorrer la matriz 
 
-        for (let f=0;f<this.fila;f++){
-            for (let c=0;c<this.col;c++){                
-                if(this.mat[f][c] != null){
-                    this.mat[f][c].dibujarFicha()
-                }
-                //console.log(this.img)
-            }
-        }
+    corroborarGanador(){
+        //tengo que pasarle una ficha
+        let f = this.posFicha.f
+        let c = this.posFicha.c
+        //para horizontal paso fila - vertical paso col - asc y desc fila y col
+        return this.posHorizontal(f) || this.posVertical(c) || this.posDiagonalAsc(f,c) 
+  //this.posDiagonalDesc(f,c)
+        //return this.posHorizontal() || this.posVertical() || this.posDiagonal()
     }
+
+    posHorizontal(fila){
+        let contador = 1
+        let c = 0
+        //console.log(ficha)
+        //tengo que recorrer la matriz
+        //for (let c=columna; c<this.col; c++){     
+        while(c < this.col-1){
+            console.log("entre a la horizontal")
+
+            if((this.mat[fila][c] != null)&& (this.mat[fila][c+1] != null)){
+                if(this.mat[fila][c].color == this.mat[fila][c+1].color){ 
+                    contador++
+                    console.log("aqui"+contador)
+                    if(contador==4){
+                        console.log(contador + "cuatrooo")
+                        return true
+                    }
+                }else{
+                    contador = 1
+                }
+            } else{
+                contador = 1
+            }                     
+            c++
+        }
+        return false
+    }
+
+    posVertical(columna){
+        let contador = 1
+        let f = 1
+        
+        while(f < this.fila-1){
+            console.log("entre a la vertical")
+
+            if((this.mat[f][columna] != null)&& (this.mat[f+1][columna] != null)){
+                if(this.mat[f][columna].color == this.mat[f+1][columna].color){ 
+                    contador++
+                    console.log("aqui"+contador)
+                    if(contador==4){
+                        console.log(contador + "cuatrooo")
+                        return true
+                    }
+                }else{
+                    contador = 1
+                }
+            } else{
+                contador = 1
+            }                     
+            f++
+        }
+        return false
+    }
+    posDiagonalAsc(f,c){
+        let contador = 1
+        f--
+        while((f < this.fila-1)&&(c < this.col)){
+            f++
+            c++
+        
+        while((f>0) &&(c>1)){//para poder empezar tengo que estar al menos en la fila 1 y en la columna
+            console.log("entre a la diagonal asc")
+            if((this.mat[f][c] != null)&& (this.mat[f-1][c-1] != null)){
+                console.log("aqui"+contador)
+                    if(this.mat[f][c].color == this.mat[f-1][c-1].color){  //tengo que ver si abajo ya tengo algo
+                        contador++
+                        console.log(contador)
+                        if(contador==4){
+                            console.log(contador + "cuatrooo")
+                            return true
+                        }
+                    }else{
+                        contador = 1
+                    }
+                } else{
+                    contador = 1
+                }                     
+                f--
+                c--
+        
+        }}
+        return false
+    }
+
     
 }

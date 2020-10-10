@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function(){
     let ctx = canvas.getContext('2d');
     let width = canvas.width;// = window.width;
     let height = canvas.height;// = window.height;
-    const fila=7; 
-    const col=6;
+    const fila=6; 
+    const col=7;
     let cantFichas = (fila*col)/2;
     let tamFicha = 50;
     let clickedFigure = null;
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //----------------------eventos----------------
     let jugador1 = document.querySelector('#jugador1').value
     let jugador2 = document.querySelector('#jugador2').value
-    console.log(jugador1)
+    //console.log(jugador1)
 
     jugadores[0] = jugador1; //luis
     jugadores[1] = jugador2; //cristian
@@ -49,15 +49,19 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
-    canvas.addEventListener('mouseup',function(){ //todavia no anda //LO QUE HAGO AL SOLTAR LA FICHA
-        if(clickedFigure != null){//como en ej figuras
+    canvas.addEventListener('mouseup',function(){ 
+        if(clickedFigure != null){
             //aca deberia probar si puedo insertar en el tablero 
-            let filaDeEstaFicha = tablero.puedoIngresarFicha(clickedFigure) // me va a retornar la fila o -1
-            console.log(filaDeEstaFicha)
+            let colDeEstaFicha = tablero.puedoIngresarFicha(clickedFigure) // me va a retornar la fila o -1
+            console.log(colDeEstaFicha)
 
-            if(filaDeEstaFicha != -1){
-                //console.log( "ingreso la ficha")
-                tablero.ingresarFicha(clickedFigure, filaDeEstaFicha) //poner en el tablero  
+            if(colDeEstaFicha != -1){
+                tablero.ingresarFicha(clickedFigure, colDeEstaFicha) //poner en el tablero  
+                
+                //corroboro si alguien gano 
+                let a = tablero.corroborarGanador() //aca deberia traer un boolean
+                console.log(a)
+
                 //cuando la pongo en el tablero cambio el turno
                 if (tieneTurno==true)
                 tieneTurno = false

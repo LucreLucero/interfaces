@@ -105,13 +105,10 @@ class Tablero{
     }
 
     corroborarGanador(){
-        //tengo que pasarle una ficha
         let f = this.posFicha.f
         let c = this.posFicha.c
         //para horizontal paso fila - vertical paso col - asc y desc fila y col
-        return this.posHorizontal(f) || this.posVertical(c) || this.posDiagonalAsc(f,c) 
-  //this.posDiagonalDesc(f,c)
-        //return this.posHorizontal() || this.posVertical() || this.posDiagonal()
+        return this.posHorizontal(f) || this.posVertical(c) || this.posDiagonalAsc(f,c) || this.posDiagonalDesc(f,c)
     }
 
     posHorizontal(fila){
@@ -119,14 +116,13 @@ class Tablero{
         let c = 0
         //console.log(ficha)
         //tengo que recorrer la matriz
-        //for (let c=columna; c<this.col; c++){     
         while(c < this.col-1){
             console.log("entre a la horizontal")
 
             if((this.mat[fila][c] != null)&& (this.mat[fila][c+1] != null)){
                 if(this.mat[fila][c].color == this.mat[fila][c+1].color){ 
                     contador++
-                    console.log("aqui"+contador)
+                    //console.log("aqui"+contador)
                     if(contador==4){
                         console.log(contador + "cuatrooo")
                         return true
@@ -134,7 +130,7 @@ class Tablero{
                 }else{
                     contador = 1
                 }
-            } else{
+            }else{
                 contador = 1
             }                     
             c++
@@ -152,7 +148,7 @@ class Tablero{
             if((this.mat[f][columna] != null)&& (this.mat[f+1][columna] != null)){
                 if(this.mat[f][columna].color == this.mat[f+1][columna].color){ 
                     contador++
-                    console.log("aqui"+contador)
+                    //console.log("aqui"+contador)
                     if(contador==4){
                         console.log(contador + "cuatrooo")
                         return true
@@ -167,35 +163,67 @@ class Tablero{
         }
         return false
     }
+
     posDiagonalAsc(f,c){
         let contador = 1
-        f--
-        while((f < this.fila-1)&&(c < this.col)){
-            f++
-            c++
-        
-        while((f>0) &&(c>1)){//para poder empezar tengo que estar al menos en la fila 1 y en la columna
-            console.log("entre a la diagonal asc")
-            if((this.mat[f][c] != null)&& (this.mat[f-1][c-1] != null)){
-                console.log("aqui"+contador)
-                    if(this.mat[f][c].color == this.mat[f-1][c-1].color){  //tengo que ver si abajo ya tengo algo
-                        contador++
-                        console.log(contador)
-                        if(contador==4){
-                            console.log(contador + "cuatrooo")
-                            return true
-                        }
-                    }else{
-                        contador = 1
-                    }
-                } else{
-                    contador = 1
-                }                     
+        console.log("ascendenteeeee")
+
+        while ((f > 0 && c < this.col-1) && 
+            (this.mat[f][c] != null) && (this.mat[f-1][c+1] != null) && (this.mat[f][c].color == this.mat[f-1][c+1].color)){
                 f--
-                c--
+                c++
+        }
+        while (f < this.fila-1 && c > 0) {
+
+            if (this.mat[f][c] != null && this.mat[f+1][c-1] != null) {
+                if (this.mat[f][c].color == this.mat[f+1][c-1].color) {
+                    contador ++;
+                    console.log(contador+ "esto")
+
+                    if (contador == 4){
+                        console.log(contador + "cuatrooo")
+                        return true;
+                    }                    
+                } else
+                    contador = 1;
+            } else
+            contador = 1;
+            f ++;
+            c --;
+        }
+        return false;
+    
+    }
+    
+    posDiagonalDesc(f,c){
+        let contador = 1
+        console.log("descendenteeeee")
         
-        }}
-        return false
+        while ((f > 0 && c > 0) && 
+        (this.mat[f][c] != null) && (this.mat[f-1][c-1] != null) && (this.mat[f][c].color == this.mat[f-1][c-1].color)){
+            f--
+            c--
+        }
+
+        while (f < this.fila-1 && c < this.col-1) {
+            if (this.mat[f][c] != null && this.mat[f+1][c+1] != null) {
+                if (this.mat[f][c].color == this.mat[f+1][c+1].color) {
+                    contador ++;
+                    //console.log(contador)
+
+                    if (contador == 4){
+                        console.log(contador + "cuatrooo")
+                        return true;
+                    }                    
+                } else
+                    contador = 1;
+            } else
+            contador = 1;
+            f ++;
+            c ++;
+        }
+        return false;
+    
     }
 
     

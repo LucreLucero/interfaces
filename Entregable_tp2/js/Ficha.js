@@ -14,8 +14,6 @@ class Ficha{
         this.img2 = new Image()        
         this.img2.src = "image/fichaAzul.png"
         
-        //console.log(this.img)
-        //console.log(this.img2)
         this.cargarImg()
     } 
 
@@ -28,10 +26,7 @@ class Ficha{
     }
 
     dibujarFicha(){
-        //console.log("holi")
         if(this.ctx){
-            //ctx.beginPath();                 
-            //ctx.closePath();
             if(this.color === this.rojo){ 
                 //console.log("estoy en ficha roja")
                 this.ctx.drawImage(this.img, this.posX, this.posY, this.tamFicha, this.tamFicha)                                    

@@ -28,7 +28,6 @@ class Tablero{
         this.crearTablero();
     }
     crearTablero(){ 
-        //---------------
         let t = this // porque tengo que hacer una variable? .. no lo se, pero funciona
         this.img.onload = function(){ 
             t.redibujarTablero();
@@ -36,13 +35,11 @@ class Tablero{
     }
     
     redibujarTablero(){ 
-
         for (let f=0;f<this.fila;f++){
             for (let c=0;c<this.col;c++){                
                 if(this.mat[f][c] != null){
                     this.mat[f][c].dibujarFicha()
                 }
-                //console.log(this.img)
             }
         }
         // hago los indicadores del tablero por cada filas
@@ -78,13 +75,13 @@ class Tablero{
     }
 
     toggleMensajeTurno(jugador,hayGanador){
-        if(hayGanador==false){ 
+        console.log(hayGanador)
             this.ctx.font = "20px Arial black"
             this.ctx.fillStyle = "grey"
             this.ctx.textAlign = "center"
             this.ctx.fillText("Y ahora? " ,this.canvas.width/2, this.canvas.height/5) 
             this.ctx.fillText(jugador,this.canvas.width/2, this.canvas.height/4) 
-        }
+        
     }
 
     nombresTurno(){
@@ -99,7 +96,6 @@ class Tablero{
         if(hayGanador==true){
             let msjGanador = document.querySelector("#win")
             let c = clickedFigure.color
-            //console.log(clickedFigure.color)
 
             msjGanador.style.display = 'none'
             let player = clickedFigure.jugador.value
@@ -116,14 +112,14 @@ class Tablero{
         }
     }
     mensajeEmpate(){
-            this.ctx.font = "20px Arial black"
-            this.ctx.fillStyle = `grey`
-            this.ctx.textAlign = "center"
-            this.ctx.fillText("ESTUVO PELEADO!",this.canvas.width/2, this.canvas.height/5) 
-            this.ctx.fillText("ES UN EMPATE!",this.canvas.width/2, this.canvas.height/4)
+        //console.log("empateeee")
+        this.ctx.font = "20px Arial black"
+        this.ctx.fillStyle = `grey`
+        this.ctx.textAlign = "center"
+        this.ctx.fillText("ESTUVO PELEADO!",this.canvas.width/2, this.canvas.height/5) 
+        this.ctx.fillText("ES UN EMPATE!",this.canvas.width/2, this.canvas.height/4)
     
     }
-
 
     puedoIngresarFicha(clickedFigure){
         //console.log("puedo ingresar ficha")
@@ -160,14 +156,14 @@ class Tablero{
                 //console.log("entro aca")
                 this.mat[f][colDeEstaFicha] = clickedFigure;                  
                 this.posFicha.f = f
-                console.log(this.posFicha.f)
+                //console.log(this.posFicha.f)
 
                 y =  275 + this.tamFicha * f
                 clickedFigure.setPos(x,y)
                 break
             } 
         }
-        console.log(this.mat)
+        //console.log(this.mat)
         //console.log(y)
         //console.log(clickedFigure)
     }
@@ -246,7 +242,6 @@ class Tablero{
             if (this.mat[f][c] != null && this.mat[f+1][c-1] != null) {
                 if (this.mat[f][c].color == this.mat[f+1][c-1].color) {
                     contador ++;
-                    console.log(contador+ "esto")
 
                     if (contador == 4){
                         console.log(contador + "cuatrooo")

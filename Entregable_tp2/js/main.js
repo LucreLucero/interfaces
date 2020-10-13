@@ -58,10 +58,7 @@ document.addEventListener("DOMContentLoaded", function(){
             //console.log(colDeEstaFicha)
 
             if(colDeEstaFicha != -1){
-                tablero.ingresarFicha(clickedFigure, colDeEstaFicha) //poner en el tablero  
-                //tablero.toggle(clickedFigure)
-                
-
+                tablero.ingresarFicha(clickedFigure, colDeEstaFicha) //poner en el tablero                  
                 if(hayGanador==false){
                     if (tieneTurno==true)
                         tieneTurno = false
@@ -72,43 +69,33 @@ document.addEventListener("DOMContentLoaded", function(){
                     hayGanador = tablero.corroborarGanador() //aca deberia traer un boolean
                     if(hayGanador==true){
                         tablero.mensajeGanador(clickedFigure,hayGanador)
-                    }else{
-                        if((rojas != null && rojas.length==0) && (azules != null && azules.length == 0)){ 
-                            console.log(rojas)
-                            console.log(rojas.length)
-                            console.log(azules)
-                            console.log(azules.length)
-                            console.log("algo aca para ver el empate")
-                            console.log(hayGanador)
-                            
-                            tablero.mensajeEmpate()
-                        }
                     }
-                    
-
+                    else{ 
                     //elimino las fichas ingresadas del arr de fichas
-                    let indiceFichaR = rojas.indexOf(clickedFigure) // busca si esa ficha esta en de ese arreglo -- me da el indice y sino -1
-                    if(indiceFichaR != -1){
-                        rojas.splice(indiceFichaR, 1) //borro la ficha en ese indice
-                    }else{
-                        let indiceFichaA = azules.indexOf(clickedFigure) // busca si esa ficha esta en de ese arreglo -- me da el indice y sino -1
-                        if(indiceFichaA != -1){
-                            azules.splice(indiceFichaA, 1) //borro la ficha en ese indice
-                        }
+                        let indiceFichaR = rojas.indexOf(clickedFigure) // busca si esa ficha esta en de ese arreglo -- me da el indice y sino -1
+                        if(indiceFichaR != -1){
+                            rojas.splice(indiceFichaR, 1) //borro la ficha en ese indice
+                        }else{
+                            let indiceFichaA = azules.indexOf(clickedFigure) // busca si esa ficha esta en de ese arreglo -- me da el indice y sino -1
+                            if(indiceFichaA != -1){
+                                azules.splice(indiceFichaA, 1) //borro la ficha en ese indice
+                            }
 
-                    }                    
+                        }      
+                    }               
                 }  
                 actualizar() //actualizo mi vista
-                
-                if(clickedFigure.jugador.value == jugador1.value)
-                    tablero.toggleMensajeTurno(jugador2.value,hayGanador)
-                else
-                    tablero.toggleMensajeTurno(jugador1.value,hayGanador)
-
-            }
+                if(hayGanador==false){ //lo hago aca para ver mis carteles con el fondo
+                    if((rojas != null && rojas.length==0) && (azules != null && azules.length == 0)) 
+                        tablero.mensajeEmpate()
+                    else if(clickedFigure.jugador.value == jugador1.value)
+                        tablero.toggleMensajeTurno(jugador2.value,hayGanador)                    
+                    else
+                        tablero.toggleMensajeTurno(jugador1.value,hayGanador)                      
+                }
+            }            
         }
-        clickedFigure = null; 
-        
+        clickedFigure = null;         
     });
 
     canvas.addEventListener('mousemove',function(e){ //ES PARA CUANDO MUEVO EL MOUSE
@@ -121,11 +108,7 @@ document.addEventListener("DOMContentLoaded", function(){
         clickedFigure = null; 
     });
 
-    //necesito-- tablero(celdas)--matrix
-    //ficha(fichas)--movimientos--
-    //jugadores--quien gana(ficha-tab)
-    //---------------Tablero------------
-   
+    //---------------Tablero------------   
     function inicial(){
         ctx.fillStyle="#fff";
         ctx.fillRect(0,0,width,height); 
@@ -150,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     //---------------------------Fichas---------------------------------
-
     function createFichitas(){
         let turnoJugadorRojo = true; // alternar turnos para fichas ??
         let turnoJugadorAzul = false;
@@ -178,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function(){
                 y+=45;
             }
         }
-
         x = _x ;        
     }
     
@@ -203,7 +184,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
         for(let r=0; r<rojas.length; r++){
             rojas[r].isPointInside(x,y)
-            //console.log(rojas[r].isPointInside(x,y))
 
             if (rojas[r].isPointInside(x,y)){
                 return rojas[r]
@@ -221,8 +201,9 @@ document.addEventListener("DOMContentLoaded", function(){
     
     function actualizar(){
         if (hayGanador==false){ 
-        ctx.fillStyle="#fff";
-        ctx.fillRect(0,0,width,height);  }      
+            ctx.fillStyle="#fff";
+            ctx.fillRect(0,0,width,height);  
+        }      
         tablero.redibujarTablero();
         
         for (const i in rojas) {
@@ -245,6 +226,6 @@ document.addEventListener("DOMContentLoaded", function(){
         azules=[];
         inicial();
     }
-    createFichitas();//--------------- comentar despues, es para probar
-    crearTablero();//--------------- comentar despues, es para probar
+    //createFichitas();//--------------- comentar despues, es para probar
+    //crearTablero();//--------------- comentar despues, es para probar
 });

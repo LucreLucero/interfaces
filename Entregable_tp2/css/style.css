@@ -33,18 +33,19 @@ ul{
     float: left;
 }
 .jugador1, .jugador2{
-    margin-left: 40%;
-    margin-right: 10%;
+    
     color:white;
     background-color:rgb(209, 152, 99);
     align-items: flex-end;
 }
-.jugador1:hover{
+
+#jugador1:hover{
     background-color: red;
 }
-.jugador2:hover{
+#jugador2:hover{
     background-color: blue;
 }
+
 .content, .navigation{
     margin-right: auto;
     float: right;

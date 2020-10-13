@@ -1,10 +1,11 @@
     
 class Tablero{
-    constructor(canvas,ctx,fila, col){
+    constructor(canvas,ctx,fila, col,jugadores){
         this.canvas=canvas;
         this.ctx=ctx;
         this.fila=fila;
         this.col=col;
+        this.jugadores=jugadores
         
         this.cantRondas = 1
 
@@ -35,6 +36,7 @@ class Tablero{
     }
     
     redibujarTablero(){ 
+
         for (let f=0;f<this.fila;f++){
             for (let c=0;c<this.col;c++){                
                 if(this.mat[f][c] != null){
@@ -56,6 +58,72 @@ class Tablero{
         this.ctx.fillStyle = miPatron;
         this.ctx.fillRect(250,250, this.img.width * this.col, this.img.width*this.fila);     
     }
+    nombresIndice(){
+        this.ctx.font = "15px Arial black"
+        this.ctx.fillStyle = "red"
+        this.ctx.textAlign = "right"
+        this.ctx.fillText(this.jugadores[0].value,180, 30) 
+
+        this.ctx.font = "15px Arial black"
+        this.ctx.fillStyle = "blue"
+        this.ctx.textAlign = "right"
+        this.ctx.fillText(this.jugadores[1].value, 680, 30)
+    }
+
+    nombresTurno(){
+        this.ctx.font = "20px Arial black"
+        this.ctx.fillStyle = "grey"
+        this.ctx.textAlign = "center"
+        this.ctx.fillText("ROJAS PRIMERO!",this.canvas.width/2, this.canvas.height/5) 
+    }
+
+    toggleMensajeTurno(jugador,hayGanador){
+        if(hayGanador==false){ 
+            this.ctx.font = "20px Arial black"
+            this.ctx.fillStyle = "grey"
+            this.ctx.textAlign = "center"
+            this.ctx.fillText("Y ahora? " ,this.canvas.width/2, this.canvas.height/5) 
+            this.ctx.fillText(jugador,this.canvas.width/2, this.canvas.height/4) 
+        }
+    }
+
+    nombresTurno(){
+        this.ctx.font = "20px Arial black"
+        this.ctx.fillStyle = "grey"
+        this.ctx.textAlign = "center"
+        this.ctx.fillText("ROJAS PRIMERO!",this.canvas.width/2, this.canvas.height/5) 
+    }
+
+
+    mensajeGanador(clickedFigure,hayGanador){
+        if(hayGanador==true){
+            let msjGanador = document.querySelector("#win")
+            let c = clickedFigure.color
+            //console.log(clickedFigure.color)
+
+            msjGanador.style.display = 'none'
+            let player = clickedFigure.jugador.value
+            msjGanador.innerHTML = "EL GANADOR ES \n" + player + " !"
+            msjGanador.style = `background : ${c}`
+            this.ctx.fillStyle="#fff";
+            this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height); 
+    //----------------------------------
+            this.ctx.font = "20px Arial black"
+            this.ctx.fillStyle = `${c}`
+            this.ctx.textAlign = "center"
+            this.ctx.fillText("YEAHH!",this.canvas.width/2, this.canvas.height/5) 
+            this.ctx.fillText("WIN "+ player+ "!",this.canvas.width/2, this.canvas.height/4) 
+        }
+    }
+    mensajeEmpate(){
+            this.ctx.font = "20px Arial black"
+            this.ctx.fillStyle = `grey`
+            this.ctx.textAlign = "center"
+            this.ctx.fillText("ESTUVO PELEADO!",this.canvas.width/2, this.canvas.height/5) 
+            this.ctx.fillText("ES UN EMPATE!",this.canvas.width/2, this.canvas.height/4)
+    
+    }
+
 
     puedoIngresarFicha(clickedFigure){
         //console.log("puedo ingresar ficha")

@@ -26,21 +26,36 @@
             <ul>
                 <input type="button" id="jugar" class="item" value="Juguemos!">
                 <input type="button" id="reiniciar"class="item" value="Reintentar!">
-                <!--<a>Tamaño</a>
-                    <input type="number" id="alto" class="item" min ="6" max="10"value="6">-->
+                
             </ul>
-            <h1>Turno:</h1>
-            <div class="jugador1"><i class="fas fa-angle-double-right" style="color: red;"></i> Jugador 1 </div>
-            <input type="text" id="jugador1" class="jugador1"  value="Jugador 1">
-            <div class="jugador2"> Jugador 2 <i class="fas fa-angle-double-left" style="color:blue;"></i></div>
-            <input type="text" id="jugador2" class="jugador2" value="Jugador 2">
+            <ul>
+                <a>Tamaño</a>
+                <input type="number" id="alto" class="item" min ="6" max="8"value="6">
+                <input type="number" id="ancho" class="item" min ="7" max="9"value="7">
+            </ul>
 
-        </div>        
+            <!--<h1>Turno: <span id="start" style="display: none;"> </h1>-->
+            
+            <ul>
+                <div class="jugador1"><i class="fas fa-angle-double-right" style="color: red;"></i> Jugador 1 
+                    <i class="fas fa-angle-double-left" style="color:red;"></i></div>
+                <input type="text" id="jugador1" class="jugador1"  value="Jugador 1">
+            </ul>
+            <ul>
+                <div class="jugador2"><i class="fas fa-angle-double-right" style="color: blue;"></i> Jugador 2 
+                    <i class="fas fa-angle-double-left" style="color:blue;"></i></div>
+                <input id="jugador2" class="jugador2" value="Jugador 2">
+            </ul>
+        </div>  
+        <div class="mensajes">
+            <ul>    
+                <h1> <span id="win" style="display: none;"> </h1>
+            </ul>
+        </div>      
     
     </nav>
     
     <article class="content">
-       <!--- <h1>jugador 1</h1> <h1>jugador2</h1>-->
         <canvas id="myCanvas"  width="800" height="600" class="myCanvas" style="border: 1px solid black;    border-radius: 5px;
         background: rgb(255, 255, 255)"></canvas>
         

@@ -4,12 +4,20 @@ document.addEventListener("DOMContentLoaded", function(){
     let ctx = canvas.getContext('2d');
     let width = canvas.width;// = window.width;
     let height = canvas.height;// = window.height;
-    const fila=6; 
-    const col=7;
-    let cantFichas = (fila*col)/2;
+    //const fila=6; 
+    //const col=7;
+    //let cantFichas = (fila*col)/2;
+    let cantFichas
+    let fila
+    let col
     let tamFicha = 50;
     let clickedFigure = null;
+    //let fila = document.querySelector('#alto').value;
+    //let col = document.querySelector('#ancho').value;
+    //console.log(fila)
+    //console.log(col)
 
+    //let cantFichas = (fila*col)/2;
     
     let tablero;
     let rojas=[]; let azules=[]; 
@@ -34,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     jugadores[0] = jugador1; //luis
     jugadores[1] = jugador2; //cristian
-    //let fila = document.querySelector('#alto').value;
-    //let col = document.querySelector('#ancho').value;
+    
+
     document.querySelector('#jugar').addEventListener('click',inicial);
     document.querySelector('#reiniciar').addEventListener('click',reiniciarJuego);
     canvas.addEventListener('mousedown',function(e){//CUANDO HAGO CLICK
@@ -119,9 +127,14 @@ document.addEventListener("DOMContentLoaded", function(){
         hayGanador = false
         let msjGanador = document.querySelector("#win")
         msjGanador.style.display = 'none'
+        fila = document.querySelector('#alto').value;
+        col = document.querySelector('#ancho').value;
+        cantFichas = (fila*col)/2;
+
         let jugador1 = document.querySelector("#jugador1").value
         let jugador2 = document.querySelector("#jugador2").value
-        
+        console.log(fila)
+    console.log(col)
         crearTablero();
         createFichitas();
     }

@@ -1,3 +1,55 @@
+body{
+    background-color:black;
+}
+/*----------ENTRADA-----------*/
+.entrada{
+    width:100%;
+    height: 100%;
+    background-image: url("/Entregable_tp3/image/1sinfondo.gif");
+    background-attachment: fixed;
+    top:36px; left:240px; visibility:visible; z-index:1;
+
+}
+/*.entrada1{
+    width:1280px;
+    height: 545px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("/Entregable_tp3/image/_1.png");/
+    transition: background-image 9s ease-out ;
+    /*animation: entrada 1s linear infinite;}*/
+
+.entrada:hover{
+    background-image: url("/Entregable_tp3/image/mulan_logo.png");
+    transition: background-image 3s ease-in ;
+}
+.capa1{
+    background-image: url("/Entregable_tp3/image/_1.png");
+    /*animation: entrada 1s linear infinite;*/
+}
+
+@keyframes entrada{
+    0%{ opacity: 1;}
+    100%{opacity: 0;}
+}
+/*----------COUNTDOWN-----------*/
+P{
+    color:  rgb(236, 12, 12);
+    font-family:'Caveat Brush', cursive;
+    font-size: 80px;
+    text-align:center;
+}
+/*----------LOGO-----------*/
+.logo{
+    width:100%;
+    height: 100%;
+    
+}
+.logo:hover{
+    background-image: url("/Entregable_tp3/image/mulan_logo.png");
+}
+
+/*----------SPINNER LOADER-----------*/
 #spinner{
     margin-top: 50px;
     margin-left:50px;
@@ -13,32 +65,142 @@
     0%{ transform: rotate(0deg);}
     100%{transform: rotate(360deg);}
 }
-
-#header{   
-    text-align:center;
-    align-items: center;
-    background:rgb(116, 112, 101);    
-    border-bottom:5px solid
+/*----------HEADER MENU-----------*/
+#header{       
+    text-align:left;
+    align-items: left;
+    background:black;    
 }
-.item{
+
+a{
     color:white;
-    text-decoration: none;
+    text-decoration:none;
     text-transform: uppercase;
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
-    margin: 10px 30px 10px 50px;
-
+    margin: 20px 30px 10px 50px;
 }
-
-#content{
-    align-items: center;
+.btn1,.btn2,.btn3{
+    
 }
-
-
+/*----------ESTA VACIO POR AHORA-----------*/
+#navigation{
+    height: 780px;
+    width: auto;
+    background-image: url("/Entregable_tp3/image/191220183051-mulan-2020-full-169.jpg");
+}
 
 @keyframes fall{
     0%{}
     100%{}
 }
+::-webkit-scrollbar {display: none;}
+/*----------PERSONAJES-----------*/
+.content1{
+    height: 400px;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    background-color: aqua;
+    position:relative; 
+}
+
+#foto{
+    float:left;
+    position: relative;
+    margin: 30px 0px 0px 20px;
+}
+#foto:hover{
+    transform:perspective(3);
+}
+.content img{
+    position:absolute;
+    max-width: 100%;
+    transition: all ease 1250ms;
+    transform-style: preserve-3d;
+}
+.content:hover .foto1{
+    transform: perspective(2000px) rotateX(0deg) 
+    rotateY(30deg) rotateZ(0deg) translateX(-30px)
+    translateY(0px) translateZ(0px);
+}
+.content:hover .foto2{
+    transform: perspective(2000px) rotateX(0deg) 
+    rotateY(30deg) rotateZ(0deg) translateX(-30px)
+    translateY(0px) translateZ(40px);
+}
+#content:hover .foto3{
+    transform: perspective(2000px) rotateX(0deg) 
+    rotateY(30deg) rotateZ(0deg) translateX(-30px)
+    translateY(0px) translateZ(80px);
+}
+#content:hover .foto4{
+    transform: perspective(2000px) rotateX(0deg) 
+    rotateY(30deg) rotateZ(0deg) translateX(-30px)
+    translateY(0px) translateZ(120px);
+}
+#content:hover .foto5{
+    transform: perspective(2000px) rotateX(0deg) 
+    rotateY(30deg) rotateZ(0deg) translateX(-30px)
+    translateY(0px) translateZ(160px);
+}
+#content:hover .foto6{
+    transform: perspective(2000px) rotateX(0deg) 
+    rotateY(30deg) rotateZ(0deg) translateX(-30px)
+    translateY(0px) translateZ(200px);
+}
+#text {
+    float:left;   
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    top:150px;
+}
+img{
+    width:200px;
+    height:300px;
+   /* position:absolute;*/
+}
+/*--------carrusel------*/
+#content2 {
+    width:100%;
+    height: 100%;
+    margin:auto;
+}
+#content2 ul{
+    display:flex;
+    float: right;
+    width:100%;
+    margin-right: 10px;
+    padding:0;
+    animation: cambio 7s infinite;
+    position: relative;
+}
+#content2 li{
+    width:100%;
+    list-style: none;
+}
+#content2 img {
+    height: 520px;
+    width: 1280px;
+}
+@keyframes cambio {
+    from { margin-left: 0px; } 
+    to { margin-left: -1366px; } 
+
+    /*0% { margin-left: 0%;}
+    20% {margin-left: 0%;}
+
+    25% {margin-left:-100%;}
+    45% {margin-left:-100%;}
+
+    50% {margin-left:-200%;}
+    70% {margin-left:-200%;}
+
+    75% {margin-left:-300%;}
+    100% {margin-left:-300%;}*/
+}
+
 
 

@@ -5,7 +5,7 @@ body{
 .entrada{
     width:100%;
     height: 100%;
-    background-image: url("/Entregable_tp3/image/1sinfondo.gif");
+    background-image: url("../image/1sinfondo.gif");
     background-attachment: fixed;
     top:36px; left:240px; visibility:visible; z-index:1;
 
@@ -20,11 +20,11 @@ body{
     /*animation: entrada 1s linear infinite;}*/
 
 .entrada:hover{
-    background-image: url("/Entregable_tp3/image/polvo_rojo.png");
+    background-image: url("../image/polvo_rojo.png");
     transition: background-image 3s ease-in ;
 }
 .capa1{
-    background-image: url("/Entregable_tp3/image/polvo_rojo.png");
+    background-image: url("../image/polvo_rojo.png");
     /*animation: entrada 1s linear infinite;*/
 }
 
@@ -46,7 +46,7 @@ P{
 }
 .logo:hover{
     margin-left: 300px;
-    background-image: url("/Entregable_tp3/image/mulan_logo.png");
+    background-image: url("../image/mulan_logo.png");
 }
 
 /*----------SPINNER LOADER-----------*/
@@ -87,7 +87,7 @@ a{
 #navigation{
     height: 780px;
     width: auto;
-    background-image: url("/Entregable_tp3/image/191220183051-mulan-2020-full-169.jpg");
+    background-image: url("../image/191220183051-mulan-2020-full-169.jpg");
 }
 
 @keyframes fall{

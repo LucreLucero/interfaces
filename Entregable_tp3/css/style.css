@@ -97,12 +97,10 @@ a{
 ::-webkit-scrollbar {display: none;}
 /*----------PERSONAJES-----------*/
 .content1{
-    height: 400px;
+    position:relative; 
+    margin: 0 auto;
     width: 100%;
     align-items: center;
-    margin: 0 auto;
-    background-color: aqua;
-    position:relative; 
 }
 
 #foto{
@@ -110,56 +108,56 @@ a{
     position: relative;
     margin: 30px 0px 0px 20px;
 }
-#foto:hover{
-    transform:perspective(3);
-}
-.content img{
+
+.content1 img{
     position:absolute;
     max-width: 100%;
     transition: all ease 1250ms;
     transform-style: preserve-3d;
 }
-.content:hover .foto1{
+.content1:hover .foto1{
     transform: perspective(2000px) rotateX(0deg) 
     rotateY(30deg) rotateZ(0deg) translateX(-30px)
     translateY(0px) translateZ(0px);
 }
-.content:hover .foto2{
+.content1:hover .foto2{
     transform: perspective(2000px) rotateX(0deg) 
     rotateY(30deg) rotateZ(0deg) translateX(-30px)
     translateY(0px) translateZ(40px);
 }
-#content:hover .foto3{
+#content1:hover .foto3{
     transform: perspective(2000px) rotateX(0deg) 
     rotateY(30deg) rotateZ(0deg) translateX(-30px)
     translateY(0px) translateZ(80px);
 }
-#content:hover .foto4{
+#content1:hover .foto4{
     transform: perspective(2000px) rotateX(0deg) 
     rotateY(30deg) rotateZ(0deg) translateX(-30px)
     translateY(0px) translateZ(120px);
 }
-#content:hover .foto5{
+#content1:hover .foto5{
     transform: perspective(2000px) rotateX(0deg) 
     rotateY(30deg) rotateZ(0deg) translateX(-30px)
     translateY(0px) translateZ(160px);
 }
-#content:hover .foto6{
+#content1:hover .foto6{
     transform: perspective(2000px) rotateX(0deg) 
     rotateY(30deg) rotateZ(0deg) translateX(-30px)
     translateY(0px) translateZ(200px);
 }
 #text {
-    float:left;   
     position: absolute;
+    width: 150px;;
     color: white;
+    background-color:rgb(236, 12, 12);
     font-size: 24px;
     font-weight: bold;
-    top:150px;
+    font-family:'Caveat Brush', cursive;
+    top:200px;
 }
 img{
     width:200px;
-    height:300px;
+    height:250px;
    /* position:absolute;*/
 }
 /*--------carrusel------*/

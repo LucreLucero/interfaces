@@ -18,8 +18,8 @@ let x = setInterval(function() {
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // muestro el conteo en el html
-  document.querySelector("#countD").innerHTML ="Faltan: "+ days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  document.querySelector("#countD").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s";
 
   // si se me termina el conteo pongo un mensaje
   if (distance < 0) {
@@ -27,3 +27,14 @@ let x = setInterval(function() {
     document.querySelector("#countD").innerHTML = "Nos vemos en el cine!";
   }
 }, 1000);
+
+//volver a ver el loader
+let s = setTimeout(function(){
+  let loader = document.querySelector("#spinner")
+  classList.toggle("#spinner")
+
+});
+
+//hacer el menu hamburguesa
+let menu = document.querySelector(".hamburguer")
+

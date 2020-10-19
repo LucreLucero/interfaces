@@ -1,56 +1,77 @@
+/*-----le agrego la tipografiaa ---*/
+@font-face{
+    src: url("../fuentes/Mulan.ttf");
+    font-family: Mulan;
+    font-display: swap;
+}
+
 body{
     background-color:black;
+    font-family:Mulan;
+}
+h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:  rgb(182, 122, 54);
+    font-size: 40px;
+}
+p{
+    color:  rgb(236, 12, 12);
+    /*font-family:'Caveat Brush', cursive;*/
+    text-align:center;
 }
 /*----------ENTRADA-----------*/
-.entrada{
+.entrada{    
+    top:0;left: 0;
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-attachment: fixed; /*lo pongo en la ultima capa para que me la coma la que sigue*/
+    visibility:visible; z-index:1;
+    top:36px; left:240px;     
+}
+.capa1{
     width:100%;
     height: 100%;
     background-image: url("../image/1sinfondo.gif");
+    animation: move 10s linear infinite;
+}
+.capa2{
+    width:100%;
+    height: 100%;
+    background-image: url("../image/polvo_rojo.png");
+    animation: move 10s linear infinite;
     background-attachment: fixed;
-    top:36px; left:240px; visibility:visible; z-index:1;
 
 }
-/*.entrada1{
-    width:1280px;
-    height: 545px;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url("/Entregable_tp3/image/_1.png");/
-    transition: background-image 9s ease-out ;
-    /*animation: entrada 1s linear infinite;}*/
 
-.entrada:hover{
-    background-image: url("../image/polvo_rojo.png");
-    transition: background-image 3s ease-in ;
-}
-.capa1{
-    background-image: url("../image/polvo_rojo.png");
-    /*animation: entrada 1s linear infinite;*/
+@keyframes move{
+    0%{ background-position-x: 0px;}
+    100%{background-position-x: -720;}
 }
 
-@keyframes entrada{
-    0%{ opacity: 1;}
-    100%{opacity: 0;}
-}
-/*----------COUNTDOWN-----------*/
-P{
-    color:  rgb(236, 12, 12);
-    font-family:'Caveat Brush', cursive;
-    font-size: 80px;
-    text-align:center;
-}
 /*----------LOGO-----------*/
+.presentacion{
+    width:100%;
+    height: 580px; 
+}
 .logo{
-    width:720;
-    height: 486;    
+    width:720px;
+    height: 486px;    
+    margin-left: 300px;
 }
 .logo:hover{
-    margin-left: 300px;
     background-image: url("../image/mulan_logo.png");
 }
-
+/*----------COUNTDOWN-----------*/
+.presentacion p{
+    color:  rgb(236, 62, 18);
+    font-size: 40px;
+    font-weight: bold;
+    text-align:center;
+    margin-top: 350px;
+}
 /*----------SPINNER LOADER-----------*/
 #spinner{
+    display: none;
     margin-top: 50px;
     margin-left:50px;
     height: 40px;
@@ -80,9 +101,7 @@ a{
     display: inline-block;
     margin: 20px 30px 10px 50px;
 }
-.btn1,.btn2,.btn3{
-    
-}
+
 /*----------ESTA VACIO POR AHORA-----------*/
 #navigation{
     height: 780px;
@@ -102,7 +121,14 @@ a{
     width: 100%;
     align-items: center;
 }
-
+.reparto, .fotos, .fotos figure{
+    display:inline-block;
+    flex-direction: column;    
+}
+.reparto{
+    margin: 30px;
+    width: 240px;
+}
 #foto{
     float:left;
     position: relative;
@@ -114,6 +140,9 @@ a{
     max-width: 100%;
     transition: all ease 1250ms;
     transform-style: preserve-3d;
+    width:200px;
+    height:250px;
+    border-radius: 30px;
 }
 .content1:hover .foto1{
     transform: perspective(2000px) rotateX(0deg) 
@@ -145,10 +174,6 @@ a{
     rotateY(30deg) rotateZ(0deg) translateX(-30px)
     translateY(0px) translateZ(200px);
 }
-figure{
-    display: inline-block;
-    flex-direction: row;
-}
 #text {   
     text-align: center; 
     width: 5px;;
@@ -158,12 +183,7 @@ figure{
     font-weight: bold;
     margin-left: 10px;
 }
-img{
-    width:200px;
-    height:250px;
-    border-radius: 30px;
-   /* position:absolute;*/
-}
+
 /*--------carrusel------*/
 #content2 {
     width:100%;
@@ -176,7 +196,7 @@ img{
     width:100%;
     margin-right: 10px;
     padding:0;
-    animation: cambio 7s infinite;
+    animation: cambio 20s infinite;
     position: relative;
 }
 #content2 li{
@@ -189,7 +209,7 @@ img{
 }
 @keyframes cambio {
     from { margin-left: 0px; } 
-    to { margin-left: -1366px; } 
+    to { margin-left: -1260px; } 
 
     /*0% { margin-left: 0%;}
     20% {margin-left: 0%;}

@@ -31,23 +31,35 @@
         </div>
     </header>
 
-    <nav>   
-        <section id="header">
-            <a class="hamburguer" href="#">=</a>
-            <a class="btn1"href="#content1">Home</a>
-            <a class="btn2" href="">Eventos</a>
-            <a class="btn3" href="">Comentarios</a>
-            
-            <a href="https://www.facebook.com/waltdisneymulan"><i class="fab fa-facebook-f"></i></a>
-            <a href=" https://twitter.com/disneysmulan"><i class="fab fa-twitter"></i></a>
-            <a href=" https://instagram.com/mulan"><i class="fab fa-instagram"></i></a>            
-            <a href="https://www.youtube.com/playlist?list=PLTnR43JTLNs_4moa3QnavHCAupS_Hj8Yz"><i class="fab fa-youtube"></i></a>            
+    
+    <nav id="_menu">   
+        <div class="mHamburguesa">
+            <div class="linea -sup"></div>
+            <div class="linea -med"></div>
+            <div class="linea -ab"></div>
+        </div>
+    
+        <section class="menu">
+            <ul>
+                <li><p>Encuentranos en </p></li>
+                <li><a href="https://www.facebook.com/waltdisneymulan"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href=" https://twitter.com/disneysmulan"><i class="fab fa-twitter"></i></a></li>
+                <li><a href=" https://instagram.com/mulan"><i class="fab fa-instagram"></i></a></li>            
+                <li><a href="https://www.youtube.com/playlist?list=PLTnR43JTLNs_4moa3QnavHCAupS_Hj8Yz"><i class="fab fa-youtube"></i></a></li>                
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <a href="#content1">Home</a>
+                <a href="#">Eventos</a>
+                <a href="#">Comentarios</a>   
+            </ul>
         </section>  
         
         <section id="navigation"></section>          
     </nav>
 
-    <article id="content1" class="content1"> 
+    <article id="reparto" class="content1"> 
         <section  class="fotos"> 
             <figure>
                 <h1>REPARTO </h1>
@@ -90,11 +102,11 @@
         </section>
     </article>
 
-    <article id="content2">
-        <section class="content2 -texto">
-            <p>aca voy a tener un carrusel de imagenes destacadas</p>
+    <article id="carrusel">
+        <section class="_texto">
+            <h1>IMAGENES DESTACADAS</h1>
         </section>
-        <section class="content2 -carrusel">
+        <section class="_imagenes">
             <ul>
                 <li><img src='image/carrusel1.jpg' alt="uno" /></li>
                 <li><img src='image/carrusel2.jpg' alt="dos" /></li>           
@@ -105,12 +117,25 @@
             </ul>
         </section>
     </article>
+    
+    <article id="eventos">
+        <section class="event">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+        <section></section>
+    </article>
 
-    <article id="content3">
-        Trailers
-        <div></div>
-        <div></div>
-        <div></div>
+    <article id="comentarios">
+        <section>
+            <h1>Formulario de comentarios y saludos</h1>
+            <form action="">
+                <p>Nombre: </p>
+                <input type="text" name="coment" id="coment">
+            </form>
+        </section>
     </article>
     
 </body>

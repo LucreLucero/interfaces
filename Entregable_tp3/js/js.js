@@ -1,4 +1,5 @@
 "use strict"
+document.addEventListener("DOMContentLoaded", function(){
 // Seteo el dia al que quiero hacer el countdown
 let countDownDate = new Date("Feb 2, 2021 19:30:00").getTime();
 
@@ -29,12 +30,21 @@ let x = setInterval(function() {
 }, 1000);
 
 //volver a ver el loader
-let s = setTimeout(function(){
-  let loader = document.querySelector("#spinner")
-  classList.toggle("#spinner")
+//let s = setTimeout(function(){
+  //let loader = document.querySelector("#spinner")
+  //classList.toggle("#spinner")
+
+//});
+
+//-----hacer el menu hamburguesa------
+
+let menu = document.querySelector('.mHamburguesa');
+function toggleMenu (e) {
+  this.classList.toggle('is-active');
+  document.querySelector( ".menu" ).classList.toggle("is_active");
+  e.preventDefault();
+}
+menu.addEventListener('click', toggleMenu, false);
+
 
 });
-
-//hacer el menu hamburguesa
-let menu = document.querySelector(".hamburguer")
-

@@ -30,28 +30,115 @@ a{
     background-repeat: repeat-x;
     background-size: cover;
     background-attachment: fixed; /*lo pongo en la ultima capa para que me la coma la que sigue*/
-    visibility:visible; z-index:1;
-    top:36px; left:240px;     
+    visibility:visible; 
+    position:relative;
+    z-index:1;   
+    width:100%;
+    height: 100%; 
 }
 .capa1{
     width:100%;
     height: 100%;
-    background-image: url("../image/1sinfondo.gif");
-    animation: move 10s linear infinite;
+    position: absolute;
+    background-image: url("../image/fondo.jpeg");    
+    background-repeat: no-repeat;
 }
-.capa2{
+.capa2{/*royal*/
+    position: absolute;
+    width:90%;
+    height: 100%;
+    font-size: 60px;
+    text-align: left;
+    margin-left: 200px;
+    /*background-image: url("../image/rojoo.png");*/
+    animation:  baja 10s linear  infinite;
+    background-attachment: fixed;
+}
+.capa3{
+    position: absolute;
     width:100%;
     height: 100%;
-    background-image: url("../image/polvo_rojo.png");
-    animation: move 10s linear infinite;
+    background-image: url("../image/mas_humo_rojo.png");
+    background-repeat:no-repeat;
+    animation: move_l 15s ease-in infinite;
     background-attachment: fixed;
+}
+.capa4{/*brave*/
+    position: absolute;
+    width:100%;
+    height: 100px;
+    font-size: 60px;
+    text-align: center;
+    animation: baja 5s linear infinite;
+    background-repeat: no-repeat;
 
+}
+.capa5{/*true*/
+    position: absolute;
+    width:80%;
+    height: 100%;
+    font-size: 60px;
+    text-align: right;
+    /*background-image: url("../image/dragon.png");*/
+    animation: baja 6s linear infinite;
+    background-repeat: no-repeat;
+}
+.capa6{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background-image: url("../image/petalos.png");
+    animation: baja 15s linear infinite;
+    background-repeat: no-repeat;
+}
+.capa7{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-left: 300px;
+    background-image: url("../image/fall.png");
+    background-repeat: repeat-y;
+    animation: move_a 20s linear infinite;
 }
 
 @keyframes move{
-    0%{ background-position-x: 0px;}
-    100%{background-position-x: -720;}
+    0% { margin-left: 0%;}
+    45% {margin-left:-100%;}
+    70% {margin-left:-200%;}
+    100% {margin-left:-300%;}
 }
+@keyframes baja{
+    0% { margin-top: 0%;}
+    50% {margin-top:5%;}
+    100% {margin-top:0%;}
+}
+@keyframes move_l{
+    0%{ background-position-x: 0%;}
+    50%{background-position-x: 100%;}
+    100%{background-position-x: 200%;}
+}
+@keyframes move_a{
+    0%{ background-position-y: 0%;}
+    45% {background-position-y: 100%;}
+    70% {background-position-y: 200%;}
+    100%{background-position-y: 300%;}
+}
+
+/*----------------
+.animacionPorCuadros{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 736px; 
+    height: 455px; 
+    background-image: url("../image/sprite_mulan.png"); 
+    position: absolute;
+    animation: sheet 1s steps(7, end) infinite; 
+}
+@-webkit-keyframes sheet {
+    from { background-position: 0px; } 
+     to { background-position: -5515px; } 
+ }*/
 
 /*----------LOGO-----------*/
 .presentacion{

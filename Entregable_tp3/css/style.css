@@ -75,12 +75,19 @@ a{
     margin-top: 350px;
 }
 /*----------SPINNER LOADER-----------*/
-#spinner{
-    display: none;
-    margin-top: 50px;
-    margin-left:50px;
+.loader{
+    position: fixed;    
+    display: flex;
+    align-items: center;
+    justify-content:center;
     height: 40px;
     width: 40px;
+    margin: 20% 50%;
+}
+#spinner{
+    position: absolute;
+    width: 100%;
+    height: 100%;    
     border:5px solid rgb(243, 236, 236);
     border-top: 5px solid rgb(212, 17, 17);
     border-radius: 50%;
@@ -92,18 +99,25 @@ a{
     100%{transform: rotate(360deg);}
 }
 /*---------- MENU-----------*/
+#_menu{
+    width: 100%;
+}
+.menu,.mHamburguesa{
+    display: inline-block;
+    flex-direction: column;
+}
 .menu{       
     /*text-align:left;
     align-items: left;*/
+    position: fixed;
     background-color: rgba(180, 46, 46, 0.95);   
     /**/
     border-radius: 5%;
-    height: 70px;
+    height: 60px;
     left: 20;
     top: 0;
     bottom: 0;
     overflow-y: scroll;
-    position: fixed;
     transform: translate3d(0px, -100%, 0px);
     transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
     width: 90%;
@@ -111,10 +125,10 @@ a{
 }
 
 .mHamburguesa{
-	position:fixed;
+    position: fixed;
     background-color:transparent;
 	left:0;
-	top:0;
+    top:0;
 	height:30px;
 	width:30px;
 	padding:20px 20px;
@@ -152,16 +166,18 @@ a{
 }
 
 .menu.is_active{
-    transform: translate3d(60px, 0px, 0px);
+    position:fixed;
+    transform: translate3d(60px,0px, 0px);
 }
 
-.menu ul li { 
+.menu ul li{ 
     list-style:none;
     float:left;
-    height:3em;
     text-transform:none;
   }
-.menu ul li a{
+.menu ul li a, .botones ul li a{
+    margin-top: auto;
+    margin-bottom: auto;
     text-decoration:none;
 }
 .menu ul li a:hover{
@@ -169,11 +185,13 @@ a{
     color:rgb(204, 154, 154);
     transform: scale(1.4);
 }
+
 /*----------ESTA VACIO POR AHORA-----------*/
 #navigation{
     height: 780px;
     width: auto;
     background-image: url("../image/191220183051-mulan-2020-full-169.jpg");
+    background-repeat: no-repeat;
 }
 
 @keyframes fall{
@@ -210,6 +228,7 @@ a{
     width:200px;
     height:250px;
     border-radius: 30px;
+    box-shadow: 3px 3px whitesmoke, -1em 0 0.4em black;
 }
 .content1:hover .foto1{
     transform: perspective(2000px) rotateX(0deg) 
@@ -253,9 +272,9 @@ a{
 
 /*--------carrusel------*/
 #carrusel {
-    width:720px;
-    height: 100%;
+    width:95%;
     margin:auto;
+    overflow: hidden;
 }
 #carrusel ul{
     display:flex;
@@ -264,18 +283,21 @@ a{
     margin-right: 10px;
     padding:0;
     position: relative;
+
 }
 #carrusel li{
     width:100%;
     list-style: none;
-    position: relative;
+    position: relative;    
 }
 #carrusel img {
     height: 520px;
-    width: 1280px;
-    animation: cambio 20s infinite;
-
+    width: auto;
+    border-radius: 2%;
+    animation: cambio 20s infinite;   
+    box-shadow: 3px 3px whitesmoke;
 }
+
 @keyframes cambio {
     0%,  17.5%  { transform: translateZ(-35vw) rotateY(0);margin-left: 0%; }
 	27.5%, 45%  { transform: translateZ(-35vw) rotateY(-120deg);margin-left:-100%; }
@@ -294,6 +316,57 @@ a{
     75% {margin-left:-300%;}
     100% {margin-left:-300%;}*/
 }
+._texto{
+    text-align: center;
+}
+/*--------------form de comentarios--------------------*/
+#comment{
+    margin-top: 3em;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: block;
+}
+.form{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;  
+    width: 50%;
+    height: 100%;
+}
+input, text{
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input, text, button,textarea{
+    font-size: 16px;
+    line-height: 1.6;
+    color: #494848;
+    font-weight: 400;
+}
+.form-button{
+    margin-top: 1em;
+    width: 50%;
+    cursor: pointer;
+    background: whitesmoke;
+    border-color: rgb(212, 17, 17);
+}
+.form-button:hover{
+    color:whitesmoke;
+    background:rgb(212, 17, 17);
 
-
-
+}
+/* -----------------eventos-------------*/
+#events{
+    margin-top: 6%;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: block;
+}
+.grid{
+    text-align: center;
+}

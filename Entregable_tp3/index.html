@@ -9,19 +9,22 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
 
+    <script src="js/loader.js"></script>
     <script src="js/js.js"></script>
 </head>
 
 <body>
-    <!--<div id="spinner" ></div>-->
+    <div class="loader">
+        <div id="spinner" ></div>
+    </div>
     <article class="entrada">
-            <div class="capa1"></div>
-            <div class="capa2"></div>
-            <div class="capa3"></div>
-            <div class="capa4"></div>
-            <div class="capa5"></div>
-            <div class="capa6"></div>
-            <div class="capa7"></div>
+        <div class="capa1"></div>
+        <div class="capa2"></div>
+        <div class="capa3"></div>
+        <div class="capa4"></div>
+        <div class="capa5"></div>
+        <div class="capa6"></div>
+        <div class="capa7"></div>
     </article>
 
     <header class="presentacion">
@@ -30,34 +33,31 @@
             <p id="countD"></p> 
         </div>
     </header>
-
     
-    <nav id="_menu">   
-        <div class="mHamburguesa">
+    <nav id="_menu">           
+        <section class="mHamburguesa">
             <div class="linea -sup"></div>
             <div class="linea -med"></div>
             <div class="linea -ab"></div>
-        </div>
+        </section>
     
         <section class="menu">
             <ul>
-                <li><p>Encuentranos en </p></li>
+               <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Eventos</a></li>
+               <li><a href="form.html">Comentarios</a></li>
+            </ul>
+
+            <ul>
                 <li><a href="https://www.facebook.com/waltdisneymulan"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href=" https://twitter.com/disneysmulan"><i class="fab fa-twitter"></i></a></li>
                 <li><a href=" https://instagram.com/mulan"><i class="fab fa-instagram"></i></a></li>            
                 <li><a href="https://www.youtube.com/playlist?list=PLTnR43JTLNs_4moa3QnavHCAupS_Hj8Yz"><i class="fab fa-youtube"></i></a></li>                
-            </ul>
-        </section>
-        <section>
-            <ul>
-                <a href="#content1">Home</a>
-                <a href="#">Eventos</a>
-                <a href="#">Comentarios</a>   
-            </ul>
+            </ul>      
         </section>  
-        
-        <section id="navigation"></section>          
     </nav>
+
+    <section id="navigation"></section>          
 
     <article id="reparto" class="content1"> 
         <section  class="fotos"> 
@@ -110,33 +110,12 @@
             <ul>
                 <li><img src='image/carrusel1.jpg' alt="uno" /></li>
                 <li><img src='image/carrusel2.jpg' alt="dos" /></li>           
-                <li><img src='image/carrusel3.jpg' alt="tres" /></li>
                 <li><img src='image/carrusel4.jpeg' alt="cuatro" /></li>
+                <li><img src='image/carrusel3.jpg' alt="tres" /></li>
                 <li><img src='image/carrusel5.jpg' alt="cinco" /></li>
                 <li><img src='image/carrusel6.jpg' alt="seis" /></li>
             </ul>
         </section>
-    </article>
-    
-    <article id="eventos">
-        <section class="event">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </section>
-        <section></section>
-    </article>
-
-    <article id="comentarios">
-        <section>
-            <h1>Formulario de comentarios y saludos</h1>
-            <form action="">
-                <p>Nombre: </p>
-                <input type="text" name="coment" id="coment">
-            </form>
-        </section>
-    </article>
-    
+    </article>    
 </body>
 </html>

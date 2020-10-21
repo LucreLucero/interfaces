@@ -11,7 +11,8 @@ window.onload = setTimeout(function(){
       document.querySelector( ".menu" ).classList.toggle("is_active");
       e.preventDefault();
     }
-  
+
+    document.querySelector( ".page" ).style.display="block";;
   },3000);
 
 //document.querySelector('input').addEventListener('click',function (){

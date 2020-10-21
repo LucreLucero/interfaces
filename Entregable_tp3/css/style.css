@@ -36,6 +36,7 @@ a{
     width:100%;
     height: 100%; 
 }
+
 .capa1{
     width:100%;
     height: 100%;
@@ -50,7 +51,6 @@ a{
     font-size: 60px;
     text-align: left;
     margin-left: 200px;
-    /*background-image: url("../image/rojoo.png");*/
     animation:  baja 10s linear  infinite;
     background-attachment: fixed;
 }
@@ -63,7 +63,7 @@ a{
     animation: move_l 15s ease-in infinite;
     background-attachment: fixed;
 }
-.capa4{/*brave*/
+.capa4{/*palabra brave*/
     position: absolute;
     width:100%;
     height: 100px;
@@ -71,15 +71,13 @@ a{
     text-align: center;
     animation: baja 5s linear infinite;
     background-repeat: no-repeat;
-
 }
-.capa5{/*true*/
+.capa5{/*palabra true*/
     position: absolute;
     width:80%;
     height: 100%;
     font-size: 60px;
     text-align: right;
-    /*background-image: url("../image/dragon.png");*/
     animation: baja 6s linear infinite;
     background-repeat: no-repeat;
 }
@@ -87,8 +85,8 @@ a{
     position: absolute;
     width:100%;
     height: 100%;
+    margin-left:67%;
     background-image: url("../image/petalos.png");
-    animation: baja 15s linear infinite;
     background-repeat: no-repeat;
 }
 .capa7{
@@ -262,11 +260,12 @@ a{
     float:left;
     text-transform:none;
   }
-.menu ul li a, .botones ul li a{
+.menu ul li a, .botones ul li a {
     margin-top: auto;
     margin-bottom: auto;
     text-decoration:none;
 }
+
 .menu ul li a:hover{
     text-decoration:none;
     color:rgb(204, 154, 154);
@@ -387,9 +386,9 @@ a{
 
 @keyframes cambio {
     0%,  17.5%  { transform: translateZ(-35vw) rotateY(0);margin-left: 0%; }
-	27.5%, 45%  { transform: translateZ(-35vw) rotateY(-120deg);margin-left:-100%; }
-	55%, 72.5%  { transform: translateZ(-35vw) rotateY(-240deg);margin-left:-200%; }
-	82.5%, 100% { transform: translateZ(-35vw) rotateY(-360deg);margin-left:-300%; }
+	27.5%, 45%  { transform: translateZ(-35vw) rotateY(-120deg);margin-left:-50%; }
+	55%, 72.5%  { transform: translateZ(-35vw) rotateY(-240deg);margin-left:-70%; }
+	82.5%, 100% { transform: translateZ(-35vw) rotateY(-360deg);margin-left:-100%; }
 
     /*0% { margin-left: 0%;}
     20% {margin-left: 0%;}
@@ -453,7 +452,14 @@ input, text, button,textarea{
     height: 100%;
     justify-content: center;
     display: block;
-}
-.grid{
     text-align: center;
+}
+.grid p{
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+margin-left: auto;margin-right: auto;}
+.img_ev:hover{
+    transform: perspective(2000px) rotateX(0deg) 
+    rotateY(30deg) rotateZ(0deg) translateX(-30px)
+    translateY(0px) translateZ(0px);
 }

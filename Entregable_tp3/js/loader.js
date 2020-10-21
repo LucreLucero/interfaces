@@ -12,9 +12,14 @@ window.onload = setTimeout(function(){
       e.preventDefault();
     }
 
-    document.querySelector( ".page" ).style.display="block";;
+    document.querySelector( ".page" ).style.display="block";
   },3000);
 
 //document.querySelector('input').addEventListener('click',function (){
  // document.querySelector(".nota").innerHTML = "Gracias por comentar!";
 //});
+window.addEventListener("scroll", function(){
+  if (document.body.scrollTop > 2300|| document.documentElement.scrollTop > 2300){
+    document.querySelector('#anim').style.display = "block";
+  }
+});

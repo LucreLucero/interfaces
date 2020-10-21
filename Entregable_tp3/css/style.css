@@ -50,7 +50,7 @@ a{
     height: 100%;
     font-size: 60px;
     text-align: left;
-    margin-left: 200px;
+    margin-left: 10%;
     animation:  baja 10s linear  infinite;
     background-attachment: fixed;
 }
@@ -83,17 +83,17 @@ a{
 }
 .capa6{
     position: absolute;
-    width:100%;
+    width:34%;
+    margin-left: 66%;
     height: 100%;
-    margin-left:67%;
     background-image: url("../image/petalos.png");
     background-repeat: no-repeat;
 }
 .capa7{
     position: absolute;
-    width: 100%;
+    width: 60%;
     height: 100%;
-    margin-left: 300px;
+    margin-left: 20%;
     background-image: url("../image/fall.png");
     background-repeat: repeat-y;
     animation: move_a 20s linear infinite;

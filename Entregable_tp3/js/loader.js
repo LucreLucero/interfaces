@@ -19,11 +19,10 @@ window.onload = setTimeout(function(){
  // document.querySelector(".nota").innerHTML = "Gracias por comentar!";
 //});
 
+
+
 window.addEventListener("scroll", function(){
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
-    document.querySelector('#anim_scroll').style.display = "block";
-  }
-  if (document.body.scrollTop > 1600|| document.documentElement.scrollTop > 1600){
+  if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100){
     document.querySelector('#anim').style.display = "block";
   }
 });

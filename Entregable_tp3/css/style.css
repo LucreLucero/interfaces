@@ -353,65 +353,10 @@ text-decoration:none;
     display: block;
     justify-content: center;
 }
-._texto, .slider{
-    margin-left: auto;
-    margin-right: auto;
-    flex-direction: column;
-}
-.slider{
-    width:1020px;
-    height: 520px;
-    position: relative;
-    overflow: hidden;
-}
-
-.slider-imagenes {
-    width: 500%;
-    display: flex;
-    flex-direction: row;
-    margin-left: -100%;
-    animation: cambio 10s infinite;
-
-}
-
-.slider-imagenes img{
-    display: block;
-}
-
-@keyframes cambio {
-    0% { transform: translateX(0); }
-	100% { transform: translateX(-1020px)}
-    /*
-    0% { margin-left: 0%;}
-    20% {margin-left: -100%;}
-
-    25% {margin-left:-200%;}
-    45% {margin-left:-300%;}
-
-    50% {margin-left:-400%;}
-    70% {margin-left:-500%;}
-
-    75% {margin-left:-600%;}
-    100% {margin-left:-600%;}
-    
-    
-    
-    0% { margin-left: 0%;}
-    20% {margin-left: 0%;}
-
-    25% {margin-left:-100%;}
-    45% {margin-left:-100%;}
-
-    50% {margin-left:-200%;}
-    70% {margin-left:-200%;}
-
-    75% {margin-left:-300%;}
-    100% {margin-left:-300%;}*/
-}
 ._texto{
     text-align: center;
+    flex-direction: column;
 }
-/*---------------------------------------------------*/
 .slice{
     position:relative;
     padding: 0;
@@ -504,8 +449,8 @@ text-decoration:none;
     text-align: center;
     margin-left: auto;
     margin-right: auto;  
-    width: 50%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 }
 input, text{
     margin-bottom: 20px;
@@ -546,17 +491,25 @@ input, text, button,textarea{
     /*background-color: #494848;*/width: 500px;
     margin-left: auto;margin-right: auto;  
     transition: 3s;
+    animation: anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.grid p{
-     
-    font-family: Arial, Helvetica, sans-serif;
+@-webkit-keyframes anim {
+	0% {
+	    transform: translateY(-100px);
+	    opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+	    opacity: 1;
+	}
+}
 
-}    
+.grid p{ font-family: Arial, Helvetica, sans-serif;}    
 summary{font-size: 25px;}
 summary:hover{color:red;   }
 summary:before { content: "+";}
-details[open] > summary:before {content: "";}
 summary{ transition: 2s;}
+details[open] > summary:before {content: "";}
 
 .en_event img{
     position:relative;

@@ -19,21 +19,26 @@
     </div>
 
     <div class="page" hidden>
+        
     <article class="entrada">
         <div class="capa1"></div>
-        <div class="capa2"><p>Royal</p></div>
-        <div class="capa3"></div>
-        <div class="capa4"><p>Brave</p></div>
-        <div class="capa5"><p>True</p></div>
+        <div class="capa2"><h2>Royal</h2></div>
+        <!--- <div class="capa3"></div>-->
+        <div class="capa4"><h2>Brave</h2></div>
         <div class="capa6"></div>
+        <div class="capa5"><h2>True</h2></div>
         <div class="capa7"></div>
     </article>
-    <div class="capa7"></div>
+    <!---<div class="capa7"></div>-->
     <header class="presentacion">
-        <div class="logo">
-            <p><i class="fas fa-dragon"></i></p>
-            <p id="countD"></p> 
-        </div>
+       <!--- <div class="logo"></div>-->
+       <div id="anim_scroll" class="capa3"  hidden></div>
+
+        <p><i class="fas fa-dragon"></i></p>
+        <h1>"No hay valor sin miedo. <br> Muéstrale al mundo quién eres." <br>- Mulan -</h1>
+        <h3> Puedes conocerla en ... </h3>
+        <h2 id="countD"></h2> 
+        
     </header>
     
     <nav id="_menu">           
@@ -44,18 +49,16 @@
         </section>
     
         <section class="menu">
-            <ul>
+            <ul class="menu-contenedor">
                <li><a href="index.html">Home</a></li>
                 <li><a href="events.html">Eventos</a></li>
                <li><a href="form.html">Comentarios</a></li>
-            </ul>
-
-            <ul>
+         
                 <li><a href="https://www.facebook.com/waltdisneymulan"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href=" https://twitter.com/disneysmulan"><i class="fab fa-twitter"></i></a></li>
                 <li><a href=" https://instagram.com/mulan"><i class="fab fa-instagram"></i></a></li>            
                 <li><a href="https://www.youtube.com/playlist?list=PLTnR43JTLNs_4moa3QnavHCAupS_Hj8Yz"><i class="fab fa-youtube"></i></a></li>                
-                <li><a href="https://preview.disneyplus.com/ar"><img class="disney" src="image/disney-plus.png" alt="disney" width="40px" height="40px"></a></li>                
+                <li><a href="https://preview.disneyplus.com/ar"><i class="fab fa-fort-awesome-alt"></i></a></li>                
             </ul>      
         </section>  
     </nav>
@@ -76,31 +79,31 @@
             </figure>
             <figure>
                 <p id="text">Fa Mulan (joven)</p>
-                <img id="foto" class="foto1" src="image/Crystal_Rao.jpg" alt="Liu Yifei">
+                <img id="foto" class="foto2" src="image/Crystal_Rao.jpg" alt="Liu Yifei">
                 <figcaption id="text">Crystal Rao</figcaption>
             </figure>
             <figure>
                 <p id="text">Chen Honghui</p>
-                <img id="foto" class="foto2" src="image/Yoson_An.jpg" alt="Yoson An">
+                <img id="foto" class="foto3" src="image/Yoson_An.jpg" alt="Yoson An">
                 <figcaption id="text">Yoson An</figcaption> 
             </figure>
 
             <figure>
                 <p id="text">Camandante Tung</p>
-                <img id="foto" class="foto3" src="image/Donnie_Yen.jpg" alt="Donnie Yen">
+                <img id="foto" class="foto4" src="image/Donnie_Yen.jpg" alt="Donnie Yen">
                 <figcaption id="text">Donnie Yen</figcaption> 
             </figure>
 
             <figure>
                 <p id="text">Emperador</p>
-                <img id="foto" class="foto4" src="image/Jet_Li.jpg" alt="Jet Li">
+                <img id="foto" class="foto5" src="image/Jet_Li.jpg" alt="Jet Li">
                 <figcaption id="text">Jet Li</figcaption> 
             </figure>
 
             <figure>
                 <p id="text">Bori Khan</p>
-                <img id="foto" class="foto5" src="image/Jason_Scott_Lee.jpg" alt="Jason Scott Lee">
-                <figcaption id="text">Jason Scott Lee</figcaption> 
+                <img id="foto" class="foto6" src="image/Jason_Scott_Lee.jpg" alt="Jason Scott Lee">
+                <figcaption id="text">JasonScott Lee</figcaption> 
             </figure>
 
             <figure>
@@ -115,16 +118,42 @@
         <section class="_texto">
             <h1>IMAGENES DESTACADAS</h1>
         </section>
-        <section class="_imagenes">
-            <ul>
-                <li><img src='image/carrusel1.jpg' alt="uno" /></li>
-                <li><img src='image/carrusel2.jpg' alt="dos" /></li>           
-                <li><img src='image/carrusel4.jpeg' alt="cuatro" /></li>
-                <li><img src='image/carrusel3.jpg' alt="tres" /></li>
-                <li><img src='image/carrusel5.jpg' alt="cinco" /></li>
-                <li><img src='image/carrusel6.jpg' alt="seis" /></li>
-            </ul>
+
+        <section class="slice">
+            <input type="radio" id="trigger1" name="slider">
+            <label for="trigger1"></label>
+            <div class="slide bg1"></div>
+            
+            <input type="radio" id="trigger2" name="slider" checked autofocus>
+            <label for="trigger2"></label>
+            <div class="slide bg2"></div>
+            
+            <input type="radio" id="trigger3" name="slider">
+            <label for="trigger3"></label>
+            <div class="slide bg3"></div>
+            
+            <input type="radio" id="trigger4" name="slider">
+            <label for="trigger4"></label>
+            <div class="slide bg4"></div>
+            
+            <input type="radio" id="trigger5" name="slider">
+            <label for="trigger5"></label>
+            <div class="slide bg5"></div>
+
+            <input type="radio" id="trigger6" name="slider">
+            <label for="trigger6"></label>
+            <div class="slide bg6"></div>
         </section>
+    <!--<section class="slider">
+        <div class="slider-imagenes">
+            <img src='image/carrusel1.jpg' alt="uno" width="1020" height="480"/>
+            <img src='image/carrusel2.jpg' alt="dos" width="1020" height="480"/>          
+            <img src='image/carrusel3.jpg' alt="tres" width="1020" height="480"/>
+            <img src='image/carrusel4.jpg' alt="cuatro"width="1020" height="480"/>
+            <img src='image/carrusel5.jpg' alt="cinco"width="1020" height="480"/>
+            <img src='image/carrusel6.jpg' alt="seis"width="1020" height="480" />
+        </div>
+    </section>-->
     </article>  
 </div>  
 </body>

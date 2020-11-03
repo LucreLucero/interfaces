@@ -22,7 +22,7 @@ window.onload = setTimeout(function(){
 
 
 window.addEventListener("scroll", function(){
-  if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100){
+  if (document.body.scrollTop > 1600|| document.documentElement.scrollTop > 1600){
     document.querySelector('#anim').style.display = "block";
   }
 });

@@ -4,7 +4,10 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
-
+a{
+    text-decoration: none;
+    color:white;
+}
 .presentacion{
     height: 466px;
     width: 100%;
@@ -103,7 +106,7 @@ label{
 }
 
 .input-login{
-    width: 50%;
+    width:40%;
     min-width: 200px;
     border: 2px solid #A9A6A6;
     height: 30px;
@@ -113,7 +116,6 @@ label{
 }
 
 .btn-form{
-    width: 40%;
     min-width: 180px;
     height: 40px;
     color: white;
@@ -132,7 +134,7 @@ label{
 }
 
 .inicio-sesion{
-    background-color: green;
+    background-color: blue;
 }
 
 .comenzar{

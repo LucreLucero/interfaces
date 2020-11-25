@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.presentacion{
+    height: 466px;
+    width: 100%;
+    background-color:  rgb(107, 255, 255);
+    background-image: url(../images/chica.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+}
+
+.logo-negro{
+    width: 120px;
+    height: 100px;
+}
+
+.generico{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.index{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.header-logo{
+    background-color: white;
+    height: 200px;
+    width: 100%;
+}
+
+.h1-index{
+    display: block;
+    width: 120px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+    clear: both;
+    color: red;
+}
+
+.opciones-login{
+    width: 100%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login{
+    background-color: white;
+    border: 2px solid #200EED;
+    height: 50px;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+}
+
+.registrarse{
+    background-color: #3431B4;
+    color: white;
+    height: 50px;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+}
+
+
+h1{
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label{
+    margin-bottom: 10px;
+    text-align: start;
+    width: 50%;
+    min-width: 200px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.input-login{
+    width: 50%;
+    min-width: 200px;
+    border: 2px solid #A9A6A6;
+    height: 30px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+}
+
+.btn-form{
+    width: 40%;
+    min-width: 180px;
+    height: 40px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.basico{
+    background-color: rgb(75, 74, 74);
+}
+
+.premium{
+    background-color: orange;
+}
+
+.inicio-sesion{
+    background-color: green;
+}
+
+.comenzar{
+    background-color: blue;
+    display: block;
+    margin: auto;
+}
+
+.tit-plan{
+    color: blue;
+    text-align: center;
+    width: 100%;
+}
+
+.tit2-plan{
+    color: red;
+    text-align: center;
+    width: 100%;
+}
+
+.tit-registro{
+    color: blue;
+    text-align: center;
+    width: 100%;
+}
+
+.p-plan{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 50%;
+    text-align: center;
+}
+
+.planes{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.plan{
+    width: 25%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
+
+.plan1{
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.plan2{
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.plan3{
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.h-planes{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.p-planes{
+    margin: auto;
+    width: 50%;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.precio{
+    
+    bottom: 0;
+}
+
+.navegation{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    background-color: black;
+}
+
+.logo-navigation{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 50px;
+    width: 20%;
+    margin-left: 1%;
+    background-repeat: no-repeat;
+    background-image: url(../images/logo_blanco1.png);
+}
+
+.container-links{
+    margin-top: 32px;
+    height: 50px;
+    width: 30%;
+}
+
+.links{
+    margin-top: 500px;
+    margin-left: 6%;
+    margin-right: 6%;
+    font-size: large;
+    color: white;
+}
+
+.search{
+    margin-top: 10px;
+    width: 15%;
+    height: 25px;
+    margin: auto;
+}
+
+.contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 70px;
+    background-color: #4f4f4f;
+}
+
+.social-media{
+    margin-top: 4px;
+    width: 335px;
+    background-repeat: no-repeat;
+    background-image: url(../images/social_media_logos1.png);
+}

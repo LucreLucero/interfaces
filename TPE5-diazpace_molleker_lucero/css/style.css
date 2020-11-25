@@ -283,6 +283,33 @@ label{
 
 /* AYUDA - acordeon */
 
+#linea-buscar {
+    width: 50%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#buscar {
+    border: solid 1px;
+    width: 250px;
+    height: 30px;
+}
+
+#adentro {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#btn-buscar {
+    height: 30px;
+    background-color: blue;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .acordeon{
     width: 800px;
     margin-left: auto;
@@ -294,33 +321,35 @@ label{
     display: none;
   }
   
-  .acordeon__titulo {
-    display: block;
-    padding: 15px;
-    background: rgb(90, 90, 90);
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    border-bottom: 1px solid #fff;
-    width: 100%;
-  }
-  .acordeon__titulo:hover {
-    background: rgba(110, 110, 110, 0.8);
-  }
-  
-  .acordeon__contenido {
-    height: 0;
-    overflow: hidden;
-    margin: 0;
-    transition: all 0.5s;
-    width: 100%;
-  }
-  
-  .acordeon input:checked ~ .acordeon__contenido{
-    height: auto;
-    margin: 15px 0;
-  }
+.acordeon__titulo {
+display: block;
+padding: 15px;
+background: rgb(90, 90, 90);
+color: #fff;
+font-size: 20px;
+cursor: pointer;
+border-bottom: 1px solid #fff;
+width: 100%;
+}
+.acordeon__titulo:hover {
+background: rgba(110, 110, 110, 0.8);
+}
 
-  .ayuda .tit-plan {
-    margin-top: 20px;
-  }
+.acordeon__contenido {
+height: 0;
+overflow: hidden;
+margin: 0;
+transition: all 0.5s;
+width: 100%;
+}
+
+.acordeon input:checked ~ .acordeon__contenido{
+height: auto;
+margin: 15px 0;
+}
+
+.ayuda .tit-plan {
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+}

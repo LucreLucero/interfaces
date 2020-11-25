@@ -230,6 +230,7 @@ label{
     display: flex;
     flex-direction: row;
     height: 100px;
+    width: 100%;
     background-color: black;
 }
 
@@ -238,33 +239,46 @@ label{
     margin-bottom: 25px;
     height: 50px;
     width: 20%;
+    min-width: 220px;
     margin-left: 1%;
     background-repeat: no-repeat;
     background-image: url(../images/logo_blanco1.png);
 }
 
 .container-links{
-    margin-top: 32px;
+    margin-top: 40px;
+    margin-left: 30px;
     height: 50px;
-    width: 30%;
-    display: inline-block;
-    flex-direction: row;
+    width: 40%;
 }
 
 .links{
     margin-top: 500px;
     margin-left: 6%;
-    margin-right: 6%;    
+    margin-right: 6%;
     font-size: large;
     color: white;
 }
 
 .search{
-    margin-top: 10px;
+    margin-top: 37px;
     width: 15%;
+    min-width: 150px;
     height: 25px;
-    margin: auto;
+    margin-left: 200px;
+    margin-right: 0;
 }
+
+.lupa{
+    margin-top: 37px;
+    background-image: url(../images/lupa.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    margin-right: 20px;
+}
+
 
 .contact{
     display: flex;
@@ -279,6 +293,113 @@ label{
     width: 335px;
     background-repeat: no-repeat;
     background-image: url(../images/social_media_logos1.png);
+}
+
+.music-sections{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    padding-bottom: 15px;
+    border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
+}
+
+.music-sections h3{
+    margin-left: 0.5%;
+    font-weight: bold;
+}
+
+.music-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.songs{
+    min-width: 165px;
+    min-height: 165px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+.artist{
+    min-width: 165px;
+    min-height: 165px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    border-radius: 100%;
+}
+
+.artist1{
+    background-image: url(../images/Queen.png);
+}
+
+.artist2{
+    background-image: url(../images/artist-michaelJackson.png);
+}
+
+.artist3{
+    background-image: url(../images/artist-Maluma.png);
+}
+
+.artist4{
+    background-image: url(../images/artist-freddyMercuri.png);
+}
+
+.artist5{
+    background-image: url(../images/artist-pinkFloyd.png);
+}
+
+.artist6{
+    background-image: url(../images/artist-cachoCastaña.png);
+}
+
+.song1{
+    background-image: url(../images/Queen.png);
+}
+
+.song2{
+    background-image: url(../images/PinkFloid.png);
+}
+
+.song3{
+    background-image: url(../images/FreedyMercuri.png);
+}
+
+.song4{
+    background-image: url(../images/CachoCastaña.png);
+}
+
+.song5{
+    background-image: url(../images/MichaelJackson.png);
+}
+
+.song6{
+    background-image: url(../images/Desconocido.png);
+}
+
+.song7{
+    background-image: url();
+}
+
+.song8{
+    background-image: url();
+}
+
+.player{
+    height: 55px;
+    width: 100%;
+    border: 2px solid black;
+    background-position: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../images/player.png);
+    background-repeat: no-repeat;
 }
 
 /* AYUDA - acordeon */

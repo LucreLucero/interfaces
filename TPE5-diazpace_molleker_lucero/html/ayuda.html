@@ -9,13 +9,49 @@
     <script src="../js/js.js"></script>
 </head>
 <body>
-    <header class="header-logo">
-        <img class="logo-negro generico" src="../images/logo-negro.png">
+    <header class="navegation">
+        <div class="logo-navigation"></div>
+        <input type="text" placeholder="Buscar..." class="search">
+        <section class="container-links">
+            <a class="links">Mi Playlist</a>
+            <a class="links">Mi cuenta</a>
+            <a class="links">Ayuda</a>
+        </section>
     </header>
-    <h2 class="tit-plan">Como registrarse</h2>
-    <p class="p-plan">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, repudiandae veritatis tempora officia, 
-        distinctio odit quod architecto nulla libero, temporibus ullam laudantium accusantium unde debitis culpa. Quo ut ratione magnam.
-    </p>
+    <div class="ayuda">
+        <h2 class="tit-plan"> ¿En qué podemos ayudarte?</h2>
+        <div class="acordeon">
+            <div class="acordeon__item">
+                <input type="radio" name="acordeon" id="item1">
+                <label for="item1" class="acordeon__titulo">Opciones de registro &darr;</label>
+                <p class="acordeon__contenido">Para poder utilizar Spoiler Five deberás registrarte, ingresando usuario, e-mail y contraseña.</p>
+            </div>
+            <div class="acordeon__item">
+                <input type="radio" name="acordeon" id="item2">
+                <label for="item2" class="acordeon__titulo">Como me suscribo a un plan Premium &darr;</label>
+                <p class="acordeon__contenido">Una vez registrado deberás sucribirte a un plan, según tus necesidades: free, individual, dúo o familiar.</p>
+            </div>
+            <div class="acordeon__item">
+                <input type="radio" name="acordeon" id="item3">
+                <label for="item3" class="acordeon__titulo">Ayuda con mi cuenta &darr;</label>
+                <p class="acordeon__contenido">Una vez registrado podrás gozar de todos los beneficios de tu plan de Spoiler Five.  Podrás modificar tus datos y plan cuando lo desees.</p>
+                </div>
+            <div class="acordeon__item">
+                <input type="radio" name="acordeon" id="item4">
+                <label for="item4" class="acordeon__titulo">Ayuda con los pagos &darr;</label>
+                <p class="acordeon__contenido">Una vez registrado en un Plan Premium se te solicitará la selección de una opción de pago, correspondiente al plan elegido.</p>
+            </div>
+            <div class="acordeon__item">
+                <input type="radio" name="acordeon" id="item5">
+                <label for="item5" class="acordeon__titulo">Uso de Spoiler Five &darr;</label>
+                <p class="acordeon__contenido">Spoiler Five te permitirá reproducir tu música favorita. realizando búsquedas de canciones, postcads y playlist.  Además podrás calificarla y realizar comentarios. </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="contact"> 
+        <section class="social-media">
+        </section>
+    </footer>
 </body>
 </html>

@@ -8,19 +8,8 @@
 
 a{
     text-decoration: none;
+    color: #4f4f4f;
 }
-.presentacion{
-    height: 466px;
-    width: 100%;
-    display:flex;
-    flex-direction: column;
-    background-color:  rgb(107, 255, 255);
-    background-image: url(../images/chica.jpeg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left;
-}
-
 .logo-negro{
     width: 120px;
     height: 100px;
@@ -32,27 +21,49 @@ a{
     margin-top: 50px;
 }
 
-.index{
-    float: right;
-    margin-right: 20px;
-    margin-top: 10px;
-}
-
 .header-logo{
     background-color: white;
     height: 200px;
     width: 100%;
 }
+/*-------------index---------------*/
+.presentacion{
+    height: 466px;
+    width: 100%;
+    background-color:  rgb(107, 255, 255);
+    background-image: url(../images/chica.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
-.h1-index{
-    display: block;
+.index{    
+    width: 50%;
     float: right;
     margin-right: 20px;
+    margin-top: 10px;
+}
+.h1-index{    
+    width: 30%;
     margin-top: 30px;
+    margin-right: 6%;
+    float: right;
     clear: both;
+    text-align: right;
     color: red;
     font-family: 'Squada One', cursive;
     font-size: 72px;
+}
+.btn-index{
+    float: right;
+    color: white;
+    height: 50px;
+    width: 150px;
+    margin: auto;    
+    margin-right: 6%;
+    /*margin-top: 20px;*/
+    margin-bottom: 0;
+    border-radius: 10px;
+    background-color: #FF6B6B;
 }
 /*-------- FLECHA ATRAS------------*/
 .atras{
@@ -100,16 +111,6 @@ a{
 }
 
 /*-----------------------------*/
-.prueba{
-    background-color: #FF6B6B;
-    color: white;
-    height: 50px;
-    width: 150px;
-    margin: auto;
-    /*margin-top: 20px;*/
-    margin-bottom: 0;
-    border-radius: 10px;
-}
 
 h1{
     text-align: center;
@@ -201,7 +202,7 @@ label{
 }
 
 .plan{
-    width: 25%;
+    width: 100%;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -210,15 +211,19 @@ label{
 }
 
 .plan1{
-    background-color: rgba(255, 0, 0, 0.1);
+    background-image: url(../images/plan_free.jpg);
 }
 
 .plan2{
-    background-color: rgba(255, 0, 0, 0.2);
+    background-image: url(../images/plan_individual.jpg);
 }
 
 .plan3{
-    background-color: rgba(255, 0, 0, 0.3);
+    background-image: url(../images/plan_duo.jpg);
+}
+.plan4{
+    background-image: url(../images/plan_familiar.jpg);
+
 }
 
 .h-planes{
@@ -237,7 +242,7 @@ label{
     
     bottom: 0;
 }
-
+/*-------------------------------------*/
 .navegation{
     display: flex;
     flex-direction: row;
@@ -430,7 +435,12 @@ label{
     top:85%;
     padding:20px 20px;
 }
-
+/*-----------------reproduccion de cancion--------------------------*/
+.cancion{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* AYUDA - acordeon ----------------------------------*/
 
 #linea-buscar {

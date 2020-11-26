@@ -328,11 +328,13 @@ label{
 }
 
 .music-sections h3{
+    margin-top: 10px;
     margin-left: 0.5%;
     font-weight: bold;
 }
 
 .music-content{
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -415,6 +417,11 @@ label{
     background-image: url();
 }
 
+.border{
+    border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
+    padding-bottom: 15px;
+}
+
 .player{
     height: 55px;
     width: 100%;
@@ -429,6 +436,97 @@ label{
     left:0;
     top:85%;
     padding:20px 20px;
+}
+
+.song-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.song-search{
+    margin-left: 15%;
+}
+
+.p-info{
+    margin-top: 30px;
+    width: 300px;
+}
+
+.score{
+    display: flex;
+    flex-direction: row;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mas-canciones{
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    background-image: url(../images/masCanciones.png);
+    background-size: contain;
+}
+
+.filtro{
+    color: blue;
+    border: blue 1px solid;
+    height: 20px;
+    width: 10%;
+    text-align: center;
+}
+
+.star{
+    margin-top: 10px;
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.star-enabled{
+    background-image: url(../images/estrellaNaranja.png);
+}
+
+.star-disabled{
+    background-image: url(../images/estrellaGris.png);
+}
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    min-width: 200px;
+    margin-left: 20%;
+    margin-top: 55px;
+}
+
+.action{
+    margin-right: 10%;
+    height: 38px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    overflow: auto;
+}
+
+.action1{
+    background-image: url(../images/icono_mas.png);
+}
+
+.action2{
+    background-image: url(../images/icono_comentario.png);
+}
+
+.action3{
+    background-image: url(../images/like.png);
 }
 
 /* AYUDA - acordeon ----------------------------------*/

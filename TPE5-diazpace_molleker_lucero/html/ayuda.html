@@ -12,13 +12,12 @@
 </head>
 <body>
     <header class="navegation">
-        <div class="logo-navigation"></div>
+        <a href="home.html" class="logo-navigation"></a>
         <input type="text" placeholder="  Buscar..." class="search">
         <section class="container-links">
-            <a class="links" href="home.html" >Home</a>
             <a class="links">Mi Playlist</a>
             <a class="links" href="mi-cuenta.html">Mi cuenta</a>
-            <a class="links" href="" >Notificaciones</a>
+            <a class="links" href="notificaciones.html">Notificaciones</a>
         </section>
     </header>
     <div class="ayuda">
@@ -63,9 +62,14 @@
         </div>
     </div>
 
-    <footer class="contact"> 
-        <section class="social-media">
-        </section>
-    </footer>
+<!--FOOTER CON EL REPRODUCTOR UNA VEZ QUE ENTRAMOS-->
+    <section class="player">        
+        <!--reproductor del navegador-->
+        <audio controls="controls">
+            <source src="track.ogg" type="audio/ogg" />
+            <source src="track.mp3" type="audio/mpeg" />
+        </audio>
+    </section>
+    
 </body>
 </html>

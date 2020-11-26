@@ -10,43 +10,35 @@
 </head>
 <body>
     <header class="navegation">
-        <div class="logo-navigation"></div>
+        <a href="home.html" class="logo-navigation"></a>
         <input type="text" placeholder="Buscar..." class="search">
         <section class="container-links">
-            <a class="links">Mi Playlist</a>
-            <a class="links">Mi cuenta</a>
-            <a class="links">Ayuda</a>
+            <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
+            <a class="links" href="notificaciones.html">Notificaciones</a>
+            <a class="links" href="ayuda.html" >Ayuda</a>
         </section>
     </header>
 
-    <h1 class="tit-plan">Plan premium</h1>
-    <h2 class="tit2-plan">Opciones de plan:</h2>
-    <section class="planes">
-        <div class="plan plan1">
-            <h3 class="h-planes">Premium 1</h3>
-            <p class="p-planes">Sin propagandas</p>
-            <p class="p-planes precio">10$</p>
-        </div>
-        <div class="plan plan2">
-            <h3 class="h-planes">Premium 2</h3>
-            <p class="p-planes">Sin propagandas y mejor calidad de sonido</p>
-            <p class="p-planes precio">20$</p>
-        </div>
-        <div class="plan plan3">
-            <h3 class="h-planes">Premium 3</h3>
-            <p class="p-planes">Sin propagandas, mejor calidad de sonido y sugerencias</p>
-            <p class="p-planes precio">30$</p>
-        </div>
-    </section>
-    <div class="flex">
+    <article id="opciones">
+        
+        <h2 class="tit-plan">Elegi tu opcion favorita y disfruta!</h2>
 
-        <button class="btn-form inicio-sesion">Confirmar plan</button>
-    </div>
-
-
-    <footer class="contact"> 
-        <section class="social-media">
+        <section class="planes">
+            <a href="registrarse.html"><div class="plan1"></div></a>
+            <a href="registrarse.html"><div class="plan2"></div></a>
+            <a href="registrarse.html"><div class="plan3"></div></a>
+            <a href="registrarse.html"><div class="plan4"></div></a>
         </section>
-    </footer>
+        <section class="flex">
+            <button class="btn-form inicio-sesion">Confirmar plan</button>
+
+            <button class="btn-form inicio-sesion">Confirmar plan</button>
+        </section>
+
+    </article>
+  
+
+
+    
 </body>
 </html>

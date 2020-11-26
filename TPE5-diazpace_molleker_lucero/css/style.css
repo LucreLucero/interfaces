@@ -10,6 +10,9 @@ a{
     text-decoration: none;
     color: #4f4f4f;
 }
+.blanco{
+    color: white;
+}
 .logo-negro{
     width: 120px;
     height: 100px;
@@ -217,14 +220,24 @@ label{
     background-size: contain;
 }
 .btn-plan{
+    width: 95%;
+    min-width: 180px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 230%;
+
+/*
+    width: 100%;
     display: inline-flex;
     flex-direction: row;
+    justify-content: center;*/
 }
 /*-------------------------------------*/
 .navegation{
     display: flex;
     flex-direction: row;
-    margin-bottom: 2%;
     height: 100px;
     width: 100%;
     background-color: black;
@@ -244,6 +257,7 @@ label{
     width: 20%;
     background-color: black;
 }
+
 .container-links{
     margin-top: auto;
     margin-bottom: auto;
@@ -682,19 +696,20 @@ margin-right: auto;
 
 /*----------FOOTER-----------*/
 .contact{
+    width: 100%;
     position: absolute;
     bottom: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 70px;
+    height: auto;
     background-color: #4f4f4f;
 }
 .social-media{
-    margin-top: 4px;
-    width: 335px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 200px;
     background-repeat: no-repeat;
     background-image: url(../images/social_media_logos1.png);
-    margin-bottom: 20px;
+    background-size: contain;
     padding: 20px;
 }

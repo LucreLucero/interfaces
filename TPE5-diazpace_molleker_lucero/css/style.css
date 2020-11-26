@@ -245,7 +245,7 @@ label{
     margin-top: 40px;
     margin-left: 30px;
     height: 50px;
-    width: 40%;
+    width: 50%;
 }
 
 .sugerencias{
@@ -415,7 +415,7 @@ label{
     background-repeat: no-repeat;
 }
 
-/* AYUDA - acordeon */
+/* AYUDA - acordeon ----------------------------------*/
 
 #linea-buscar {
     width: 50%;
@@ -486,4 +486,59 @@ margin: 15px 0;
 margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
+}
+
+/* MI CUENTA ---------------------------------------*/
+
+#btn-modificar-datos {
+    width: 290px;
+    height: 40px;
+    background-color: blue !important;
+    color: rgb(255, 255, 255) !important;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#btn-descartar-datos {
+    width: 290px;
+    height: 40px;
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(105, 102, 102) !important;
+    border: solid 2px blue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#btn-act-plan {
+    width: 190px;
+    height: 40px;
+    background-color: rgb(255, 94, 0) !important;
+    color: rgb(255, 255, 255) !important;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#actualizar-plan {
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#actualiza {
+    padding-top: 20px;
+    font-size: 24px;
+    padding-right: 10px;
+}
+
+.cont-cuenta a {
+    color: rgb(255, 255, 255);
+}
+
+#descartar {
+    color: rgb(82, 82, 82);
 }

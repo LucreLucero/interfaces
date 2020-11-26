@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spoiler Five</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <script src="../js/js.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navegation">
         <div class="logo-navigation"></div>
-        <input type="text" placeholder="Buscar..." class="search">
+        <input type="text" placeholder="  Buscar..." class="search">
         <section class="container-links">
+            <a class="links" href="home.html" >Home</a>
             <a class="links">Mi Playlist</a>
-            <a class="links">Mi cuenta</a>
-            <a class="links">Ayuda</a>
+            <a class="links" href="mi-cuenta.html">Mi cuenta</a>
+            <a class="links" href="" >Notificaciones</a>
         </section>
     </header>
     <div class="ayuda">
-        <h2 class="tit-plan"> ¿En qué podemos ayudarte?</h2>
+        <div class="back"></div>
+        <h2 class="tit-plan">¿En qué podemos ayudarte?</h2>
+        <div id="linea-buscar">
+            <div id="adentro">
+                <input id="buscar" type="search" placeholder="  Ingrese texto ...">
+                <span>
+                <button id="btn-buscar"> Buscar </button>
+                </span>
+            </div>
+        </div>
+
+
         <div class="acordeon">
             <div class="acordeon__item">
                 <input type="radio" name="acordeon" id="item1">

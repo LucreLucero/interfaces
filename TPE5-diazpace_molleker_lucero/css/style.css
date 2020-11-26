@@ -735,6 +735,20 @@ margin-right: auto;
     color: white;
 }
 
+#texto-plan {
+    margin-top: 20px;
+}
+
+#tu-plan-es {
+    width: 250px;
+    height: 40px;
+    border: 1px solid grey;
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /*----------FOOTER-----------*/
 
 .contact{

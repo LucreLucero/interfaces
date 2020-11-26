@@ -10,21 +10,26 @@
 </head>
 <body>
     <header class="navegation">
-        <div class="logo-navigation"></div>
+        <a href="index.html" class="logo-navigation"></a>
         
+        <div class="relleno"></div>
+
         <section class="container-links">
-            <a class="links">Ayuda</a>
+            <a class="links" href="ayuda.html">Ayuda</a>
         </section>
     </header>
+    
+    <!--flecha atras--><a href="index.html"><img class="atras" src="../images/icono_flecha_atras.png"></a>
+
     <article>
         <h1>Bienvenido!</h1>
         <form class="flex">
-            <label >Ingresa tu usuario</label>
-            <input class="input-login" type="text" placeholder="  Aca va tu usuario">
-            <label >Ingresa tu contraseña</label>
-            <input class="input-login" type="password" placeholder="  Pone tu contraseña">
+            <label>Ingresa tu usuario</label>
+            <input class="input-login" type="text" placeholder="  Aca va tu usuario" required>
+            <label>Ingresa tu contraseña</label>
+            <input class="input-login" type="password" placeholder="  Pone tu contraseña" required>
             
-            <button class="btn-form inicio-sesion" value="Iniciar sesión"><a href="home.html">Iniciar sesión</a></button>
+            <button class="btn-form inicio-sesion" value="Iniciar sesión"><a class="btn-form" href="home.html">Iniciar sesión</a></button>
         </form>
     </article>
 

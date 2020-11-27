@@ -644,18 +644,31 @@ label{
     overflow: auto;
 }
 
+.action1-menos{
+    background-image: url(../images/icono_menos.png);
+}
+
 .action1{
     background-image: url(../images/icono_mas.png);
 }
 
-.action1:hover{
-    animation-name: mas;
-    animation-duration: 0.6s;
-    animation-iteration-count: 1;
+.rotar{
+    animation: rotar 0.05s linear 3 ;
 }
 
-.action1:active{
-    transform: scale(2);
+
+@keyframes rotar{
+    0%{transform: rotateZ(0deg);}
+    50%{transform: rotateZ(180deg);}
+    100%{transform: rotateZ(360deg);}
+}
+
+.action1:hover{
+    transform: scale(1.1);
+}
+
+.action1-menos:hover{
+    transform: scale(1.1);
 }
 
 @keyframes mas{
@@ -686,20 +699,58 @@ label{
     background-image: url(../images/like.png);
 }
 
+.action3-menos{
+    background-image: url(../images/like-rojo.png);
+}
+
 .action3:hover{
-    animation-name: like;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
+    transform: scale(1.1);
+}
+
+.action-like{
+    animation: like 0.5s linear;
+
+}
+
+.action-dislike{
+    animation: dislike 0.5s linear;
+
 }
 
 @keyframes like{
+    0%{
+        transform: rotateZ(0deg) scale(1);
+    }
+    50%{
+        transform: rotateZ(180deg) scale(0.1);
+    }
+    100%{
+        transform: rotateZ(360deg) scale(1);
+        background-image: url(../images/like-rojo.png);
+    }
+}
+
+@keyframes dislike{
+    0%{
+        transform: rotateZ(0deg) scale(1);}
+    50%{
+        transform: rotateZ(180deg) scale(0.1);
+        
+    }
+    100%{
+        transform: rotateZ(360deg) scale(1);
+        background-image: url(../images/like.png);
+    }
+}
+
+/* @keyframes like{
     0% {transform: scale(1);}
     20% {transform: scale(1.1);}
     40% {transform: scale(1);}
     60% {transform: scale(1.1);}
     80% {transform: scale(1);}
     100% {transform: scale(1);}
-}
+} */
 
 #form {
     width: 160px;

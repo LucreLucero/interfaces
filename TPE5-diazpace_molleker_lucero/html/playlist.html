@@ -27,6 +27,20 @@
         <!-- back--><a href="home.html" class="back"></a>
         
          <div class="encabezado"><h1>Playlist seleccionada</h1><div>
+        <form id="form">
+            <p class="clasificacion">
+                <input id="radio6" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio6">★</label><!--
+                --><input id="radio7" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio7">★</label><!--
+                --><input id="radio8" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio8">★</label><!--
+                --><input id="radio9" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio9">★</label><!--
+                --><input id="radio10" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio10">★</label>
+            </p>
+        </form>  
 
         <table class="table-playlist">
             <thead>
@@ -186,23 +200,37 @@
         <div class="espacio-blanco"></div>
 
         <section class="pie">
-            <section class="player"> 
-                <section class="artista">
+            <!-- <section class="player"> 
+               <section class="artista">
                     <a href=""><h1>Michael Jackson </h1></a> 
                     <a href=""><p class="span"> - Smooth Criminal</p></a>        
-                </section>
-        
-                <section  class="artista">
-        
-                    <!--reproductor del navegador-->
-                    <audio controls="controls" class="barra">
-                        <!--<source src="track.ogg" type="audio/ogg" />-->
-                        <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
-                    </audio>
-                </section>             
-            </section>
+                </section> 
+            </section>-->
+            <section  class="artista">
+    
+                <audio controls="controls" class="barra">
+                    <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
+                </audio>
+            </section>         
+            
         </section>
   
+    </section>
+    
+    <section class="pie">
+        <!-- <section class="player"> 
+           <section class="artista">
+                <a href=""><h1>Michael Jackson </h1></a> 
+                <a href=""><p class="span"> - Smooth Criminal</p></a>        
+            </section> 
+        </section>-->
+        <section  class="artista">
+
+            <audio controls="controls" class="barra">
+                <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
+            </audio>
+        </section>         
+        
     </section>
 
     <script src="../js/puntuacion.js"></script>

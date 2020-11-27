@@ -260,7 +260,7 @@ label{
     height: 50px;
     width: 30%;
     min-width: 220px;
-    margin-left: 1%;
+    margin-left: 3%;
     background-repeat: no-repeat;
     background-image: url(../images/logo_blanco1.png);
 }
@@ -298,8 +298,9 @@ label{
 }
 
 .links{
-    margin-left: 2%;
-    margin-right: 6%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
     font-size: large;
     color: white;
 }
@@ -309,7 +310,6 @@ label{
     width: 30%;
     min-width: 150px;
     height: 25px;
-    margin-left: 200px;
     margin-right: 0;
 }
 
@@ -323,8 +323,8 @@ label{
     margin-right: 20px;
     margin-left: 10px;
 }
-#notificacion{
-    width:20px; height:20px;
+.notificacion{
+    width:30px; height:30px;
     background-image: url(../images/icono_notificaciones.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -476,6 +476,13 @@ label{
     position: fixed;
 }
 /*----------------playlist-------------------*/
+.centro{
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+}
 .playlist-titulo{
     width: 80%;
     height:40px;

@@ -14,12 +14,13 @@
         <a href="home.html" class="logo-navigation"></a>
         <input type="text" placeholder="  Buscar..." class="search">
         <div class="lupa"></div>
-        <section class="container-links">
-            <a class="links">Mi Playlist</a>
-            <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
-            <a class="links" href="notificaciones.html">Notificaciones</a>
-            <a class="links" href="ayuda.html" >Ayuda</a>
-        </section>
+
+        <!--<section class="container-links">--->
+        <a class="links margen" href="playlist.html"><div >Mi Playlist</div></a>
+        <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
+        <a class="links" href="ayuda.html" >Ayuda</a>
+        <a class="links" href="notificaciones.html"><div class="notificacion"></div></a>
+        <!--</section>--->
     </header>
 
     <article class="content">
@@ -32,13 +33,13 @@
             <a href=""><h1>Michael Jackson </h1></a> 
             <a href=""><p class="span"> - Smooth Criminal</p></a>        
         </section>
-
-        <section class="actions">
-            <div class="action action1"></div>
-            <div class="action action2"></div>
-            <div class="action action3"></div>
+        <section class="centro"> 
+           
+                <div class="action action1"></div>
+                <div class="action action2"></div>
+                <div class="action action3"></div>
+            
         </section>
-
         <form id="form">
             <p class="clasificacion">
               <input id="radio6" type="radio" name="estrellas" value="5"><!--
@@ -54,7 +55,6 @@
             </p>
         </form>   
      </article>
-     <embed height="60" type="audio/midi" width="144" src="/audio/Smooth Criminal.mp3" volume="60" loop="false" autostart="false" />
 
      <div class="espacio-blanco"></div>
 
@@ -76,6 +76,6 @@
         </section>
              
     </section>
-    
+    <script src="../js/puntuacion.js"></script>
 </body>
 </html>

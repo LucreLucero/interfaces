@@ -10,10 +10,10 @@
 </head>
 <body>
     <header class="navegation">
-        <div class="logo-navigation"></div>
+        <a href="home.html"  class="logo-navigation"></a>
 
         <input type="text" placeholder="Buscar..." class="search">
-        <div class="lupa"></div>
+        <a href="buscado.html"><div class="lupa"></div></a>
 
         <div class="margen"></div>
 
@@ -24,8 +24,10 @@
     </header>
 
     <article class="content">
-        <div class="back"></div>
-        <div class="encabezado"></div>
+        <!-- back--><a href="home.html" class="back"></a>
+        
+         <div class="encabezado"><h1>Playlist seleccionada</h1><div>
+
         <table class="table-playlist">
             <thead>
                 <tr class="fila ">
@@ -47,7 +49,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -61,7 +63,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -75,7 +77,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -89,7 +91,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -103,7 +105,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -117,7 +119,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -131,7 +133,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -145,7 +147,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -159,7 +161,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -173,7 +175,7 @@
                     <td class="celda">
                         <section class="actions">
                             <div class="action action1"></div>
-                            <div class="action action2"></div>
+                            <a href="comentarios.html" class="action action2"></a>
                             <div class="action action3"></div>
                         </section>
                     </td>
@@ -183,16 +185,24 @@
         <div class="mas-canciones2"></div>
         <div class="espacio-blanco"></div>
 
-
-        <section  class="artista">
-
-            <!--reproductor del navegador-->
-            <audio controls="controls" class="barra">
-                <!--<source src="track.ogg" type="audio/ogg" />-->
-                <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
-            </audio>
+        <section class="pie">
+            <section class="player"> 
+                <section class="artista">
+                    <a href=""><h1>Michael Jackson </h1></a> 
+                    <a href=""><p class="span"> - Smooth Criminal</p></a>        
+                </section>
+        
+                <section  class="artista">
+        
+                    <!--reproductor del navegador-->
+                    <audio controls="controls" class="barra">
+                        <!--<source src="track.ogg" type="audio/ogg" />-->
+                        <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
+                    </audio>
+                </section>             
+            </section>
         </section>
-             
+  
     </section>
 
     <script src="../js/puntuacion.js"></script>

@@ -1155,8 +1155,7 @@ margin-right: auto;
 }
 
 .slide-in-elliptic-top-fwd {
-    animation: slide-in-elliptic-top-fwd 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation-delay: 0.2s;
+    animation: slide-in-elliptic-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slide-in-elliptic-top-fwd1 {
@@ -1165,18 +1164,18 @@ margin-right: auto;
 }
 
 .slide-in-elliptic-top-fwd2 {
-    animation: slide-in-elliptic-top-fwd 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation-delay: 0.6s;
-}
-
-.slide-in-elliptic-top-fwd3 {
-    animation: slide-in-elliptic-top-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-elliptic-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation-delay: 0.8s;
 }
 
+.slide-in-elliptic-top-fwd3 {
+    animation: slide-in-elliptic-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 1.2s;
+}
+
 .slide-in-elliptic-top-fwd4 {
-    animation: slide-in-elliptic-top-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation-delay: 1s;
+    animation: slide-in-elliptic-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 1.6s;
 }
 
 @keyframes slide-in-elliptic-top-fwd {
@@ -1195,3 +1194,16 @@ margin-right: auto;
       opacity: 1;
     }
   }
+
+  .hiden{
+      display: none;
+  }
+
+  .mas-canciones2{
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    background-image: url(../images/masCanciones.png);
+    background-size: contain;
+}

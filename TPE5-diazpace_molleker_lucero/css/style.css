@@ -342,11 +342,12 @@ label{
 
 .music-sections h3{
     margin-top: 10px;
-    margin-left: 0.5%;
+    margin-left: 5%;
     font-weight: bold;
 }
 
 .music-content{
+    margin-left: 4.5%;
     margin-top: 20px;
     display: flex;
     flex-direction: row;
@@ -567,6 +568,7 @@ label{
     display: flex;
     flex-direction: column;
     margin-left: 10%;
+    font-size: x-large;
 }
 
 .song-search{
@@ -575,7 +577,7 @@ label{
 
 .p-info{
     margin-top: 30px;
-    width: 300px;
+    width: 200px;
 }
 
 .score{
@@ -627,8 +629,8 @@ label{
     display: flex;
     flex-direction: row;
     width: 40%;
-    min-width: 200px;
-    margin-left: 20%;
+    min-width: 120px;
+    margin-left: 15%;
     margin-top: 55px;
 }
 
@@ -646,12 +648,57 @@ label{
     background-image: url(../images/icono_mas.png);
 }
 
+.action1:hover{
+    animation-name: mas;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+}
+
+.action1:active{
+    transform: scale(2);
+}
+
+@keyframes mas{
+    0% {transform: scale(1.4);}
+    33% {transform: rotateZ(120deg);}
+    66% {transform: rotateZ(240deg);}
+    100% {transform: rotateZ(360deg);}
+}
+
 .action2{
     background-image: url(../images/icono_comentario.png);
 }
 
+.action2:hover{
+    animation-name: comentario;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+}
+
+@keyframes comentario{
+    0% {background-image: url(../images/icono_comentario0.png); transform: scale(1.4);}
+    33% {background-image: url(../images/icono_comentario1.png); }
+    66% {background-image: url(../images/icono_comentario2.png); }
+    100% {background-image: url(../images/icono_comentario.png); }
+}
+
 .action3{
     background-image: url(../images/like.png);
+}
+
+.action3:hover{
+    animation-name: like;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes like{
+    0% {transform: scale(1);}
+    20% {transform: scale(1.1);}
+    40% {transform: scale(1);}
+    60% {transform: scale(1.1);}
+    80% {transform: scale(1);}
+    100% {transform: scale(1);}
 }
 
 #form {
@@ -712,6 +759,50 @@ label{
     }
   }
 
+    .swing-in-top-fwd {
+	    animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    }   
+
+    .swing-in-top-fwd1 {
+        animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+        animation-delay: 0.3s;
+    }
+
+    .swing-in-top-fwd2 {
+        animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+        animation-delay: 0.6s;
+    }
+
+    .swing-in-top-fwd3 {
+        animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+        animation-delay: 0.9s;
+    }
+
+    .swing-in-top-fwd4 {
+        animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+        animation-delay: 1.2s;
+    }
+
+    .bloque2{
+        display: none;
+    }
+
+    @keyframes swing-in-top-fwd {
+    0% {
+        -webkit-transform: rotateX(-100deg);
+        transform: rotateX(-100deg);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+        opacity: 0;
+        }
+    100% {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+        opacity: 1;
+        }
+    }
 /* AYUDA - acordeon ----------------------------------*/
 
 #linea-buscar {

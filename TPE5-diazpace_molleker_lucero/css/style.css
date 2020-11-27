@@ -545,6 +545,13 @@ label{
     margin-right: auto;
 }
 
+#linea-buscar-header {
+    width: 80%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #buscar {
     border: solid 1px;
     width: 250px;

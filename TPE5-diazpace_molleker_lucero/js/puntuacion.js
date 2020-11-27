@@ -1,5 +1,5 @@
-function marcarEstrellas(numSection, numStar){
-    let section = document.querySelectorAll('.score')[numSection]
-    let estrellas = section.querySelectorAll('.star')
-    console.log(estrellas)
-}
+let flecha = document.querySelector('.mas-canciones')
+flecha.addEventListener('click', function(){
+    let aux = document.querySelector('.bloque2')
+    aux.style.display = "block"
+})

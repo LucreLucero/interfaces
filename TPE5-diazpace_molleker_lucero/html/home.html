@@ -12,17 +12,16 @@
     <header class="navegation">
         <div class="logo-navigation"></div>
         <input type="text" placeholder="  Buscar..." class="search">
-        <div class="lupa"></div>
-        <section class="container-links">
-            <a class="links">Mi Playlist</a>
-            <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
-            <a class="links" href="notificaciones.html">Notificaciones</a>
-            <a class="links" href="ayuda.html" >Ayuda</a>
-        </section>
+        <a href="buscado.html"><div class="lupa"></div></a>
+        
+        <a class="links margen" href="playlist.html"><div >Mi Playlist</div></a>
+        <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
+        <a class="links" href="ayuda.html" >Ayuda</a>
+        <a class="links" href="notificaciones.html"><div class="notificacion"></div></a>
     </header>
     <section class="content">
         <section class="sugerencias">
-            <div class="back"></div>
+            <!--<div class="back"></div>-->
             <h1>Sugerencias</h1>
         </section>
         <section class="music-sections">
@@ -104,11 +103,22 @@
         </section>
     </section>
     <div class="espacio-blanco"></div>
-    <section class="player">
-            
-    </section>
     
-    <section class="player"></section>
-    
+    <section class="player"> 
+        <section class="artista">
+            <a href=""><h1>Michael Jackson </h1></a> 
+            <a href=""><p class="span"> - Smooth Criminal</p></a>        
+        </section>
+
+        <section  class="artista">
+
+            <!--reproductor del navegador-->
+            <audio controls="controls" class="barra">
+                <!--<source src="track.ogg" type="audio/ogg" />-->
+                <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
+            </audio>
+        </section>
+             
+    </section>    
 </body>
 </html>

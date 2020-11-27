@@ -9,8 +9,14 @@
     <script src="../js/js.js"></script>
 </head>
 <body>
-    <header class="header-logo">
-        <img class="logo-negro generico" src="../images/logo-negro.png">
+    <header class="navegation">
+        <a href="index.html" class="logo-navigation"></a>
+        
+        <div class="relleno"></div>
+
+        <section class="container-links">
+            <a class="links" href="ayuda-inicio.html">Ayuda</a>
+        </section>
     </header>
 
     <!--flecha atras--><a href="index.html"><img class="atras" src="../images/icono_flecha_atras.png"></a>
@@ -19,13 +25,15 @@
         <h1>Bienvenido!</h1>
         <form class="flex">
             <label>Ingresa tu usuario</label>
-            <input class="input-login" type="text">
-            <label>Ingresa tu contraseña</label>
-            <input class="input-login" type="text">
+            <input class="input-login" type="text" value="  Leo" placeholder="  Ingresa un usuario" required>
             <label>Ingresa tu e-mail</label>
-            <input class="input-login" type="text">
-            <input class="btn-form basico" type="submit" value="Plan básico">
-            <input class="btn-form premium" type="submit" value="Plan premium">
+            <input class="input-login" type="email" value=" leo@gmail" placeholder="  Agrega un e-mail" required>
+            <label>Ingresa tu contraseña</label>
+            <input class="input-login" type="password" value="123456" placeholder="  Tu contraseña" required>
+            <label>Confirma tu contraseña</label>
+            <input class="input-login" type="password" value="123456" placeholder="  Una vez mas" required>
+
+            <a href="home.html"><input class="btn-form basico" type="button" value="Empecemos!"></a>
         </form>
     </article>
 </body>

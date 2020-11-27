@@ -638,6 +638,9 @@ label{
     width: 40%;
     min-width: 120px;
     margin-left: 15%;
+}
+
+.margin-actions{
     margin-top: 55px;
 }
 
@@ -1101,3 +1104,94 @@ margin-right: auto;
     background-size: contain;
     padding: 20px;
 }
+
+/*-------------------------------------------*/
+.table-playlist{
+    margin: auto;
+}
+
+.fila{
+   
+}
+
+.celda{
+    font-size: x-large;
+    width: 250px;
+    text-align: center;
+    height: 100px;
+    border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
+    padding-bottom: 15px;
+}
+
+.celda-song1{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/PinkFloid.png);
+    background-position: center;
+}
+.celda-song2{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/CachoCastaña.png);
+    background-position: center;
+}
+.celda-song3{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/FreedyMercuri.png);
+    background-position: center;
+}
+.celda-song4{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/Queen.png);
+    background-position: center;
+}
+.celda-song5{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/MichaelJackson.png);
+    background-position: center;
+}
+
+.slide-in-elliptic-top-fwd {
+    animation: slide-in-elliptic-top-fwd 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 0.2s;
+}
+
+.slide-in-elliptic-top-fwd1 {
+    animation: slide-in-elliptic-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 0.4s;
+}
+
+.slide-in-elliptic-top-fwd2 {
+    animation: slide-in-elliptic-top-fwd 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 0.6s;
+}
+
+.slide-in-elliptic-top-fwd3 {
+    animation: slide-in-elliptic-top-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 0.8s;
+}
+
+.slide-in-elliptic-top-fwd4 {
+    animation: slide-in-elliptic-top-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 1s;
+}
+
+@keyframes slide-in-elliptic-top-fwd {
+    0% {
+      -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+              transform: translateY(-600px) rotateX(-30deg) scale(0);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0) rotateX(0) scale(1);
+              transform: translateY(0) rotateX(0) scale(1);
+      -webkit-transform-origin: 50% 1400px;
+              transform-origin: 50% 1400px;
+      opacity: 1;
+    }
+  }

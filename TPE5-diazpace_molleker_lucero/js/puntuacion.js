@@ -1,8 +1,10 @@
 let flecha = document.querySelector('.mas-canciones')
-flecha.addEventListener('click', function(){
-    let aux = document.querySelector('.bloque2')
-    aux.style.display = "block"
-})
+if(flecha!=null && flecha!=undefined){
+    flecha.addEventListener('click', function(){
+        let aux = document.querySelector('.bloque2')
+        aux.style.display = "block"
+    })
+}
 
 let btnMas = document.querySelectorAll('.action1')
 btnMas.forEach(element => {

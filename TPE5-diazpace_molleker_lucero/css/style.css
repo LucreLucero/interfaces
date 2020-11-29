@@ -408,7 +408,7 @@ label{
 .artist1{
     display: block;
     transform:scale(1);
-    background-image: url(../images/Queen.png);
+    background-image: url(../images/queen_artista.png);
 }
 
 .artist2{
@@ -439,7 +439,7 @@ label{
 }
 /*------*/
 .song1{
-    background-image: url(../images/Queen.png);
+    background-image: url(../images/queen.png);
 }
 
 .song2{

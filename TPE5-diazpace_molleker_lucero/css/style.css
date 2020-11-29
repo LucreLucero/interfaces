@@ -357,7 +357,7 @@ label{
 .music-sections{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
     margin-left: auto;  
     margin-right: auto; 
     margin-bottom: 5px;
@@ -378,6 +378,7 @@ label{
     width: 90%;
     flex-direction: row;
     justify-content: start;
+    overflow: scroll;
 }
 
 .songs{
@@ -1259,5 +1260,93 @@ footer{
     margin-left: 70px;
 }
 
+
+
 /*-------home-------*/
 
+@media (min-width: 400px) and (max-width: 719px){
+    .artist{
+        min-width: 90px;
+        min-height: 90px;
+        border: 1px solid black;
+        margin-left: 0.1%;
+    }
+
+    .name{
+        font-size: small;
+        width: 100px;
+        text-align: center;
+        margin-bottom: 10px;
+        border: 1px solid black;
+    }
+
+    .songs{
+        min-width: 30px;
+        min-height: 30px;
+        width: 90px;
+        height: 90px;
+        border: 1px solid black;
+        margin-left: 0.1%;
+    }
+
+    .celda{
+        padding-top: 15px;
+        font-size: 13px;
+        width: 80px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .celda-song{
+        height: 30px;
+        width: 550px;
+        background-size: contain;
+    }
+
+    .actions{
+        width: 20px;
+        border: 1px solid black;
+    }
+
+    .action{
+        width: 15px;
+        height: 15px;
+        border: 1px solid black;
+        margin: auto;
+    }
+
+    .texto-playlist{
+        font-size: small;
+    }
+
+    .play{
+        margin: 0;
+        border: 1px solid black;
+    }
+
+    .stars{
+        border: 1px solid black;
+    }
+
+    .table-playlist{
+        border: 1px solid black;
+        margin-top: 0;
+        margin-left: 10px;
+        width: 95%;
+    }
+
+    .celda-artista{
+        padding-top: 15px;
+        font-size: 13px;
+        width: 80px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .h1-artista{
+        width: 90%;
+        text-align: center;
+        border: 1px solid black;
+        margin: auto;
+    }
+}

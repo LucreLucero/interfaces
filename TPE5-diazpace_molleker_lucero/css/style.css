@@ -80,8 +80,8 @@ a{
 }
 /*-------- FLECHA ATRAS------------*/
 .atras{
-    margin-left: 1%;
-    margin-top: 1%;
+    margin-left: 10px;
+    margin-top: 10px;
     height: 25px;
     width: 25px;
 }
@@ -294,7 +294,9 @@ label{
     font-weight: bolder;
     font-size: xx-large;
 }
-
+.sugerencias h1{
+    text-align: center;
+}
 .back{
     margin-top: 20px;
     margin-left: 1%;
@@ -373,6 +375,7 @@ label{
     margin-left: 4.5%;
     margin-top: 20px;
     display: flex;
+    width: 90%;
     flex-direction: row;
     justify-content: start;
 }
@@ -397,8 +400,14 @@ label{
     margin-right: 0.5%;
     border-radius: 100%;
 }
-
+.art{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 .artist1{
+    display: block;
+    transform:scale(1);
     background-image: url(../images/Queen.png);
 }
 
@@ -421,7 +430,14 @@ label{
 .artist6{
     background-image: url(../images/artist-cachoCastaña.png);
 }
-
+/*efecto 3d en hover ?? */
+.artist1:hover,.artist2:hover,.artist3:hover,.artist4:hover,.artist4:hover,.artist5:hover,.artist6:hover{
+    box-shadow: 1px 2px black;
+    transform: perspective(0px) rotateX(0deg) 
+    rotateY(0deg) rotateZ(0deg) translateX(-10px)
+    translateY(0px) translateZ(0px);
+}
+/*------*/
 .song1{
     background-image: url(../images/Queen.png);
 }
@@ -490,7 +506,7 @@ label{
     
 }
 .content{
-    width: 100%;
+    width: 100%; /* modifico ancho de 100% y le pongo*/
     margin-top: 1%;
     margin-bottom: 1%;
 }
@@ -535,9 +551,25 @@ label{
 }
 
 .filtros{
+    width: 30%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filtro{
+    border: blue 1px solid;
+    height: 20px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.filtro:hover{font-weight: bolder;}
+.filtro p{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .mas-canciones{
@@ -549,13 +581,6 @@ label{
     background-size: contain;
 }
 
-.filtro{
-    color: blue;
-    border: blue 1px solid;
-    height: 20px;
-    width: 10%;
-    text-align: center;
-}
 
 .star{
     margin-top: 10px;
@@ -1108,7 +1133,7 @@ footer{
 .celda{
     font-size: x-large;
     width: 250px;
-    text-align: center;
+    text-align: left;
     height: 20px;
     border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
     padding-bottom: 15px;
@@ -1222,3 +1247,17 @@ footer{
     margin-left: auto;
     margin-right: auto;
 }
+.celda-artista{
+    font-size: x-large;
+    width: auto;
+    text-align: left;
+    height: 40px;
+    border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
+    padding-bottom: 15px;
+}
+.album{
+    margin-left: 70px;
+}
+
+/*-------home-------*/
+

@@ -18,6 +18,8 @@
     margin-right: 4%;
 }
 a{
+    margin-top: auto;
+    margin-bottom: auto;/*centrado vertical*/
     text-decoration: none;
     color: #4f4f4f;
 }
@@ -249,20 +251,26 @@ label{
 .navegation{
     display: flex;
     flex-direction: row;
-    height: 100px;
+    height: 80px;
     width: 100%;
     background-color: black;
 }
 
 .logo-navigation{
-    margin-top: 25px;
-    margin-bottom: 25px;
-    height: 50px;
-    width: 30%;
-    min-width: 220px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 150px;
     margin-left: 3%;
+    margin-right: 10px;
+     /*min-width: 220px;
     background-repeat: no-repeat;
-    background-image: url(../images/logo_blanco1.png);
+    background-image: url(../images/logo_blanco1.png);*/
+    background-color: aqua;
+}
+.logo-navigation img{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
 }
 .relleno{
     width: 20%;
@@ -306,22 +314,23 @@ label{
 }
 
 .search{
-    margin-top: 37px;
-    width: 30%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 15%;
     min-width: 150px;
     height: 25px;
-    margin-right: 0;
 }
 
 .lupa{
-    margin-top: 37px;
-    background-image: url(../images/lupa.png);
+    background-color: #3431B4;
+    /*background-image: url(../images/lupa.png);
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
     height: 25px;
     width: 25px;
-    margin-right: 20px;
     margin-left: 10px;
+    margin-right: 10px;
+
 }
 .notificacion{
     width:30px; height:30px;
@@ -497,96 +506,7 @@ label{
     bottom: 0;
     position: fixed;
 }
-/*----------------playlist-------------------*/
-.centro{
-    width: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-}
-.playlist-titulo{
-    width: 80%;
-    height:40px;
-    margin-left: 10%;
-    margin-top: 2%;
-    margin-bottom: 4%;
-    display: inline-flex;
-    flex-direction:row ;
-    background-color: #cecaca;
-}
-.list-head{
-    width: 80%;
-    display: inline-flex;
-    flex-direction: row;
-    text-align:center;
-    margin-left: 10%;
-    border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
 
-}
-.list-content{
-    width: 80%;
-    height: 70px;
-    margin-left: 10%;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: start;
-    border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
-}
-.song{width:5%;} 
-.list-text{width: 55%;}
-
-.list-stars, .list-actions{
-    width:20%;
-}
-
-.list-text{
-    display: grid;
-    grid-gap: 10px;
-    grid-auto-rows: minmax(30px, auto);
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.one {
-    grid-column: 1;
-    grid-row: 1;
-  }
-.two {
-    grid-column: 2;
-    grid-row: 1;
-  }
-.three {
-    grid-column: 3;
-    grid-row: 1;
-  }
-.four {
-    grid-column: 4;
-    grid-row: 1;
-}
-.five {
-    grid-column: 5;
-    grid-row: 1;
-  }
-
-
-.list-actions{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: inline-flex;
-    flex-direction: row;
-}
-.song{
-    min-width: 60px;
-    min-height: 60px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
-    margin-top: auto;
-    margin-bottom: auto;
-}
 /*----*/
 .espacio-blanco{
     height: 110px;
@@ -791,7 +711,7 @@ label{
     height: 50px;
     display: flex;
     flex-direction: row;
-  }
+}
   
   #form p {
     text-align: center;
@@ -1131,20 +1051,65 @@ footer{
     padding: 20px;
 }
 
-/*-------------------------------------------*/
-.table-playlist{
-    margin: auto;
+/*----------------playlist-------------------*/
+
+.head-playlist{/*contenedor del nombre de la playlist*/
+    margin-right:5%;
+    margin-left: 5%;
+    margin-bottom: 15px;
+    width: 90%;
+    height: 200px;
+    display: flex;
+    float: right;
 }
 
-.fila{
-   /**/
+.image-playlist{/*imagen de la playlis-flotando a derecha*/
+    width: 250px;
+    background-image: url(../images/maluma.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+.play{
+    margin-top: 65px;
+    margin-left: 65px;
+    /*background-image: url(../images/play-hidden.png);*/
+}
+.play:hover{
+    background-image: url(../images/play.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+
+.description-playlist{/*descripcion de la playlis-flotando a derecha*/
+    width: 450px;
+    display: inline-flex;
+    margin-left: 15px;
+    flex-direction: column;
+}
+.encabezado{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: left;
+    margin-top: 2%;
+}
+.stars {
+    width: 160px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+
+}
+.table-playlist{/*tabla con la playlist*/
+    margin-right:5%;
+    margin-left: 5%;;
+    width: 90%;
 }
 
 .celda{
     font-size: x-large;
     width: 250px;
     text-align: center;
-    height: 100px;
+    height: 20px;
     border-bottom: 2px rgba(79, 79, 79, 0.1) solid;
     padding-bottom: 15px;
 }
@@ -1154,6 +1119,11 @@ footer{
     background-repeat: no-repeat;
     background-image: url(../images/PinkFloid.png);
     background-position: center;
+}
+.celda-song1:hover,.celda-song2:hover,.celda-song3:hover,.celda-song4:hover,.celda-song5:hover{
+    background-image: url(../images/play3.png);
+    background-size: contain;
+    background-repeat:no-repeat;
 }
 .celda-song2{
     background-size: contain;
@@ -1179,7 +1149,7 @@ footer{
     background-image: url(../images/MichaelJackson.png);
     background-position: center;
 }
-
+/*----*/
 .slide-in-elliptic-top-fwd {
     animation: slide-in-elliptic-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
@@ -1233,7 +1203,10 @@ footer{
     background-image: url(../images/masCanciones.png);
     background-size: contain;
 }
-
+.mas-canciones2:hover{
+    background-image: url(../images/masCanciones2.png);
+    background-size: contain;
+}
 
 /* ARTISTA ---------------------------------- */
 

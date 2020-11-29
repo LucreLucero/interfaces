@@ -10,12 +10,13 @@
 </head>
 <body>
     <header class="navegation">
-        <a href="home.html"  class="logo-navigation"></a>
+
+        <a href="home.html"  class="logo-navigation"><img src="../images/logo_blanco1.png" alt=""></a>
 
         <input type="text" placeholder="Buscar..." class="search">
-        <a href="buscado.html"><div class="lupa"></div></a>
+        <a href="buscado.html"><img class="lupa"src="../images/lupa.png" alt=""></a>
 
-        <div class="margen"></div>
+        <!--<div class="margen"></div>-->
 
         <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
         <a class="links" href="ayuda.html" >Ayuda</a>
@@ -25,22 +26,39 @@
 
     <article class="content">
         <!-- back--><a href="home.html" class="back"></a>
-        
-         <div class="encabezado"><h1>Playlist seleccionada</h1><div>
-        <form id="form">
-            <p class="clasificacion">
-                <input id="radio6" type="radio" name="estrellas" value="5"><!--
-                --><label for="radio6">★</label><!--
-                --><input id="radio7" type="radio" name="estrellas" value="4"><!--
-                --><label for="radio7">★</label><!--
-                --><input id="radio8" type="radio" name="estrellas" value="3"><!--
-                --><label for="radio8">★</label><!--
-                --><input id="radio9" type="radio" name="estrellas" value="2"><!--
-                --><label for="radio9">★</label><!--
-                --><input id="radio10" type="radio" name="estrellas" value="1"><!--
-                --><label for="radio10">★</label>
-            </p>
-        </form>  
+
+        <article class="head-playlist">
+
+            <section class="image-playlist"><img  class="play" src="../images/play-hidden.png" width="70px" alt="play"></section>  
+<!--            <section class="image-playlist"><div class="play" width="70px" height="70px"></div></section>  -->
+            <section class="description-playlist">
+                <div>
+                    <p class="encabezado">Mi supermix</p> 
+                    <p>Lista de reproduccion • 2020</p> 
+                    <p>100 canciones</p> 
+                    <p>Mix con canciones de todos tus gustos musicales. </p>
+
+                    <form class="stars encabezado">
+                       <p class="clasificacion">
+                           <input id="radio6" type="radio" name="estrellas" value="5"><!--
+                           --><label for="radio6">★</label><!--
+                           --><input id="radio7" type="radio" name="estrellas" value="4"><!--
+                           --><label for="radio7">★</label><!--
+                           --><input id="radio8" type="radio" name="estrellas" value="3"><!--
+                           --><label for="radio8">★</label><!--
+                           --><input id="radio9" type="radio" name="estrellas" value="2"><!--
+                           --><label for="radio9">★</label><!--
+                           --><input id="radio10" type="radio" name="estrellas" value="1"><!--
+                           --><label for="radio10">★</label>
+                       </p>
+                    </form>  
+                     
+
+                <div>
+               
+
+            </section>
+        </article>
 
         <table class="table-playlist">
             <thead>
@@ -55,6 +73,7 @@
             </thead>
             <tbody>
                 <tr class="fila slide-in-elliptic-top-fwd">
+                                        
                     <td class="celda celda-song1"></td>
                     <td class="celda">Hey you</td>
                     <td class="celda">Pink Floyd</td>
@@ -196,6 +215,7 @@
                 </tr>
             </tbody>
         </table>
+        <div class="espacio-blanco"></div>
         <div class="mas-canciones2"></div>
         <div class="espacio-blanco"></div>
 
@@ -215,23 +235,7 @@
             
         </section>
   
-    </section>
-    
-    <section class="pie">
-        <!-- <section class="player"> 
-           <section class="artista">
-                <a href=""><h1>Michael Jackson </h1></a> 
-                <a href=""><p class="span"> - Smooth Criminal</p></a>        
-            </section> 
-        </section>-->
-        <section  class="artista">
-
-            <audio controls="controls" class="barra">
-                <source src="../audio/Smooth Criminal.mp3" type="audio/mp3" />
-            </audio>
-        </section>         
-        
-    </section>
+    </article>
 
     <script src="../js/puntuacion.js"></script>
 </body>

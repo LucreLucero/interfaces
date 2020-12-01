@@ -1462,7 +1462,7 @@ footer{
     transform: scale(1.4);
 }
 
-/*-------RESPONSIVE-------*/
+/*---------------------------------RESPONSIVE-------------------------------*/
 @media (min-width: 400px) and (max-width: 719px){
     .artist{
         min-width: 90px;
@@ -1552,7 +1552,7 @@ footer{
         flex-direction: column;
     }
 
-    .opciones-index,.espacio-blanco,.btn-index{
+    .opciones-index,.espacio-blanco,.btn-index,#image-buscado, #mas-buscado{
         display:none;
     }
     .index{
@@ -1612,7 +1612,7 @@ footer{
 }
 
 
- /*----------------------------*/
+ /*--------------------------LO QUE NO SE VE EN DESKTOP O MODIFICACIONES--------------------------*/
 @media (min-width: 719px) and (max-width: 2560px){
     #_menu,.oculto{/*-------menu en mobile---------*/
         display: none;

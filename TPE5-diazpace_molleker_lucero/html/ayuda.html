@@ -13,89 +13,91 @@
 </head>
 <body>
     <header class="navegation">
-        <a href="home.html"  class="logo-navigation"></a>
-        <input type="text" placeholder="  Buscar..." class="search">
-        <a href="buscado.html"><div class="lupa"></div></a>
-
-        <div class="margen"></div>
-
-        <a class="links" href="playlist.html"><div >Mi Playlist</div></a>
-        <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
-        <a class="links" href="notificaciones.html"><div class="notificacion"></div></a>
+        <a href="home.html"  class="logo-navigation"><img class="img-logo" src="../images/logo_blanco1.png" alt=""></a>
+       
+        <section id="busqueda">
+           <input class="search m" type="text" placeholder="Buscar..." >
+           <a href="buscado.html"><img class="lupa m" src="../images/lupa.png" alt="lupa-buscar"></a> 
+       </section>
+    
+        <section id="menu">
+            <a class="links m margin" href="playlist.html">Mi Playlist</a>
+            <a class="links m margin" href="mi-cuenta.html" >Mi cuenta</a>
+            <a class="links m margin fuerte" href="ayuda.html" > Ayuda</a>
+            <a class="links m" href="notificaciones.html"><div class="notificacion"></div></a>
+        </section>
+        <!---MENU HAMBURGUESA-->
+        <section id="_menu">           
+            <section class="mHamburguesa">
+                <div class="linea -sup"></div>
+                <div class="linea -med"></div>
+                <div class="linea -ab"></div>
+            </section>
+        
+            <section class="menu">
+                <ul class="menu-contenedor">
+                    <li><a class="menu-desp links" href="playlist.html">Mi Playlist</a></li>
+                    <li><a class="links" href="mi-cuenta.html">Mi cuenta</a></li>
+                    <li><a class="links fuerte" href="ayuda.html" >Ayuda</a></li>
+                    <li><a class="links" href="notificaciones.html"><div class="notificacion"></div></a></li>
+                    <li><img class="lupa m" src="../images/lupa.png" alt="lupa-buscar">    
+                        <input class="search m" type="text" placeholder="Buscar..." >
+                        </li>
+                </ul>      
+            </section>  
+        </section>
     </header>
-    <div class="ayuda">
-        <!--flecha atras--><a href="home.html"><div class="back"></div></a>
-        <h2 class="tit-plan">¿En qué podemos ayudarte?</h2>
-        <div id="linea-buscar">
-            <div id="adentro">
-                <input id="buscar" type="search" placeholder="  Buscar ayuda ...">
-                <span>
-                <button id="btn-buscar"> Buscar </button>
-                </span>
-            </div>
-        </div>
 
-
-        <div class="acordeon">
-            <div class="acordeon__item">
-                <input type="radio" name="acordeon" id="item1">
-                <label for="item1" class="acordeon__titulo">Opciones de registro &darr;</label>
-                <p class="acordeon__contenido">Para poder utilizar Spoiler Five deberás registrarte, ingresando usuario, e-mail y contraseña.</p>
-            </div>
-            <div class="acordeon__item">
-                <input type="radio" name="acordeon" id="item2">
-                <label for="item2" class="acordeon__titulo">Como me suscribo a un plan Premium &darr;</label>
-                <p class="acordeon__contenido">Una vez registrado deberás sucribirte a un plan, según tus necesidades: free, individual, dúo o familiar.</p>
-            </div>
-            <div class="acordeon__item">
-                <input type="radio" name="acordeon" id="item3">
-                <label for="item3" class="acordeon__titulo">Ayuda con mi cuenta &darr;</label>
-                <p class="acordeon__contenido">Una vez registrado podrás gozar de todos los beneficios de tu plan de Spoiler Five.  Podrás modificar tus datos y plan cuando lo desees.</p>
+    <article>
+        <section class="ayuda">
+            <!--flecha atras--><a href="home.html"><div class="back"></div></a>
+            <h2 class="tit-plan">¿En qué podemos ayudarte?</h2>
+           
+            <section id="linea-buscar">
+                <div id="adentro">
+                    <input id="buscar" type="search" placeholder="  Buscar ayuda ...">
+                    <span>
+                    <button id="btn-buscar"> Buscar </button>
+                    </span>
                 </div>
-            <div class="acordeon__item">
-                <input type="radio" name="acordeon" id="item4">
-                <label for="item4" class="acordeon__titulo">Ayuda con los pagos &darr;</label>
-                <p class="acordeon__contenido">Una vez registrado en un Plan Premium se te solicitará la selección de una opción de pago, correspondiente al plan elegido.</p>
-            </div>
-            <div class="acordeon__item">
-                <input type="radio" name="acordeon" id="item5">
-                <label for="item5" class="acordeon__titulo">Uso de Spoiler Five &darr;</label>
-                <p class="acordeon__contenido">Spoiler Five te permitirá reproducir tu música favorita. realizando búsquedas de canciones, postcads y playlist.  Además podrás calificarla y realizar comentarios. </p>
-            </div>
-        </div>
-    </div>
+            </section>
 
-<!--FOOTER CON EL REPRODUCTOR UNA VEZ QUE ENTRAMOS-->
-<section class="player"> 
-    <section class="artista">
-        <a href=""><h1>Michael Jackson </h1></a> 
-        <a href=""><p class="span"> - Smooth Criminal</p></a>        
-    </section>
+            <section class="acordeon">
+                <div class="acordeon__item">
+                    <input type="radio" name="acordeon" id="item1">
+                    <label for="item1" class="acordeon__titulo">Opciones de registro &darr;</label>
+                    <p class="acordeon__contenido">Para poder utilizar Spoiler Five deberás registrarte, ingresando usuario, e-mail y contraseña.</p>
+                </div>
+                <div class="acordeon__item">
+                    <input type="radio" name="acordeon" id="item2">
+                    <label for="item2" class="acordeon__titulo">Como me suscribo a un plan Premium &darr;</label>
+                    <p class="acordeon__contenido">Una vez registrado deberás sucribirte a un plan, según tus necesidades: free, individual, dúo o familiar.</p>
+                </div>
+                <div class="acordeon__item">
+                    <input type="radio" name="acordeon" id="item3">
+                    <label for="item3" class="acordeon__titulo">Ayuda con mi cuenta &darr;</label>
+                    <p class="acordeon__contenido">Una vez registrado podrás gozar de todos los beneficios de tu plan de Spoiler Five.  Podrás modificar tus datos y plan cuando lo desees.</p>
+                    </div>
+                <div class="acordeon__item">
+                    <input type="radio" name="acordeon" id="item4">
+                    <label for="item4" class="acordeon__titulo">Ayuda con los pagos &darr;</label>
+                    <p class="acordeon__contenido">Una vez registrado en un Plan Premium se te solicitará la selección de una opción de pago, correspondiente al plan elegido.</p>
+                </div>
+                <div class="acordeon__item">
+                    <input type="radio" name="acordeon" id="item5">
+                    <label for="item5" class="acordeon__titulo">Uso de Spoiler Five &darr;</label>
+                    <p class="acordeon__contenido">Spoiler Five te permitirá reproducir tu música favorita. realizando búsquedas de canciones, postcads y playlist.  Además podrás calificarla y realizar comentarios. </p>
+                </div>
+            </section>
+        </section>
+    </article>
 
-    <section  class="artista">
+    <div class="espacio-blanco"></div>
 
-        <!--reproductor del navegador-->
-        <audio controls="controls" class="barra">
-            <!--<source src="track.ogg" type="audio/ogg" />-->
-            <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
-        </audio>
-    <section class="pie">
-        <!-- <section class="player"> 
-        <section class="artista">
-                <a href=""><h1>Michael Jackson </h1></a> 
-                <a href=""><p class="span"> - Smooth Criminal</p></a>        
-            </section> 
-        </section>-->
-        <section  class="artista">
-
-            <audio controls="controls" class="barra">
-                <source src="../audio/Smooth Criminal.mp3" type="audio/mp3" />
-            </audio>
-        </section>         
+    <!--FOOTER CON EL REPRODUCTOR UNA VEZ QUE ENTRAMOS-->
+    <section class="player"> 
         
     </section>
-         
-</section>
-    
+    <script src="../js/js.js"></script>
 </body>
 </html>

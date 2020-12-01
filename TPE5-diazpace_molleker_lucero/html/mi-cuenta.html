@@ -13,40 +13,75 @@
 </head>
 <body>
     <header class="navegation">
-        <a href="home.html"  class="logo-navigation"><img src="../images/logo_blanco1.png" alt=""></a>
-        <input type="text" placeholder="  Buscar..." class="search">
-        <a href="buscado.html"><div class="lupa"></div></a>
-
-        <div class="margen"></div>
-
-        <a class="links" href="playlist.html"><div >Mi Playlist</div></a>
-        <a class="links" href="ayuda.html" >Ayuda</a>
-        <a class="links" href="notificaciones.html"><div class="notificacion"></div></a>
+        <a href="home.html"  class="logo-navigation"><img class="img-logo" src="../images/logo_blanco1.png" alt=""></a>
+       
+        <section id="busqueda">
+           <input class="search m" type="text" placeholder="Buscar..." >
+           <a href="buscado.html"><img class="lupa m" src="../images/lupa.png" alt="lupa-buscar"></a> 
+       </section>
+    
+        <section id="menu">
+            <a class="links m margin" href="playlist.html">Mi Playlist</a>
+            <a class="links m margin fuerte" href="mi-cuenta.html" >Mi cuenta</a>
+            <a class="links m margin" href="ayuda.html" > Ayuda</a>
+            <a class="links m" href="notificaciones.html"><div class="notificacion"></div></a>
+        </section>
+        <!---MENU HAMBURGUESA-->
+        <section id="_menu">           
+            <section class="mHamburguesa">
+                <div class="linea -sup"></div>
+                <div class="linea -med"></div>
+                <div class="linea -ab"></div>
+            </section>
+        
+            <section class="menu">
+                <ul class="menu-contenedor">
+                    <li><a class="menu-desp links" href="playlist.html">Mi Playlist</a></li>
+                    <li><a class="links fuerte" href="mi-cuenta.html">Mi cuenta</a></li>
+                    <li><a class="links" href="ayuda.html" >Ayuda</a></li>
+                    <li><a class="links" href="notificaciones.html"><div class="notificacion"></div></a></li>
+                    <li><img class="lupa m" src="../images/lupa.png" alt="lupa-buscar">    
+                        <input class="search m" type="text" placeholder="Buscar..." >
+                        </li>
+                </ul>      
+            </section>  
+        </section>
     </header>
 
-    <!--flecha atras--><a href="home.html"><img class="atras" src="../images/icono_flecha_atras.png"></a>
+    <!--flecha atras--><a href="home.html"><img class="atras m" src="../images/icono_flecha_atras.png"></a>
+    <section>
 
-    <div class="cont-cuenta">
-        <h2 class="tit-plan">Estos son tus datos</h2>
-        <form class="flex">
-            <label>Tu usuario</label>
-            <input class="input-login" type="text" placeholder="  juan-perez">
-            <label>Tu contraseña</label>
-            <input class="input-login" type="text" placeholder="  juan2020">
-            <label>Tu e-mail</label>
-            <input class="input-login" type="text" placeholder="  juan-perez@gmail.com">
-            <label>Tu plan</label>
-            <input class="input-login" type="text" placeholder="  FREE">
-            <div>
-                <button id="btn-descartar-datos" ><a id="descartar" href="home.html">Descartar</a></button>
-                <button id="btn-modificar-datos" > <a href="home.html">Modificar</a></button>
-            </div>
-            <div id="actualizar-plan-notific">
-                <p id="actualiza"> Accedé a más beneficios!</p>
-                <button id="btn-act-plan" > <a href="actualizar-plan.html">Actualizá tu plan</a> </button>
-            </div>
-        </form>
-    </div>
+        <div class="cont-cuenta ">
+            <h2 class="tit-plan">Estos son tus datos</h2>
+            <form class="flex">
+                <label>Tu usuario</label>
+                <input class="input-login fuerte" type="text"  placeholder="  juan-perez">
+                <label>Tu contraseña</label>
+                <input class="input-login fuerte" type="text" placeholder="  juan2020">
+                <label>Tu e-mail</label>
+                <input class="input-login fuerte" type="text" placeholder="  juan-perez@gmail.com">
+                <label>Tu plan</label>
+                <select class="input-login fuerte" name="planes" placeholder=" FREE">
+                    <option value="FREE">FREE</option> 
+                    <option value="Individual">Individual</option> 
+                    <option value="Duo">Duo</option> 
+                    <option value="Familiar">Familiar</option> 
+
+                </select>
+                <div>
+                    <button id="btn-descartar-datos" ><a class="fuerte" id="descartar" href="home.html">Descartar</a></button>
+                    <button id="btn-modificar-datos" ><a class="fuerte" href="home.html">Guardar</a></button>
+                </div>
+                <div id="actualizar-plan-notific">
+                    <p id="actualiza"> Accedé a más beneficios!</p>
+                    <button id="btn-act-plan" ><a class="fuerte" href="actualizar-plan.html">Actualizá tu plan</a></button>
+                </div>
+
+                <div class="espacio-blanco"></div>
+
+            </form>
+        </div>
+    </section>
     <!--FOOTER CON EL REPRODUCTOR UNA VEZ QUE ENTRAMOS-->
     <section class="pie">
         <!-- <section class="player"> 
@@ -63,6 +98,6 @@
         </section>         
         
     </section>
-
+    <script src="../js/js.js"></script>
 </body>
 </html>

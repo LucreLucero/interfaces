@@ -12,6 +12,3 @@ Con anterioridad se realizaron las modificaciones y correciones necesarias (seg√
   https://www.figma.com/file/4IPH9dzQ90TetJbDHbqT63/SpoilerFive-copia
   
  
-## Consideraciones al navegar la web
-
-En esta entrega, por cuestiones de tiempo utilizamos en el home una imagen mockup de como teniamos planeado realizar el reproductor y en las demas paginas navegables incrustamos un archivo de audio como para representar a dicho reproductor y simular la reproduccion del mismo.

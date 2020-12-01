@@ -144,6 +144,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;/* margen superior para despegar el formulario */
 }
 
 label{
@@ -198,7 +199,7 @@ label{
 .tit-plan{
     color: blue;
     text-align: center;
-    margin-top: 2%;
+    margin-top: 40px;
     width: 100%;
 }
 
@@ -989,6 +990,10 @@ div#cont-ayuda {
 
 
 /* MI CUENTA ---------------------------------------*/
+#datos{
+    display: inline-flex;
+    flex-direction: row;
+}
 
 #btn-modificar-datos {
     min-width: 180px;
@@ -1545,6 +1550,11 @@ footer{
     .acordeon{
         width: auto;
     }
+    /*----mi-cuenta----*/
+    #datos{
+        flex-direction: column;
+    }
+    #btn-modificar-datos,#btn-descartar-datos{margin-left: 0px;margin-right: 0px;}
     /*--------*/
     .planes{
         width: 100%;
@@ -1595,8 +1605,7 @@ footer{
         display: inline-block !important;
     }
     #menu{/*-------menu en desktop---------*/
-        display: none; 
-        
+        display: none;     
     }
     .search{
         width: 100px;

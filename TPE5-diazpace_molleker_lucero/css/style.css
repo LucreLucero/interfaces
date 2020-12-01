@@ -191,9 +191,10 @@ label{
 }
 
 .tit-registro{
-    color: :#3431B4;
-    text-align: center;
-    width: 100%;
+    color: #3431B4;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tit-plan{
@@ -1070,21 +1071,29 @@ div#cont-ayuda {
 }
 
 #lista-comentarios {
-    width: 60%;
-    height: 50%;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 2px solid rgb(155, 153, 153);
-    margin-left: auto;
+    float: left;
+    width: 30%;
+/*    text-align: center;*/
+    margin-left: 5%;
     margin-right: auto;
-    padding: 30px;
+    background-color: whitesmoke;
   }
+#seleccion{
+    text-align: center;
+    float: left;
+    height: 100%;
+    width: 60%;
+    background-color: whitesmoke;
+}
+.campanita{
+    text-align: center;
+    margin-top: 150px;
+}
 
 .un-comentario {
     margin-top: 5px;
     padding: 5px;
-    background-color: rgb(245, 240, 240);
+    /*background-color: rgb(245, 240, 240);*/
     width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -1094,7 +1103,7 @@ div#cont-ayuda {
 .un-comentario-negrita {
     margin-top: 5px;
     padding: 5px;
-    background-color: rgb(245, 240, 240);
+    background-color: #dbd8d8;
     width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -1105,9 +1114,9 @@ div#cont-ayuda {
     font-weight: bolder;
 }
 
-div#lista-comentarios {
+/*div#lista-comentarios {
     width: 50%;
-}
+}*/
 
 p.com {
     margin-left: 0px;
@@ -1377,7 +1386,7 @@ footer{
     overflow: hidden;
     display: inline-block;
     flex-direction: row;
-    float: left;
+    /*float: left;*/
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -1571,7 +1580,7 @@ footer{
         flex-direction: column;
     }
 
-    .opciones-index,.espacio-blanco,.btn-index,#image-buscado, #mas-buscado{
+    .opciones-index,.espacio-blanco,.btn-index,#image-buscado, #mas-buscado,.campanita, #seleccion{
         display:none;
     }
     .index{
@@ -1627,6 +1636,7 @@ footer{
     li .notificacion{
         margin:-20px 10px;
     }
+    #lista-comentarios{width: 90%;}
 }
 
 

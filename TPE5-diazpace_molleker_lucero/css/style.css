@@ -413,8 +413,8 @@ label{
 }
 
 .songs{
-    min-width: 165px;
-    min-height: 165px;
+    min-width: 100px;
+    min-height: 100px;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: black;
@@ -578,8 +578,12 @@ label{
 
 .p-info{
     width: 200px;
+    font-size: 18px;
 }
 
+p.p-info {
+    font-size: 18px;
+}
 .score{
     display: flex;
     flex-direction: row;
@@ -729,6 +733,18 @@ label{
     animation: dislike 0.5s linear;
 
 }
+
+.anima {
+
+    transition: all ease 1250ms;
+}
+
+.anima:hover {
+    transform: perspective(2000px) rotateX(0deg) rotateY(30deg) rotateZ(0deg) translateX(-30px) translateY(0px) translateZ(0px);
+    }
+
+
+
 
 @keyframes like{
     0%{

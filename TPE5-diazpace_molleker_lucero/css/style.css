@@ -1622,3 +1622,16 @@ footer{
     }
 }
     
+
+
+section.artista {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#descrip {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -897,9 +897,11 @@ label{
 
 .acordeon{
     width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2%;
+/*     margin-left: auto;
+    margin-right: auto; */
+/*     padding: 2%; */
+margin-left: 20px;
+margin-right: 20px;
 }
 
 .acordeon input {
@@ -942,6 +944,49 @@ margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
 }
+
+#cont-ayuda {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#cont-ayuda {
+    width: 80%;
+}
+
+#mas-buscado {
+    background-color: rgb(210, 210, 211);
+    width: 200px;
+    height: 315px;
+}
+
+#lista-buscado {
+    list-style: none;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+#titulo-lista{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.palabra {
+    margin-bottom: 5px;
+}
+
+#image-buscado {
+    background-image: url(../images/men.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 205px;
+    height: 400px;
+}
+
 
 /* MI CUENTA ---------------------------------------*/
 

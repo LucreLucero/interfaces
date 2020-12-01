@@ -60,41 +60,79 @@
                 </div>
             </section>
 
-            <section class="acordeon">
-                <div class="acordeon__item">
-                    <input type="radio" name="acordeon" id="item1">
-                    <label for="item1" class="acordeon__titulo">Opciones de registro &darr;</label>
-                    <p class="acordeon__contenido">Para poder utilizar Spoiler Five deberás registrarte, ingresando usuario, e-mail y contraseña.</p>
+            <div id="cont-ayuda">
+                <div id="mas-buscado">
+                    <ul id="lista-buscado">
+                        <li id="titulo-lista">Más buscado</li>
+                        <li class="palabra"><a href="">Calificar</a></li>
+                        <li class="palabra"><a href="">Comentarios</a></li>
+                        <li class="palabra"><a href="">Contraseña</a></li>
+                        <li class="palabra"><a href="">Cuenta</a></li>
+                        <li class="palabra"><a href="">Notificaciones</a></li>
+                        <li class="palabra"><a href="">Reproducir</a></li>
+                        <li class="palabra"><a href="">Planes</a></li>
+                        <li class="palabra"><a href="">Playlist</a></li>
+                    </ul>
                 </div>
-                <div class="acordeon__item">
-                    <input type="radio" name="acordeon" id="item2">
-                    <label for="item2" class="acordeon__titulo">Como me suscribo a un plan Premium &darr;</label>
-                    <p class="acordeon__contenido">Una vez registrado deberás sucribirte a un plan, según tus necesidades: free, individual, dúo o familiar.</p>
-                </div>
-                <div class="acordeon__item">
-                    <input type="radio" name="acordeon" id="item3">
-                    <label for="item3" class="acordeon__titulo">Ayuda con mi cuenta &darr;</label>
-                    <p class="acordeon__contenido">Una vez registrado podrás gozar de todos los beneficios de tu plan de Spoiler Five.  Podrás modificar tus datos y plan cuando lo desees.</p>
+                <section class="acordeon">
+                    <div class="acordeon__item">
+                        <input type="radio" name="acordeon" id="item1">
+                        <label for="item1" class="acordeon__titulo">Opciones de registro &darr;</label>
+                        <p class="acordeon__contenido">Para poder utilizar Spoiler Five deberás registrarte, ingresando usuario, e-mail y contraseña.</p>
                     </div>
-                <div class="acordeon__item">
-                    <input type="radio" name="acordeon" id="item4">
-                    <label for="item4" class="acordeon__titulo">Ayuda con los pagos &darr;</label>
-                    <p class="acordeon__contenido">Una vez registrado en un Plan Premium se te solicitará la selección de una opción de pago, correspondiente al plan elegido.</p>
+                    <div class="acordeon__item">
+                        <input type="radio" name="acordeon" id="item2">
+                        <label for="item2" class="acordeon__titulo">Como me suscribo a un plan Premium &darr;</label>
+                        <p class="acordeon__contenido">Una vez registrado deberás sucribirte a un plan, según tus necesidades: free, individual, dúo o familiar.</p>
+                    </div>
+                    <div class="acordeon__item">
+                        <input type="radio" name="acordeon" id="item3">
+                        <label for="item3" class="acordeon__titulo">Ayuda con mi cuenta &darr;</label>
+                        <p class="acordeon__contenido">Una vez registrado podrás gozar de todos los beneficios de tu plan de Spoiler Five.  Podrás modificar tus datos y plan cuando lo desees.</p>
+                        </div>
+                    <div class="acordeon__item">
+                        <input type="radio" name="acordeon" id="item4">
+                        <label for="item4" class="acordeon__titulo">Ayuda con los pagos &darr;</label>
+                        <p class="acordeon__contenido">Una vez registrado en un Plan Premium se te solicitará la selección de una opción de pago, correspondiente al plan elegido.</p>
+                    </div>
+                    <div class="acordeon__item">
+                        <input type="radio" name="acordeon" id="item5">
+                        <label for="item5" class="acordeon__titulo">Uso de Spoiler Five &darr;</label>
+                        <p class="acordeon__contenido">Spoiler Five te permitirá reproducir tu música favorita. realizando búsquedas de canciones, postcads y playlist.  Además podrás calificarla y realizar comentarios. </p>
+                    </div>
+                </section>
+                <div id="image-buscado">
+ 
                 </div>
-                <div class="acordeon__item">
-                    <input type="radio" name="acordeon" id="item5">
-                    <label for="item5" class="acordeon__titulo">Uso de Spoiler Five &darr;</label>
-                    <p class="acordeon__contenido">Spoiler Five te permitirá reproducir tu música favorita. realizando búsquedas de canciones, postcads y playlist.  Además podrás calificarla y realizar comentarios. </p>
-                </div>
-            </section>
+            </div>
+
         </section>
     </article>
 
     <div class="espacio-blanco"></div>
 
     <!--FOOTER CON EL REPRODUCTOR UNA VEZ QUE ENTRAMOS-->
-    <section class="player"> 
-        
+    <section class="player">
+            
+        <section class="player"> 
+            <section class="artista">
+                <a href=""><h1>Michael Jackson </h1></a> 
+                <a href=""><p class="span"> - Smooth Criminal</p></a>        
+            </section>
+    
+            <section  class="artista">
+    
+                <!--reproductor del navegador-->
+                <audio controls="controls" class="barra">
+                    <!--<source src="track.ogg" type="audio/ogg" />-->
+                    <source src="/audio/Smooth Criminal.mp3" type="audio/mp3" />
+                </audio>
+            </section>
+                 
+        </section>
+    
+    <section class="pie">
+        <section class="player"></section>    
     </section>
 
 </body>

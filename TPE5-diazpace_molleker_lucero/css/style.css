@@ -1056,29 +1056,32 @@ div#cont-ayuda {
 }
 
 #lista-comentarios {
-    width: auto;
+    width: 60%;
     height: 50%;
     text-align: center;
-    margin-top: 20px;
-    border: 2px solid black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid rgb(155, 153, 153);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
   }
 
 .un-comentario {
-    border: 2px solid black;
     margin-top: 5px;
     padding: 5px;
     background-color: rgb(245, 240, 240);
-    width: auto;
-    float: left;
-    margin-left: 5%;
-    
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  
 }
 
 .un-comentario-negrita {
     margin-top: 5px;
     padding: 5px;
     background-color: rgb(245, 240, 240);
-    width: 100%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
     font-weight: bolder;
@@ -1088,6 +1091,18 @@ div#cont-ayuda {
     font-weight: bolder;
 }
 
+div#lista-comentarios {
+    width: 50%;
+}
+
+p.com {
+    margin-left: 0px;
+}
+
+.primero {
+    height: 30px;
+    background-color: rgb(121, 121, 121);
+}
 
 /*----------NOTIFICACIONES-----------*/
 

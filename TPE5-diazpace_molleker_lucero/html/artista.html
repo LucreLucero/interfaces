@@ -10,16 +10,38 @@
 </head>
 <body>
     <header class="navegation">
-        <div class="logo-navigation"></div>
-        <input type="text" placeholder="Buscar..." class="search">
-        <div class="lupa"></div>
+        <a href="home.html"  class="logo-navigation"><img class="img-logo" src="../images/logo_blanco1.png" alt=""></a>
+       
+        <section id="busqueda">
+           <input class="search m" type="text" placeholder="Buscar..." >
+           <a href="buscado.html"><img class="lupa m" src="../images/lupa.png" alt="lupa-buscar"></a> 
+       </section>
+    
+        <section id="menu">
+            <a class="links m margin" href="playlist.html">Mi Playlist</a>
+            <a class="links m margin" href="mi-cuenta.html" >Mi cuenta</a>
+            <a class="links m margin" href="ayuda.html" > Ayuda</a>
+            <a class="links m" href="notificaciones.html"><div class="notificacion"></div></a>
+        </section>
+        <!---MENU HAMBURGUESA-->
+        <section id="_menu">           
+            <section class="mHamburguesa">
+                <div class="linea -sup"></div>
+                <div class="linea -med"></div>
+                <div class="linea -ab"></div>
+            </section>
         
-        <a class="links margen" href="playlist.html"><div >Mi Playlist</div></a>
-        <a class="links" href="mi-cuenta.html" >Mi cuenta</a>
-        <a class="links" href="ayuda.html" >Ayuda</a>
-        <a class="links" href="notificaciones.html"><div class="notificacion"></div></a>
-        
+            <section class="menu">
+                <ul class="menu-contenedor">
+                    <li><a class="menu-desp links" href="playlist.html">Mi Playlist</a></li>
+                    <li><a class="links" href="mi-cuenta.html">Mi cuenta</a></li>
+                    <li><a class="links" href="ayuda.html" >Ayuda</a></li>
+                    <li><a class="links" href="notificaciones.html"><div class="notificacion"></div></a></li>
+                </ul>      
+            </section>  
+        </section>
     </header>
+    <!------------------------------->
     <section class="content">
         <!--flecha atras--><a href="home.html"><img class="atras" src="../images/icono_flecha_atras.png"></a>
         
@@ -213,7 +235,7 @@
 
     </section>
 
-    <div class="espacio-blanco"></div>
+    <div class="espacio-blanco2"></div>
 
     <!-------------------------------- FOOTER----------->
    <section class="pie">

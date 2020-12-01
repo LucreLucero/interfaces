@@ -330,6 +330,12 @@ label{
     float:right;
     margin-left: 40%;
 }
+.salir{
+    float: left;
+    text-align: right;
+    margin-right: 5%;
+    width: 95%;
+}
 .margin{ /*para centrar los textos del header menu*/
     margin-top: 5px;
 }
@@ -1041,7 +1047,10 @@ div#cont-ayuda {
     font-size: 24px;
     padding-right: 10px;
 }
-
+.cont-cuenta{
+    width: 100%;
+    margin-top: 5%;
+}
 .cont-cuenta a {
     color: rgb(255, 255, 255);
 }

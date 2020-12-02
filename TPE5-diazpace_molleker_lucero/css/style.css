@@ -541,14 +541,97 @@ label{
     bottom: 0;
     padding:20px 20px;
 }
+.reproductor{
+    display:inline-flex; 
+    flex-direction: row;
+    width: 70%;
+    height: 70%; 
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 10%;
+}
 .pie{
     height: 45px;
     width: 100%;
-    background-color: #4f4f4f;
+    background-color:#4f4f4f;
+    /*background-color: #8d8989;*/
     position: fixed;
     left:0;
     bottom: 0;
     padding:20px 20px;
+}
+#play{
+    width: 35px;
+    height: 35px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    background-image: url(../images/reproducir.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+#pausa{
+    width: 35px;
+    height: 35px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-image: url(../images/pausa.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+#stop{
+    width: 25px;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-image: url(../images/detener.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+#before{
+    width: 25px;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 250px;
+    margin-right: 10px;
+    background-image: url(../images/anterior.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+#next{
+width: 25px;
+height: 25px;
+margin-top: auto;
+margin-bottom: auto;
+margin-right: 20px;
+background-image: url(../images/proximo.png);
+background-size: contain;
+background-repeat:no-repeat;
+}
+
+#vol{
+    width: 25px;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    background-image: url(../images/volumen.png);
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+#linea-rep{
+    width: 25%;
+}
+#linea-vol{
+    width: 5%;
+}
+#txt{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
 }
 /*-----------------reproduccion de cancion--------------------------*/
 
@@ -594,7 +677,7 @@ label{
     height: 450px;
     display: inline-flex;
     flex-direction: column;
-    background-color: aquamarine;
+    background-color: #eed3a2;
     overflow: scroll;
 }
 /*----*/
@@ -1707,6 +1790,13 @@ footer{
     .tres-iconos{margin-left: 120px; margin-bottom: 20px;}
     .stars{margin-left: 100px;}
     .cancion{margin-left: 80px;}
+
+    .player{
+        width: 90%;
+        background-image: url(../images/mini-reproductor.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 }
 
 

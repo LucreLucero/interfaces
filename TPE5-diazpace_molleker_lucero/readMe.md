@@ -14,4 +14,6 @@ Con anterioridad se realizaron las modificaciones y correciones necesarias (seg√
  
 ## Consideraciones al navegar la web
 
-En esta entrega, por cuestiones de tiempo utilizamos en el home una imagen mockup de como teniamos planeado realizar el reproductor y en las demas paginas navegables incrustamos un archivo de audio como para representar a dicho reproductor y simular la reproduccion del mismo.
+- Utilizamos de guia para version desktop una resolucion de 1366 x 760
+
+- Utilizar de guia para version responsive la vista de iphone 6/7/8 plus

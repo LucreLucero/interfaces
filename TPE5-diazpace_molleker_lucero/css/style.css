@@ -422,6 +422,15 @@ label{
     margin-left: 0.5%;
     margin-right: 0.5%;
 }
+.songsh{
+    min-width: 165px;
+    min-height: 165px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
 
 .artist{
     min-width: 165px;
@@ -433,14 +442,23 @@ label{
     margin-right: 0.5%;
     border-radius: 100%;
 }
+.artist-c{
+    min-width: 65px;
+    min-height: 65px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    border-radius: 100%;
+}
 .art{
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
 }
 .artist1{
-    display: block;
-    transform:scale(1);
+    /*display: block;
+    transform:scale(1);*/
     background-image: url(../images/queen_artista.png);
 }
 
@@ -463,13 +481,13 @@ label{
 .artist6{
     background-image: url(../images/artist-cachoCastaña.png);
 }
-/*efecto 3d en hover ?? */
+/*efecto 3d en hover ?? 
 .artist1:hover,.artist2:hover,.artist3:hover,.artist4:hover,.artist4:hover,.artist5:hover,.artist6:hover{
     box-shadow: 1px 2px black;
     transform: perspective(0px) rotateX(0deg) 
     rotateY(0deg) rotateZ(0deg) translateX(-10px)
     translateY(0px) translateZ(0px);
-}
+}*/
 /*------*/
 .song1{
     background-image: url(../images/queen.png);
@@ -524,7 +542,7 @@ label{
     padding:20px 20px;
 }
 .pie{
-    height: 55px;
+    height: 45px;
     width: 100%;
     background-color: #4f4f4f;
     position: fixed;
@@ -533,9 +551,10 @@ label{
     padding:20px 20px;
 }
 /*-----------------reproduccion de cancion--------------------------*/
+
 .cancion{
-    width: 100%;
-    text-align: center;
+    width: auto;
+    margin-left: 5%;
 }
 .content{
     width: 100%; /* modifico ancho de 100% y le pongo*/
@@ -543,10 +562,16 @@ label{
     margin-bottom: 1%;
 }
 .artista{
-    width: 100%;
+    width: 300px;
     display:flex;
-    flex-direction: row;
-    justify-content: center;
+}
+.centro{
+    text-align: center;
+}
+.descrip-cancion{
+    width: auto;
+    margin-left: 20px;
+    margin-right: 5%;
 }
 .estrellas{
     display: inline-flex;
@@ -557,7 +582,21 @@ label{
     bottom: 0;
     position: fixed;
 }
-
+.tres-iconos{
+    width: 165px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+#sugerencias{
+    padding: 20px ;
+    width: 400px;
+    height: 450px;
+    display: inline-flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    overflow: scroll;
+}
 /*----*/
 .espacio-blanco,.espacio-blanco2{
     height: 110px;
@@ -645,6 +684,7 @@ p.p-info {
     width: 40%;
     min-width: 120px;
     margin-left: 15%;
+
 }
 
 .margin-actions{
@@ -818,7 +858,7 @@ p.p-info {
   }
   
   input[type="radio"]:checked ~ label {
-    color:#fff;
+    color:orange;
     animation-name: example;
     animation-duration: 0.8s;
     animation-iteration-count: 1;
@@ -828,15 +868,15 @@ p.p-info {
   @keyframes example {
     0% {
         /* font-size: 40px; */
-        font-size: 20px;
+        font-size: 40px;
     }
     50% {
         /* font-size: 50px; */
-        font-size: 22px;
+        font-size: 44px;
     }
     100%{
         /* font-size: 40px; */
-        font-size: 20px;
+        font-size: 40px;
     }
   }
 
@@ -1087,18 +1127,23 @@ div#cont-ayuda {
 }
 
 #lista-comentarios {
-    float: left;
     width: 30%;
-/*    text-align: center;*/
-    margin-left: 5%;
     margin-right: auto;
+    background-color: whitesmoke;
+    float: left;
+  }
+
+  #lista-comentarios2 {
+      padding: 20px;
+    width: 40%;
+    margin-left:11%;
     background-color: whitesmoke;
   }
 #seleccion{
     text-align: center;
     float: left;
     height: 100%;
-    width: 60%;
+    width: 70%;
     background-color: whitesmoke;
 }
 .campanita{
@@ -1248,13 +1293,13 @@ footer{
     font-size: xx-large;
     text-align: left;
     margin-top: 2%;
+
 }
 .stars {
     width: 160px;
     height: 50px;
     display: flex;
     flex-direction: row;
-
 }
 .table-playlist{/*tabla con la playlist*/
     margin-right:5%;
@@ -1596,7 +1641,7 @@ footer{
         flex-direction: column;
     }
 
-    .opciones-index,.espacio-blanco,.btn-index,#image-buscado, #mas-buscado,.campanita, #seleccion{
+    .opciones-index,.espacio-blanco,.btn-index,#image-buscado, #mas-buscado,.campanita, #seleccion,#sugerencias{
         display:none;
     }
     .index{
@@ -1653,6 +1698,15 @@ footer{
         margin:-20px 10px;
     }
     #lista-comentarios{width: 90%;}
+    #lista-comentarios2{width: 80%;margin-left: auto;margin-right: auto;}
+    
+    .artista{
+        display:block;
+        margin-left: 20px;
+    }
+    .tres-iconos{margin-left: 120px; margin-bottom: 20px;}
+    .stars{margin-left: 100px;}
+    .cancion{margin-left: 80px;}
 }
 
 
@@ -1664,9 +1718,11 @@ footer{
     .derecha{
         margin-left: 78%;
     }
+    .cancion{margin-left: 150px;}
+    .cancion, .descrip-cancion{float:left;}
+    .holi{margin-top: -229px; 
+    }
 }
-    
-
 
 section.artista {
     width: 50%;
